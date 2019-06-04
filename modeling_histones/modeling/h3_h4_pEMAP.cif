@@ -1,0 +1,48 @@
+data_model
+_entry.id model
+_struct.entry_id model
+_struct.title 'Quantitative genetic interaction mapping informs integrative structure determination of biomolecular assemblies'
+#
+loop_
+_software.pdbx_ordinal
+_software.name
+_software.classification
+_software.description
+_software.version
+_software.type
+_software.location
+1 'IMP PMI module' 'integrative model building' 'integrative model building'
+develop-39c22a602 program https://integrativemodeling.org
+2 'Integrative Modeling Platform (IMP)' 'integrative model building'
+'integrative model building' develop-39c22a602 program
+https://integrativemodeling.org
+#
+#
+loop_
+_ihm_struct_assembly_details.assembly_id
+_ihm_struct_assembly_details.assembly_name
+_ihm_struct_assembly_details.assembly_description
+1 'Complete assembly'
+'All known components & All components modeled by IMP in state State_0'
+#
+#
+loop_
+_ihm_external_reference_info.reference_id
+_ihm_external_reference_info.reference_provider
+_ihm_external_reference_info.reference_type
+_ihm_external_reference_info.reference
+_ihm_external_reference_info.refers_to
+_ihm_external_reference_info.associated_url
+1 . 'Supplementary Files' . Other .
+#
+#
+loop_
+_ihm_external_files.id
+_ihm_external_files.reference_id
+_ihm_external_files.file_path
+_ihm_external_files.content_type
+_ihm_external_files.file_size_bytes
+_ihm_external_files.details
+1 1 mod_pemap_histones.py 'Modeling workflow or script' 4907
+'The main integrative modeling script'
+#
