@@ -69,5 +69,4 @@ _Testable_: Yes
 _Parallelizeable_: Yes
 
 _Publications_:
-Xiaorong Wang, Ilan E Chemmama, Clinton Yu, Alexander Huszagh, Yue Xu, Rosa Viner, Sarah Ashley Block, Peter Cimermancic, Scott D Rychnovsky, Yihong Ye, Andrej Sali, and Lan Huang
 *Quantitative genetic interaction mapping informs integrative structure determination of biomolecular assemblies***XX**
