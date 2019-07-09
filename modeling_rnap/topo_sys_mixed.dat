@@ -1,6 +1,0 @@
-|molecule_name|color|fasta_fn|fasta_id|pdb_fn|chain|residue_range|pdb_offset|bead_size|em_residues_per_gaussian|rigid_body|super_rigid_body|chain_of_super_rigid_bodies|
-
-|rpb1  |blue  |rpb1.fasta  |rpb1  |1i3q_AB.pdb   |A|1,846    |0 |20 | |1  | | ||
-|rpb1  |blue  |rpb1.fasta  |rpb1  |1i3q_AB.pdb   |A|847,1059 |0 |20 | |1  | | ||
-|rpb1  |blue  |rpb1.fasta  |rpb1  |1i3q_AB.pdb   |A|1060,1379|0 |20 | |3  | | ||
-|rpb2  |red   |rpb2.fasta  |rpb2  |mod_rpbs_6gmh.nl.pdb |B|1,1219    |4 |10 | |3  |2 | ||
