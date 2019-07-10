@@ -1,0 +1,14 @@
+Getting top scoring models at subsets of size: [2999, 5999, 8999, 11999, 14999, 17999, 20999, 23999, 26999, 29999]
+Size of conformation matrix (19999, 182, 3)
+Mode: cuda Superposition: True Number of cores: 4
+Size of RMSD matrix (flattened): (199970001,)
+Loading matrix data from Distances_Matrix.data.bin ...  Done
+Size of RMSD matrix (unpacked, N x N): (19999, 19999)
+Size of Sample A: 11043  ; Size of Sample B:  8956 ; Total 19999
+Calculating sampling precision
+Minimum and maximum pairwise model distances: 0.031820375 7.6706553
+Clustering at thresholds: [0.03182038 2.03182038 4.03182038 6.03182038]
+Clustering at threshold 2.032
+Contingency table: [[10854.  8813.]
+ [  128.   111.]
+ [   12.    13.]]

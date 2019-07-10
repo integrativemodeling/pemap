@@ -1,0 +1,116 @@
+\documentclass[8pt,a4paper]{article} 
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage[margin=0.2in]{geometry}
+\fontfamily{phv}\fontseries{mc}\selectfont
+\begin{document}
+
+
+\begin{longtable}{ p{.48\textwidth} | p{.48\textwidth} } 
+\caption{Summary of Integrative Structure Determination of RNAPII rpb1-rpb2 dimer}
+  
+  &  \\
+  \textbf{1) Gathering information} & \\
+    \hline
+
+            \textit{Prior models} & rpb1 comparative model, template 6GMH:A\\
+            & rpb2 comparative model, template 4AYB:B \\
+                \textit{Physical principles and statistical preferences} & Excluded volume\\
+            & Sequence connectivity \\
+                \textit{Experimental data} & 123 pE-MAP derived distance restraints\\
+          
+    &  \\
+    \normalsize{\textbf{2) Representing the system}} & \\
+    \hline
+    
+            \textit{Composition (number of copies)} & rpb1: 1\\
+            & rpb2: 1 \\
+                \textit{Atomic (structured) components} & rpb1: 13-58, 82-105, 120-143, 173-184, 200-551, 565-589, 606-1077, 1098-1105, 1119-1171, 1191-1240, 1256-1286, 1304-1404\\
+            & rpb2: 24-68, 88-139, 162-301, 314-565, 579-639, 655-661, 681-709, 740-871, 887-917, 934-1099 \\
+                \textit{Unstructured components} & rpb1: 1-12, 59-81, 106-119, 144-172, 185-199, 552-564, 590-605, 1078-1097, 1106-1112, 1113-1118, 1172-1190, 1241-1255, 1287-1303\\
+            & rpb2: 1-23, 69-87, 140-161, 302-313, 566-578, 640-654, 662-680, 710-739, 872-886, 918-933 \\
+                \textit{Resolution of structured components} & 1 [R1] residue per bead\\
+                \textit{Resolution of unstructured components} & 10 [R10] residues per bead\\
+                \textit{Structural coverage} & 85.07 \%\\
+                \textit{Rigid body (RB) definitions} & RB1: rpb1$_{1-1105}$\\
+            & RB2: rpb1$_{1113-1404}$ \\
+            & RB3: rpb2$_{1-1099}$ \\
+                \textit{Spatial restraints encoded into scoring function} & Excluded volume; applied to the R1 representation\\
+            & Sequence connectivity; applied to the R1 representation \\
+            & pE-MAP MIC pair-restraints; applied to the R1 representation \\
+          
+
+
+   &  \\
+    \normalsize{\textbf{3) Structural Sampling}} & \\
+    \hline
+            \textit{Sampling method} & Replica Exchange Gibbs sampling, based on Metropolis Monte Carlo\\
+                \textit{Replica exchange temperature range} & 1.0 - 2.5\\
+                \textit{Number of replicas} & 8\\
+                \textit{Number of runs} & 60\\
+                \textit{Number of structures generated} & 3600000\\
+                \textit{Movers for rigid bodies} & Random translation up to 2.0 \AA\\
+            & Random rotation up to 0.2
+ radians \\
+                \textit{Movers for flexible string of bead} & Random translation up to 4.0 \AA\\
+                \textit{CPU time} & 36 hours on 20 processors\\
+        
+   &  \\
+  \normalsize{\textbf{4) Validating the model}} & \\
+    \hline
+   \textbf{Models selected for validation} & \\
+    \hline
+          \textit{Number of models after equilibration} & 3600000\\
+                \textit{Number of models that satisfy the input information} & 425380\\
+                \textit{Number of structures in samples A/B} & 210367/215013\\
+                \textit{p-value of non-parametric Kolmogorov-Smirnov two-sample test} & 0.012 (threshold p-value $>$ 0.05)\\
+                \textit{Kolmogorov-Smirnov two-sample test statistic, D} & 0.23\\
+           \hline
+    
+    \textbf{Thoroughness of the structural sampling} & \\
+    \hline
+          \textit{Sampling precision} & 14.84 \AA \\
+                \textit{Homogeneity of proportions $\chi^2$ test (p-value)/Cramer’s V value} & 0.000/0.099 (thresholds: p-value$>$0.05 OR Cramer's V$<$0.1)\\
+                \textit{Number of clusters} & 2\\
+                \textit{Cluster populations} & cluster 1 : 81.7 $\%$\\
+            & cluster 2 : 14.8 $\%$ \\
+                \textit{Cluster precisions} & cluster 1 : 9.78 \AA\\
+            & cluster 2 : 9.92 \AA \\
+                \textit{Average cross-correlation between localization probability densities of samples A and B} & cluster 1: 0.76\\
+            & cluster 2: 0.84 \\
+           \hline
+  
+  \textbf{Validation by information used for modeling} & \\
+  \hline
+          \textit{Percent of sequence connectivity restraints satisfied per structure} & 99 \%\\
+                \textit{Percent pE-MAP restraints satisfied per structure} & 95 \%\\
+                \textit{Percent of excluded volume restraints satisfied per structure} & 99 \%\\
+          &  \\
+  
+  \textbf{5) Benchmark} & \\
+  \hline
+          \textit{Structural accuracy (95 \% CI)} & 16.8 (12.5-23.2) \AA\\
+          
+   &  \\
+  \normalsize{\textbf{6) Software and data availability}} & \\
+    \hline
+   \textbf{Software} & \\
+   \hline
+             \textit{Modeling programs} & IMP PMI module, version develop-39c22a602\\
+             & Integrative Modeling Platform (IMP), version develop-39c22a602 \\
+             & MODELLER, version 9.21 \\
+                  \textit{Modeling scripts} & https://github.com/salilab/pemap\\
+                  \textit{Homology detection and structure prediction} & HHPred, version 2.0.16\\
+                  \textit{Visualization and plotting} & UCSF Chimera, version 1.10\\
+             & Matplotlib, version 3.0.3  \\
+          \hline
+
+  \textbf{Data} & \\
+    \hline
+            \textit{PDB-dev accesion code} & TBD\\
+                  \textit{pE-MAP data deposition} & https://github.com/salilab/pemap\\
+          \hline
+  
+\end{longtable}
+\end{document}

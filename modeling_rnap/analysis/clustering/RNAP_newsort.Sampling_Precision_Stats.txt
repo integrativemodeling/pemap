@@ -1,0 +1,4 @@
+The sampling precision is defined as the largest allowed RMSD between the cluster centroid and a  RNAP_newsort model within any cluster in the finest clustering for which each sample contributes models proportionally to its size (considering both significance and magnitude of the difference) and for which a sufficient proportion of all models occur in sufficiently large clusters. The sampling precision for our  RNAP_newsort  modeling is 14.836  A.
+Sampling precision, P-value, Cramer's V and percentage of clustered models below:
+14.836	0.000	0.099	99.725
+
