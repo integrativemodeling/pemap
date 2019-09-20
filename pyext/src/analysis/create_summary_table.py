@@ -31,13 +31,16 @@ class get_input_information(object):
 
         dbs =  system.orphan_datasets
         for db in system.orphan_datasets:
+            print(db)
             self.datasets[db._id] = []
             if db.__class__ == ihm.dataset.ComparativeModelDataset:
                 self.datasets[db._id].append(db.__class__)
             elif db.__class__ == ihm.dataset.PDBDataset:
                 self.datasets[db._id].append(db.__class__)
-                self.datasets[db._id].append(db.location.access_code)
-                #print(db._id, db.__class__, db.location.access_code)
+                try:
+                    self.datasets[db._id].append(db.location.access_code)
+                except:
+                    print('No access code for:', db._id, db)
             else:
                 self.datasets[db._id].append(db.__class__)
 
@@ -46,49 +49,66 @@ class get_input_information(object):
                 
         mds = system.orphan_starting_models
         for md in system.orphan_starting_models:
-            try:
-                t, = md.templates
-                db_id = t.dataset._id
-                chain  = t.asym_id
-                seq_range = t.seq_id_range
-                seq_ident = float(t.sequence_identity)
-                self.entities[md._id] += [db_id, chain, seq_range, seq_ident]
-            except:
-                print(md.dataset)
-                exit()
-                self.entities[md._id] += [md.dataset]
+            if type(md.dataset) == ihm.dataset.ComparativeModelDataset:
+                if len(md.templates)> 0:
+                    t, = md.templates
+                    db_id = t.dataset._id
+                    chain  = t.asym_id
+                    seq_range = t.seq_id_range
+                    seq_ident = float(t.sequence_identity)
+                    # Get pdb access code of template
+                    print('aaaaaaa', self.datasets[db_id])
+                    if len(self.datasets[db_id]) > 1:
+                        pdb_template = self.datasets[db_id][1]
+                    else:
+                        pdb_template = 'NA'
+                    self.entities[md._id] += [db_id, md.dataset.data_type, pdb_template, chain, seq_range, seq_ident]
+                else:
+                    db_id = md.dataset._id
+                    if len(self.datasets[db_id]) > 1:
+                        pdb_template = self.datasets[db_id][1]
+                    else:
+                        pdb_template = 'NA'
+                    self.entities[md._id] += [db_id, self.datasets[db_id][0].data_type, pdb_template, 'NA', 'NA', 'NA']
+            elif type(md.dataset)== ihm.dataset.PDBDataset:
+                db_id = md.dataset._id
+                self.entities[md._id] += [db_id, md.dataset.data_type,  md.dataset.location.access_code, md.asym_id]
+            else:
+                db_id = md.dataset._id
+                self.entities[md._id] += [db_id, md.dataset, type(md.dataset)]
                 
-
     def get_dictionaries(self):
         # FIX -  read mixed x-ray, comparative
         self.get_databases()
     
         prior_models = []
         for k, p in self.entities.items():
-            ds = self.datasets[p[1]]
-            print(ds[0])
-            if ds[0] == ihm.dataset.PDBDataset:
-                type_db = 'comparative model'
-                access_code = ds[1]
+            if len(p)>1:
+                if p[2] == 'Comparative model':
+                    text = f'{p[0]}: comparative model, template {p[3]}:{p[4]}'
+
+                elif p[2] == 'Experimental model':
+                    text = f'{p[0]}: experimental structure, {p[3]}:{p[4]}'
             else:
-                type_db = 'NA'
-                access_code = 'NA'
-            text = f'{p[0]} comparative model, template {access_code}:{p[2]}'
+                text = f'{p[0]}: sequence '
+
             prior_models.append(text)
             
         temp = OrderedDict()
         temp['Prior models'] = prior_models
         temp['Physical principles and statistical preferences'] = ['Excluded volume', 'Sequence connectivity']
-            
+
         return temp
     
 class get_representation(object):
     def __init__(self,
-                 clustering_dir):
+                 clustering_dir,
+                 rmf3=None):
         
         self.clustering_dir = clustering_dir
 
-        rmf3 = os.path.join(self.clustering_dir,'cluster.0/cluster_center_model.rmf3')
+        if not rmf3:
+            rmf3 = os.path.join(self.clustering_dir,'cluster.0/cluster_center_model.rmf3')
 
         self.components = []
         self.struct_components = {}
@@ -129,11 +149,21 @@ class get_representation(object):
                             p = res.get_children()[0]
                             rb = IMP.core.RigidMember(p).get_rigid_body()
                             if rb in self.rb_components.keys():
-                                self.rb_components[rb].append((component.get_name(), residue_range))
+                                self.rb_components[rb] += [(component.get_name() ,residue_range)]
                             else:
                                 self.rb_components[rb] = [(component.get_name() ,residue_range)]
 
+        # Order by name
+        self.components = np.sort(self.components)
+    
+        # Structural coverage
         self.struc_coverage = 100.0* n_struct/(n_struct + n_flex)
+
+        import itertools
+        for k1, k2 in itertools.combinations(self.rb_components.keys(),2):
+            print(k1, k2, k1==k2)
+
+        exit()
 
     def _get_rigid_bodies(self):
         
@@ -220,11 +250,11 @@ class get_representation(object):
     def get_dictionaries(self):
         
         temp = OrderedDict()
-
+    
         temp['Composition (number of copies)'] = self.composition
-        temp['Atomic (structured) components'] = [k+': '+v for k, v in self.struct_components.items()]
+        temp['Atomic (structured) components'] = [k+': '+self.struct_components[k] for k in sorted(self.struct_components)]
         if len(self.flex_components.items())> 0:
-            temp['Unstructured components'] = [k+': '+v for k, v in self.flex_components.items()]
+            temp['Unstructured components'] = [k+': '+self.flex_components[k] for k in sorted(self.flex_components)]
         else:
             temp['Unstructured components'] = ['None']
         temp['Resolution of structured components'] = [self.resolution_structured]
@@ -287,12 +317,18 @@ class read_modeling_information(object):
                 
             if 'max_rb_trans' in line:
                 self.max_rb_trans = line.split('max_rb_trans')[1].split('=')[1].split(',')[0].replace(')','')
+                if type(self.max_rb_trans) is str:
+                    self.max_rb_trans = 4.0
                 
             if 'max_rb_rot' in line:
                 self.max_rb_rot = line.split('max_rb_rot')[1].split('=')[1].split(',')[0].replace(')','')
-                
+                if type(self.max_rb_rot) is str:
+                    self.max_rb_rot = 0.4
             if 'max_bead_trans' in line:
                 self.max_bead_trans = line.split('max_bead_trans')[1].split('=')[1].split(',')[0].replace(')','')
+                if type(self.max_bead_trans) is str:
+                    self.max_bead_trans = 4.0
+                    
                 
         print(self.restraints)
         
@@ -305,9 +341,9 @@ class read_modeling_information(object):
         temp['Number of replicas'] = self.S['Number_of_replicas'].values[0]
         temp['Number of runs'] = self.S['Number_of_runs'].values[0]
         temp['Number of structures generated'] = self.S['N_total'].values[0]
-        temp['Movers for rigid bodies'] = [f'Random translation up to {self.max_rb_trans} \AA', f'Random rotation up to {self.max_rb_rot} radians']
+        #temp['Movers for rigid bodies'] = [f'Random translation up to {self.max_rb_trans} \AA', f'Random rotation up to {self.max_rb_rot} radians']
         temp['Movers for flexible string of bead'] = [f'Random translation up to {self.max_bead_trans} \AA']
-        
+
         return temp
 
     def get_dictionaries_models(self):

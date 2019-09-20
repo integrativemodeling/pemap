@@ -73,6 +73,7 @@ validation['Percent pE-MAP restraints satisfied per structure'] = ['95 \%']
 validation['Percent of excluded volume restraints satisfied per structure'] = ['99 \%']
 
 benchmark['Structural accuracy (95 \% CI)'] = ['16.8 (12.5-23.2) \AA']
+benchmark['PDB used for benchmark'] = ['1I3Q']
 
 software['Modeling scripts'] = ['https://github.com/salilab/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
@@ -101,6 +102,7 @@ print(sampling_list)
 # 
 ################################################
 variable_dict = {'complex': 'RNAPII rpb1-rpb2 dimer',
+                 'number': 2,
                  'input_information': input_information_list, 
                  'representation': representation_list,
                  'sampling': sampling_list,

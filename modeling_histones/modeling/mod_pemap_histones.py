@@ -44,6 +44,9 @@ bs_sys = IMP.pmi.macros.BuildSystem(mdl,
 
 if '--dry-run' is sys.argv:
     bs_sys.dry_run = True
+else:
+    bs_sys.dry_run = False
+    
 
 ##############################
 # Generate mmcif file
@@ -53,7 +56,7 @@ if '--mmcif' in sys.argv:
     # Record the modeling protocol to an mmCIF file
     po = IMP.pmi.mmcif.ProtocolOutput(open('h3_h4_pEMAP_initial.cif', 'w'))
     bs_sys.system.add_protocol_output(po)
-    po.system.title = ('Genetic interaction mapping informs integrative structure determination of molecular assemblies')
+    po.system.title = ('Genetic interaction mapping informs integrative determination of biomolecular assembly structures')
     # Add publication
     #po.system.citations.append(ihm.Citation.from_pubmed_id(0000))
 
@@ -150,9 +153,171 @@ rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     output_objects=output_objects,
                                     monte_carlo_steps=10,
                                     number_of_frames=50000,
-                                    number_of_best_scoring_models=0)
+                                    number_of_best_scoring_models=0,
+                                    test_mode=True)
 
 rex.execute_macro()
+
+
+############################# mmCIF #################################
+
+class pEMap_restraints(object):
+
+    def __init__(self, asym):
+        self.asym = asym
+
+    def add_restraints(self, fname):
+        
+        """ Parse the MIC scores text file and return a set of restraints"""
+        #fname = os.path.join(xlink_dir, 'DSS_EDC_crosslinks.txt')
+        l = ihm.location.InputFileLocation(fname)
+        #d = ihm.dataset.CXMSDataset(l)
+        #for typ in ('DSS', 'EDC'):
+        with open(fname) as fh:
+            yield self.get_pEMap_restraint(d, fh, self.asym)
+
+    def get_pEMap_restraint(self):
+
+        for line in fh:
+            if line == '\n': continue
+            resids = line.split()
+            if len(resids) == 6:
+                if resids[0] == 'h3':
+                    r0 = h3.entity.residue(int(resid[2]))
+                elif resids[0] == 'h4':
+                    r0 = h4.entity.residue(int(resid[2]))
+                if resids[0] == 'h3':
+                    r1 = h3.entity.residue(int(resid[3]))
+                elif resids[0] == 'h4':
+                    r1 = h4.entity.residue(int(resid[3]))
+                    
+                    
+                        
+
+        res = [asym.entity.residue(int(x) + 1) for x in resids]
+        
+        print(res)
+    
+
+if '--mmcif' in sys.argv:
+    #import ihm.cross_linkers
+    import ihm.dumper
+    import ihm.format
+    import ihm.location
+    import ihm.representation
+    import ihm.startmodel
+    import ihm.dataset
+    import ihm.protocol
+    import ihm.analysis
+    import ihm.model
+    import ihm.restraint
+    import ihm.geometry
+
+
+    
+
+    for a in po.asym_units:
+        print(a)
+
+    fname = '../data/hbhistmic_180904_impute_pcsort975_5_4th_uniq_c03.txt'
+        
+    D_dump = ihm.dumper._DatasetDumper()
+    l = ihm.location.InputFileLocation(fname)
+    D = ihm.dataset.Dataset(l)
+    po.system.orphan_datasets.append(D)
+    D_dump.finalize(po.system)
+
+    h3 = po.asym_units['h3.0']
+    h4 = po.asym_units['h4.0']
+
+    dist = ihm.restraint.LowerBoundDistanceRestraint(25.0)
+
+    all_rest = []
+
+    fs = []
+    
+    for line in open(fname, 'r'):
+        if line == '\n': continue
+        resids = line.split()
+        if len(resids) == 6:
+            if resids[0] == 'h3':
+                r0 = h3.entity.residue(int(resids[2]))
+            elif resids[0] == 'h4':
+                r0 = h4.entity.residue(int(resids[2]))
+            if resids[1] == 'h3':
+                r1 = h3.entity.residue(int(resids[3]))
+            elif resids[1] == 'h4':
+                r1 = h4.entity.residue(int(resids[3]))
+        
+            
+            f0 = ihm.restraint.ResidueFeature([r0])
+            f1 = ihm.restraint.ResidueFeature([r1])            
+
+            rest = ihm.restraint.DerivedDistanceRestraint(dataset=D,
+                                                          feature1=f0, feature2=f1, distance=dist,
+                                                          probability=1.0)
+
+            all_rest.append(rest)
+
+    rg = ihm.restraint.RestraintGroup(all_rest)
+    po.system.restraint_groups.append(rg)
+
+    print(po.system.orphan_features)
+    
+    #F_dumper = ihm.dumper._FeatureDumper()
+    #F_dumper.finalize(po.system)
+    #print(len(F_dumper._features_by_id))
+           
+
+    for r in po.system.restraints:
+        print('restraint', r)
+    
+    # Correct number of output models to account for multiple runs
+    protocol = po.system.orphan_protocols[-1]
+    protocol.steps[-1].num_models_end = 500000
+
+    # Get last protocol in the file
+    protocol = po.system.orphan_protocols[-1]
+    # State that we filtered the 200000 frames down to one cluster of
+    # 100 models:
+    analysis = ihm.analysis.Analysis()
+    protocol.analyses.append(analysis)
+    analysis.steps.append(ihm.analysis.ClusterStep(
+                            feature='RMSD', num_models_begin=500000,
+                            num_models_end=100))
+    
+    # Create an ensemble for the cluster (warning: _add_simple_ensemble
+    # is subject to change in future IMP releases) and deposit a single
+    # representative model (let's say it's frame 42 from the output RMF file)
+    e = po._add_simple_ensemble(analysis.steps[-1],
+                                name="Cluster 0", num_models=100,
+                                drmsd=12.2, num_models_deposited=1,
+                                localization_densities={}, ensemble_file=None)
+    
+    # Add the model from RMF
+    rh = RMF.open_rmf_file_read_only('../analysis/clustering/cluster.0/cluster_center_model.rmf3')
+    IMP.rmf.link_hierarchies(rh, [root_hier])
+    IMP.rmf.load_frame(rh, RMF.FrameID(0))
+    del rh
+    model = po.add_model(e.model_group)
+
+    # Look up the ihm.AsymUnit corresponding to a PMI component name
+    #asym = po.asym_units['Rpb4.0']
+    # Add path to a local output file
+    #loc = ihm.location.OutputFileLocation('output/cluster0.Rpb4.mrc')
+    #den = ihm.model.LocalizationDensity(file=loc, asym_unit=asym)
+    # Add to ensemble
+    #e.densities.append(den)
+
+    # Replace local links with DOIs
+    #repo = ihm.location.Repository(doi="10.5281/zenodo.2598760", root="../..",
+    #              top_directory="salilab-imp_deposition_tutorial-1ad5919",
+    #              url="https://zenodo.org/record/2598760/files/salilab/"
+    #                  "imp_deposition_tutorial-v0.2.zip")
+    #po.system.update_locations_in_repositories([repo])
+
 po.flush()
+
+#po.flush()
 
 exit()

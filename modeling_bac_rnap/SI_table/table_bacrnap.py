@@ -74,6 +74,7 @@ validation['Percent pE-MAP restraints satisfied per structure'] = ['92 \%']
 validation['Percent of excluded volume restraints satisfied per structure'] = ['99 \%']
 
 benchmark['Structural accuracy (95 \% CI)'] = ['14.3 (12.2-18.4) \AA']
+benchmark['PDB used for benchmark'] = ['4YG2']
 
 software['Modeling scripts'] = ['https://github.com/salilab/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
@@ -102,6 +103,7 @@ print(sampling_list)
 # 
 ################################################
 variable_dict = {'complex': 'Bacterial RNAP subunits rpob and rpoc',
+                 'number':3,
                  'input_information': input_information_list, 
                  'representation': representation_list,
                  'sampling': sampling_list,

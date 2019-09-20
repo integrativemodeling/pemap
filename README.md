@@ -37,7 +37,7 @@ The analysis uses the PMI_analysis module in: https://github.com/salilab/PMI_ana
 
 1) `run_analysis_trajectories.py`: 
 
-2) `run_extract_models.py`:
+2) `run_extract_models.py`: Get the rmf3 files for a random sampled of 30,000 structures in the ensemble. These structures are split into two sets (sample_A, sample_B)
 
 3) `run_clustering.sh`:
 
@@ -69,4 +69,4 @@ _Testable_: Yes
 _Parallelizeable_: Yes
 
 _Publications_:
-*Quantitative genetic interaction mapping informs integrative structure determination of biomolecular assemblies***XX**
+*Genetic interaction mapping informs integrative structure determination of molecular assemblies***Hannes Braberg, Ignacia Echeverria, Peter Cimermancic, Stefan Bohn, Anthony Shiver, Richard Alexander, Jiewei Xu, Michael Shales, Riccardo Pellarin, Dina Schneidman, James S. Fraser, Carol Gross, Junbiao Dai, Jef D. Boeke, Andrej Sali, Nevan J. Krogan***

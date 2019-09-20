@@ -71,6 +71,8 @@ validation['Percent pE-MAP restraints satisfied per structure'] = ['87 \%']
 validation['Percent of excluded volume restraints satisfied per structure'] = ['99 \%']
 
 benchmark['Structural accuracy (95 \% CI)'] = ['3.8 (2.6-5.1) \AA']
+benchmark['PDB used for benchmark'] = ['1ID3']
+
 
 software['Modeling scripts'] = ['https://github.com/salilab/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
@@ -99,6 +101,7 @@ print(sampling_list)
 # 
 ################################################
 variable_dict = {'complex': 'Histones H3-H4 dimer',
+                 'number':1,
                  'input_information': input_information_list, 
                  'representation': representation_list,
                  'sampling': sampling_list,
