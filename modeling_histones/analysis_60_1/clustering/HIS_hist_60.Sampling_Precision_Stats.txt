@@ -1,0 +1,4 @@
+The sampling precision is defined as the largest allowed RMSD between the cluster centroid and a  HIS_hist_60 model within any cluster in the finest clustering for which each sample contributes models proportionally to its size (considering both significance and magnitude of the difference) and for which a sufficient proportion of all models occur in sufficiently large clusters. The sampling precision for our  HIS_hist_60  modeling is 3.058  A.
+Sampling precision, P-value, Cramer's V and percentage of clustered models below:
+3.058	0.018	0.020	99.990
+
