@@ -54,9 +54,10 @@ else:
 
 if '--mmcif' in sys.argv:
     # Record the modeling protocol to an mmCIF file
-    po = IMP.pmi.mmcif.ProtocolOutput(open('h3_h4_pEMAP_initial.cif', 'w'))
-    bs_sys.system.add_protocol_output(po)
+    po = IMP.pmi.mmcif.ProtocolOutput(open('h3_h4_pEMAP_all.cif', 'w'))
     po.system.title = ('Genetic interaction mapping informs integrative determination of biomolecular assembly structures')
+    bs_sys.system.add_protocol_output(po)
+   
     # Add publication
     #po.system.citations.append(ihm.Citation.from_pubmed_id(0000))
 
@@ -69,6 +70,7 @@ bs_sys.add_state(reader_sys)
 root_hier,  dof = bs_sys.execute_macro(max_rb_trans=0.3,
                                        max_rb_rot=0.1)
 mols = bs_sys.get_molecules()[0]
+states = IMP.atom.get_by_type(root_hier,IMP.atom.STATE_TYPE)
 
 # Write coordinates
 out = IMP.pmi.output.Output()
@@ -166,40 +168,64 @@ class pEMap_restraints(object):
     def __init__(self, asym):
         self.asym = asym
 
+        self.residues = {}
+
+        self.prots = {p.split('.')[0]:po.asym_units[p] for p in po.asym_units}
+        
+    def upper_bound(self, MIC):
+        import math
+
+        k = -0.014744
+        n = -0.41 
+        
+        if MIC <= 0.6:
+            return (math.log(MIC) - n) / k
+        else: return (math.log(0.6) - n) / k
+        
+
     def add_restraints(self, fname):
         
         """ Parse the MIC scores text file and return a set of restraints"""
-        #fname = os.path.join(xlink_dir, 'DSS_EDC_crosslinks.txt')
         l = ihm.location.InputFileLocation(fname)
-        #d = ihm.dataset.CXMSDataset(l)
-        #for typ in ('DSS', 'EDC'):
         with open(fname) as fh:
-            yield self.get_pEMap_restraint(d, fh, self.asym)
-
-    def get_pEMap_restraint(self):
-
+            return self.get_pEMAP_restraints(fh)
+            
+    def get_pEMAP_restraints(self, fh):
+        all_rest = []
         for line in fh:
             if line == '\n': continue
             resids = line.split()
-            if len(resids) == 6:
-                if resids[0] == 'h3':
-                    r0 = h3.entity.residue(int(resid[2]))
-                elif resids[0] == 'h4':
-                    r0 = h4.entity.residue(int(resid[2]))
-                if resids[0] == 'h3':
-                    r1 = h3.entity.residue(int(resid[3]))
-                elif resids[0] == 'h4':
-                    r1 = h4.entity.residue(int(resid[3]))
-                    
-                    
-                        
+            if len(resids) >= 5:
+                mic_distance = self.upper_bound(float(resids[4]))
+                dist = ihm.restraint.UpperBoundDistanceRestraint(mic_distance)
 
-        res = [asym.entity.residue(int(x) + 1) for x in resids]
-        
-        print(res)
-    
+                r0 = self.prots[resids[0]](int(resids[2]),int(resids[2]))
+                r1 = self.prots[resids[1]](int(resids[3]),int(resids[3]))
+                
+                # Check if already in the DB
+                if r0 in self.residues.keys():
+                    f0 = self.residues[r0]
+                else:
+                    f0 = ihm.restraint.ResidueFeature([r0])
+                    self.residues[r0] = f0
 
-if '--mmcif' in sys.argv:
+                if r1 in self.residues.keys():
+                    f1 = self.residues[r1]
+                else:
+                    f1 = ihm.restraint.ResidueFeature([r1])
+                    self.residues[r1] = f1
+                
+            
+                rest = ihm.restraint.DerivedDistanceRestraint(dataset=D,
+                                                              feature1=f0, feature2=f1, distance=dist,
+                                                              probability=1.0)
+                all_rest.append(rest)
+
+        return all_rest
+
+A = 0
+if A == 100:
+#if '--mmcif' in sys.argv:
     #import ihm.cross_linkers
     import ihm.dumper
     import ihm.format
@@ -212,13 +238,7 @@ if '--mmcif' in sys.argv:
     import ihm.model
     import ihm.restraint
     import ihm.geometry
-
-
     
-
-    for a in po.asym_units:
-        print(a)
-
     fname = '../data/hbhistmic_180904_impute_pcsort975_5_4th_uniq_c03.txt'
         
     D_dump = ihm.dumper._DatasetDumper()
@@ -227,50 +247,12 @@ if '--mmcif' in sys.argv:
     po.system.orphan_datasets.append(D)
     D_dump.finalize(po.system)
 
-    h3 = po.asym_units['h3.0']
-    h4 = po.asym_units['h4.0']
-
-    dist = ihm.restraint.LowerBoundDistanceRestraint(25.0)
-
-    all_rest = []
-
-    fs = []
-    
-    for line in open(fname, 'r'):
-        if line == '\n': continue
-        resids = line.split()
-        if len(resids) == 6:
-            if resids[0] == 'h3':
-                r0 = h3.entity.residue(int(resids[2]))
-            elif resids[0] == 'h4':
-                r0 = h4.entity.residue(int(resids[2]))
-            if resids[1] == 'h3':
-                r1 = h3.entity.residue(int(resids[3]))
-            elif resids[1] == 'h4':
-                r1 = h4.entity.residue(int(resids[3]))
-        
-            
-            f0 = ihm.restraint.ResidueFeature([r0])
-            f1 = ihm.restraint.ResidueFeature([r1])            
-
-            rest = ihm.restraint.DerivedDistanceRestraint(dataset=D,
-                                                          feature1=f0, feature2=f1, distance=dist,
-                                                          probability=1.0)
-
-            all_rest.append(rest)
+    PR = pEMap_restraints(po.asym_units)
+    all_rest = PR.add_restraints(fname)
 
     rg = ihm.restraint.RestraintGroup(all_rest)
     po.system.restraint_groups.append(rg)
 
-    print(po.system.orphan_features)
-    
-    #F_dumper = ihm.dumper._FeatureDumper()
-    #F_dumper.finalize(po.system)
-    #print(len(F_dumper._features_by_id))
-           
-
-    for r in po.system.restraints:
-        print('restraint', r)
     
     # Correct number of output models to account for multiple runs
     protocol = po.system.orphan_protocols[-1]
@@ -290,8 +272,8 @@ if '--mmcif' in sys.argv:
     # is subject to change in future IMP releases) and deposit a single
     # representative model (let's say it's frame 42 from the output RMF file)
     e = po._add_simple_ensemble(analysis.steps[-1],
-                                name="Cluster 0", num_models=100,
-                                drmsd=12.2, num_models_deposited=1,
+                                name="Cluster 0", num_models=20000,
+                                drmsd=1.04, num_models_deposited=1,
                                 localization_densities={}, ensemble_file=None)
     
     # Add the model from RMF
@@ -301,13 +283,17 @@ if '--mmcif' in sys.argv:
     del rh
     model = po.add_model(e.model_group)
 
+    # Add localization densities
     # Look up the ihm.AsymUnit corresponding to a PMI component name
-    #asym = po.asym_units['Rpb4.0']
-    # Add path to a local output file
-    #loc = ihm.location.OutputFileLocation('output/cluster0.Rpb4.mrc')
-    #den = ihm.model.LocalizationDensity(file=loc, asym_unit=asym)
-    # Add to ensemble
-    #e.densities.append(den)
+    for asym in po.asym_units:
+        name = asym.split('.')[0]
+        fname = f'../analysis/clustering/cluster.0/LPD_{name}.mrc'
+        print('fname', fname)
+        loc = ihm.location.OutputFileLocation(fname)
+        den = ihm.model.LocalizationDensity(file=loc, asym_unit=po.asym_units[asym])
+        # Add to ensemble
+        e.densities.append(den)
+        
 
     # Replace local links with DOIs
     #repo = ihm.location.Repository(doi="10.5281/zenodo.2598760", root="../..",
@@ -316,8 +302,5 @@ if '--mmcif' in sys.argv:
     #                  "imp_deposition_tutorial-v0.2.zip")
     #po.system.update_locations_in_repositories([repo])
 
-po.flush()
-
 #po.flush()
 
-exit()

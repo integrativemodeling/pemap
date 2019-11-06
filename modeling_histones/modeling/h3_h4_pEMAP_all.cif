@@ -840,13 +840,19 @@ _ihm_external_files.details
 'Starting model structure'
 6 1 ../data/hbhistmic_180904_impute_pcsort975_5_4th_uniq_c03.txt
 'Input data or restraints' 38767 .
-7 1 ../analysis/clustering/cluster.0/LPD_h3.mrc
+7 1 ../data/hbhistmic_180904_impute_pcsort975_5_4th_uniq_03_80.csv
+'Input data or restraints' 30973 .
+8 1 ../analysis_100/clustering/cluster.0/LPD_h3.mrc
 'Modeling or post-processing output' 225664 .
-8 1 ../analysis/clustering/cluster.0/LPD_h4.mrc
+9 1 ../analysis_100/clustering/cluster.0/LPD_h4.mrc
 'Modeling or post-processing output' 203044 .
-9 1 ../data/mod_h3.py 'Modeling workflow or script' 568
+10 1 ../analysis_80_1/clustering/cluster.0/LPD_h3.mrc
+'Modeling or post-processing output' 224884 .
+11 1 ../analysis_80_1/clustering/cluster.0/LPD_h4.mrc
+'Modeling or post-processing output' 214736 .
+12 1 ../data/mod_h3.py 'Modeling workflow or script' 568
 'Script for starting comparative model'
-10 1 ../data/mod_h4.py 'Modeling workflow or script' 643
+13 1 ../data/mod_h4.py 'Modeling workflow or script' 643
 'Script for starting comparative model'
 #
 #
@@ -858,7 +864,9 @@ _ihm_dataset_list.details
 1 'Experimental model' YES .
 2 'Comparative model' NO .
 3 'Comparative model' NO .
-4 unspecified NO .
+4 Other NO 'pE-MAP derived spatial restraints, MIC values for: Full data set'
+5 Other NO
+'pE-MAP derived spatial restraints, MIC values for: 80% of the dataset, set 1'
 #
 #
 loop_
@@ -884,6 +892,7 @@ _ihm_dataset_external_reference.file_id
 1 2 4
 2 3 5
 3 4 6
+4 5 7
 #
 #
 loop_
@@ -944,8 +953,8 @@ loop_
 _ihm_starting_computational_models.starting_model_id
 _ihm_starting_computational_models.software_id
 _ihm_starting_computational_models.script_file_id
-1 3 9
-2 3 10
+1 3 12
+2 3 13
 #
 #
 loop_
@@ -2489,7 +2498,7 @@ _ihm_modeling_protocol_details.software_id
 _ihm_modeling_protocol_details.script_file_id
 1 1 1 1 1
 'All known components & All components modeled by IMP in state State_0' Sampling
-'Replica exchange monte carlo' 0 500000 YES NO NO 1 .
+'Replica exchange monte carlo' 0 2500000 YES NO NO 1 .
 #
 #
 loop_
@@ -2505,8 +2514,8 @@ _ihm_modeling_post_process.struct_assembly_id
 _ihm_modeling_post_process.dataset_group_id
 _ihm_modeling_post_process.software_id
 _ihm_modeling_post_process.script_file_id
-1 1 1 1 cluster RMSD 500000 20000 . . . .
-2 1 2 1 cluster RMSD 500000 20000 . . . .
+1 1 1 1 cluster RMSD 2500000 20000 . . . .
+2 1 2 1 cluster RMSD 2500000 10000 . . . .
 #
 #
 loop_
@@ -2878,9 +2887,6 @@ _ihm_feature_list.entity_type
 363 residue polymer
 364 residue polymer
 365 residue polymer
-366 residue polymer
-367 residue polymer
-368 residue polymer
 #
 #
 loop_
@@ -3078,188 +3084,185 @@ _ihm_poly_residue_feature.comp_id_end
 184 184 2 B 85 LEU 85 LEU
 185 185 1 A 1 MET 1 MET
 186 186 1 A 2 ALA 2 ALA
-187 187 1 A 4 THR 4 THR
-188 188 1 A 10 LYS 10 LYS
-189 189 1 A 16 ALA 16 ALA
-190 190 1 A 27 ARG 27 ARG
-191 191 1 A 28 LYS 28 LYS
-192 192 1 A 42 TYR 42 TYR
-193 193 1 A 8 ALA 8 ALA
-194 194 1 A 9 ARG 9 ARG
-195 195 1 A 102 VAL 102 VAL
-196 196 1 A 104 LEU 104 LEU
-197 197 1 A 106 GLU 106 GLU
-198 198 1 A 112 ALA 112 ALA
-199 199 1 A 125 ILE 125 ILE
-200 200 1 A 20 GLN 20 GLN
-201 201 1 A 21 LEU 21 LEU
-202 202 1 A 25 ALA 25 ALA
-203 203 1 A 31 PRO 31 PRO
-204 204 1 A 34 GLY 34 GLY
-205 205 1 A 41 ARG 41 ARG
-206 206 1 A 67 PRO 67 PRO
-207 207 1 A 95 GLU 95 GLU
-208 208 1 A 96 SER 96 SER
-209 209 1 A 98 GLU 98 GLU
-210 210 1 A 13 GLY 13 GLY
-211 211 1 A 93 LEU 93 LEU
-212 212 1 A 105 PHE 105 PHE
-213 213 1 A 115 ALA 115 ALA
-214 214 1 A 117 ARG 117 ARG
-215 215 1 A 122 LYS 122 LYS
-216 216 1 A 61 LEU 61 LEU
-217 217 1 A 68 PHE 68 PHE
-218 218 1 A 69 GLN 69 GLN
-219 219 1 A 129 ARG 129 ARG
-220 220 1 A 131 LEU 131 LEU
-221 221 1 A 3 ARG 3 ARG
-222 222 1 A 63 ILE 63 ILE
-223 223 1 A 108 THR 108 THR
-224 224 1 A 109 ASN 109 ASN
-225 225 1 A 40 HIS 40 HIS
-226 226 1 A 49 LEU 49 LEU
-227 227 1 A 11 SER 11 SER
-228 228 1 A 14 GLY 14 GLY
-229 229 1 A 17 PRO 17 PRO
-230 230 1 A 110 LEU 110 LEU
-231 231 1 A 111 ALA 111 ALA
-232 232 1 A 114 HIS 114 HIS
-233 233 1 A 70 ARG 70 ARG
-234 234 1 A 89 ALA 89 ALA
-235 235 1 A 37 LYS 37 LYS
-236 236 1 A 39 PRO 39 PRO
-237 237 1 A 46 THR 46 THR
-238 238 1 A 53 ARG 53 ARG
-239 239 1 A 33 THR 33 THR
-240 240 1 A 59 THR 59 THR
-241 241 1 A 51 GLU 51 GLU
-242 242 1 A 57 LYS 57 LYS
-243 243 1 A 58 SER 58 SER
-244 244 1 A 60 GLU 60 GLU
-245 245 1 A 62 LEU 62 LEU
-246 246 1 A 71 LEU 71 LEU
-247 247 1 A 121 GLN 121 GLN
-248 248 1 A 7 THR 7 THR
-249 249 1 A 132 ARG 132 ARG
-250 250 1 A 18 ARG 18 ARG
-251 251 1 A 36 VAL 36 VAL
-252 252 1 A 78 ASP 78 ASP
-253 253 1 A 83 LEU 83 LEU
-254 254 1 A 92 ALA 92 ALA
-255 255 1 A 135 ARG 135 ARG
-256 256 1 A 22 ALA 22 ALA
-257 257 1 A 26 ALA 26 ALA
-258 258 1 A 19 LYS 19 LYS
-259 259 1 A 24 LYS 24 LYS
-260 260 1 A 30 ALA 30 ALA
-261 261 1 A 5 LYS 5 LYS
-262 262 1 A 50 ARG 50 ARG
-263 263 1 A 6 GLN 6 GLN
-264 264 1 A 86 GLN 86 GLN
-265 265 1 A 72 VAL 72 VAL
-266 266 1 A 23 SER 23 SER
-267 267 1 A 38 LYS 38 LYS
-268 268 1 A 43 LYS 43 LYS
-269 269 1 A 29 SER 29 SER
-270 270 1 A 32 SER 32 SER
-271 271 1 A 35 GLY 35 GLY
-272 272 1 A 94 GLN 94 GLN
-273 273 1 A 87 SER 87 SER
-274 274 1 A 64 ARG 64 ARG
-275 275 1 A 65 LYS 65 LYS
-276 276 1 A 99 ALA 99 ALA
-277 277 1 A 73 ARG 73 ARG
-278 278 1 A 76 ALA 76 ALA
-279 279 1 A 79 PHE 79 PHE
-280 280 1 A 80 LYS 80 LYS
-281 281 1 A 82 ASP 82 ASP
-282 282 1 A 97 VAL 97 VAL
-283 283 2 B 54 GLU 54 GLU
-284 284 2 B 67 ILE 67 ILE
-285 285 2 B 12 GLY 12 GLY
-286 286 2 B 23 LEU 23 LEU
-287 287 2 B 4 ARG 4 ARG
-288 288 2 B 44 VAL 44 VAL
-289 289 2 B 5 GLY 5 GLY
-290 290 2 B 6 LYS 6 LYS
-291 291 2 B 7 GLY 7 GLY
-292 292 2 B 78 LYS 78 LYS
-293 293 2 B 8 GLY 8 GLY
-294 294 2 B 86 ASP 86 ASP
-295 295 2 B 9 LYS 9 LYS
-296 296 2 B 30 ILE 30 ILE
-297 297 2 B 46 ARG 46 ARG
-298 298 2 B 72 THR 72 THR
-299 299 2 B 88 VAL 88 VAL
-300 300 2 B 10 GLY 10 GLY
-301 301 2 B 43 GLY 43 GLY
-302 302 2 B 91 LEU 91 LEU
-303 303 2 B 40 ARG 40 ARG
-304 304 2 B 53 GLU 53 GLU
-305 305 2 B 58 VAL 58 VAL
-306 306 2 B 82 VAL 82 VAL
-307 307 2 B 29 GLY 29 GLY
-308 308 2 B 31 THR 31 THR
-309 309 2 B 55 VAL 55 VAL
-310 310 2 B 36 ARG 36 ARG
-311 311 2 B 66 VAL 66 VAL
-312 312 2 B 93 ARG 93 ARG
-313 313 2 B 27 ILE 27 ILE
-314 314 2 B 35 ILE 35 ILE
-315 315 2 B 39 ALA 39 ALA
-316 316 2 B 80 LYS 80 LYS
-317 317 2 B 19 HIS 19 HIS
-318 318 2 B 20 ARG 20 ARG
-319 319 2 B 63 LEU 63 LEU
-320 320 2 B 64 GLU 64 GLU
-321 321 2 B 1 MET 1 MET
-322 322 2 B 60 LYS 60 LYS
-323 323 2 B 96 ARG 96 ARG
-324 324 2 B 102 GLY 102 GLY
-325 325 2 B 68 ARG 68 ARG
-326 326 2 B 92 LYS 92 LYS
-327 327 2 B 2 SER 2 SER
-328 328 2 B 71 VAL 71 VAL
-329 329 2 B 56 ARG 56 ARG
-330 330 2 B 75 GLU 75 GLU
-331 331 2 B 94 GLN 94 GLN
-332 332 2 B 45 LYS 45 LYS
-333 333 2 B 25 ASP 25 ASP
-334 334 2 B 32 LYS 32 LYS
-335 335 2 B 52 TYR 52 TYR
-336 336 2 B 16 ALA 16 ALA
-337 337 2 B 17 LYS 17 LYS
-338 338 2 B 18 ARG 18 ARG
-339 339 2 B 21 LYS 21 LYS
-340 340 2 B 98 LEU 98 LEU
-341 341 1 A 75 ILE 75 ILE
-342 342 1 A 77 GLN 77 GLN
-343 343 2 B 15 GLY 15 GLY
-344 344 2 B 79 ARG 79 ARG
-345 345 2 B 70 SER 70 SER
-346 346 1 A 81 THR 81 THR
-347 347 2 B 24 ARG 24 ARG
-348 348 2 B 77 ALA 77 ALA
-349 349 2 B 59 LEU 59 LEU
-350 350 1 A 90 ILE 90 ILE
-351 351 1 A 91 GLY 91 GLY
-352 352 2 B 87 VAL 87 VAL
-353 353 2 B 100 GLY 100 GLY
-354 354 2 B 50 LEU 50 LEU
-355 355 2 B 101 PHE 101 PHE
-356 356 2 B 3 GLY 3 GLY
-357 357 2 B 83 THR 83 THR
-358 358 2 B 13 LYS 13 LYS
-359 359 2 B 28 GLN 28 GLN
-360 360 2 B 97 THR 97 THR
-361 361 2 B 62 PHE 62 PHE
-362 362 2 B 41 ARG 41 ARG
-363 363 2 B 49 GLY 49 GLY
-364 364 2 B 37 ARG 37 ARG
-365 365 2 B 42 GLY 42 GLY
-366 366 2 B 73 TYR 73 TYR
-367 367 2 B 74 THR 74 THR
-368 368 2 B 85 LEU 85 LEU
+187 187 1 A 18 ARG 18 ARG
+188 188 1 A 5 LYS 5 LYS
+189 189 1 A 117 ARG 117 ARG
+190 190 1 A 122 LYS 122 LYS
+191 191 2 B 23 LEU 23 LEU
+192 192 2 B 30 ILE 30 ILE
+193 193 1 A 41 ARG 41 ARG
+194 194 2 B 12 GLY 12 GLY
+195 195 1 A 90 ILE 90 ILE
+196 196 2 B 31 THR 31 THR
+197 197 2 B 29 GLY 29 GLY
+198 198 2 B 78 LYS 78 LYS
+199 199 2 B 17 LYS 17 LYS
+200 200 2 B 70 SER 70 SER
+201 201 1 A 80 LYS 80 LYS
+202 202 2 B 25 ASP 25 ASP
+203 203 2 B 16 ALA 16 ALA
+204 204 1 A 95 GLU 95 GLU
+205 205 1 A 96 SER 96 SER
+206 206 2 B 1 MET 1 MET
+207 207 2 B 3 GLY 3 GLY
+208 208 1 A 25 ALA 25 ALA
+209 209 1 A 40 HIS 40 HIS
+210 210 1 A 27 ARG 27 ARG
+211 211 1 A 28 LYS 28 LYS
+212 212 2 B 5 GLY 5 GLY
+213 213 2 B 8 GLY 8 GLY
+214 214 1 A 83 LEU 83 LEU
+215 215 1 A 102 VAL 102 VAL
+216 216 2 B 4 ARG 4 ARG
+217 217 1 A 73 ARG 73 ARG
+218 218 1 A 82 ASP 82 ASP
+219 219 1 A 62 LEU 62 LEU
+220 220 2 B 36 ARG 36 ARG
+221 221 2 B 86 ASP 86 ASP
+222 222 2 B 91 LEU 91 LEU
+223 223 1 A 36 VAL 36 VAL
+224 224 2 B 20 ARG 20 ARG
+225 225 1 A 31 PRO 31 PRO
+226 226 2 B 44 VAL 44 VAL
+227 227 1 A 79 PHE 79 PHE
+228 228 2 B 21 LYS 21 LYS
+229 229 1 A 72 VAL 72 VAL
+230 230 2 B 68 ARG 68 ARG
+231 231 1 A 23 SER 23 SER
+232 232 1 A 10 LYS 10 LYS
+233 233 1 A 16 ALA 16 ALA
+234 234 1 A 13 GLY 13 GLY
+235 235 2 B 35 ILE 35 ILE
+236 236 2 B 85 LEU 85 LEU
+237 237 1 A 4 THR 4 THR
+238 238 1 A 6 GLN 6 GLN
+239 239 1 A 77 GLN 77 GLN
+240 240 2 B 15 GLY 15 GLY
+241 241 2 B 45 LYS 45 LYS
+242 242 2 B 7 GLY 7 GLY
+243 243 1 A 132 ARG 132 ARG
+244 244 1 A 92 ALA 92 ALA
+245 245 2 B 71 VAL 71 VAL
+246 246 2 B 92 LYS 92 LYS
+247 247 1 A 46 THR 46 THR
+248 248 1 A 49 LEU 49 LEU
+249 249 2 B 18 ARG 18 ARG
+250 250 2 B 19 HIS 19 HIS
+251 251 1 A 20 GLN 20 GLN
+252 252 2 B 88 VAL 88 VAL
+253 253 1 A 38 LYS 38 LYS
+254 254 1 A 53 ARG 53 ARG
+255 255 2 B 63 LEU 63 LEU
+256 256 1 A 104 LEU 104 LEU
+257 257 2 B 6 LYS 6 LYS
+258 258 1 A 76 ALA 76 ALA
+259 259 2 B 46 ARG 46 ARG
+260 260 1 A 42 TYR 42 TYR
+261 261 1 A 34 GLY 34 GLY
+262 262 1 A 68 PHE 68 PHE
+263 263 1 A 86 GLN 86 GLN
+264 264 1 A 111 ALA 111 ALA
+265 265 2 B 55 VAL 55 VAL
+266 266 1 A 125 ILE 125 ILE
+267 267 1 A 8 ALA 8 ALA
+268 268 1 A 24 LYS 24 LYS
+269 269 1 A 60 GLU 60 GLU
+270 270 1 A 87 SER 87 SER
+271 271 2 B 42 GLY 42 GLY
+272 272 2 B 75 GLU 75 GLU
+273 273 1 A 32 SER 32 SER
+274 274 1 A 35 GLY 35 GLY
+275 275 1 A 61 LEU 61 LEU
+276 276 1 A 69 GLN 69 GLN
+277 277 1 A 109 ASN 109 ASN
+278 278 1 A 108 THR 108 THR
+279 279 1 A 112 ALA 112 ALA
+280 280 2 B 10 GLY 10 GLY
+281 281 1 A 26 ALA 26 ALA
+282 282 2 B 54 GLU 54 GLU
+283 283 1 A 97 VAL 97 VAL
+284 284 1 A 58 SER 58 SER
+285 285 2 B 94 GLN 94 GLN
+286 286 2 B 60 LYS 60 LYS
+287 287 2 B 64 GLU 64 GLU
+288 288 1 A 22 ALA 22 ALA
+289 289 1 A 78 ASP 78 ASP
+290 290 1 A 51 GLU 51 GLU
+291 291 1 A 105 PHE 105 PHE
+292 292 2 B 72 THR 72 THR
+293 293 2 B 66 VAL 66 VAL
+294 294 1 A 98 GLU 98 GLU
+295 295 1 A 110 LEU 110 LEU
+296 296 1 A 70 ARG 70 ARG
+297 297 2 B 80 LYS 80 LYS
+298 298 1 A 106 GLU 106 GLU
+299 299 2 B 43 GLY 43 GLY
+300 300 1 A 21 LEU 21 LEU
+301 301 2 B 58 VAL 58 VAL
+302 302 2 B 9 LYS 9 LYS
+303 303 1 A 93 LEU 93 LEU
+304 304 2 B 39 ALA 39 ALA
+305 305 2 B 102 GLY 102 GLY
+306 306 2 B 56 ARG 56 ARG
+307 307 2 B 98 LEU 98 LEU
+308 308 1 A 14 GLY 14 GLY
+309 309 1 A 115 ALA 115 ALA
+310 310 1 A 37 LYS 37 LYS
+311 311 2 B 62 PHE 62 PHE
+312 312 1 A 43 LYS 43 LYS
+313 313 2 B 2 SER 2 SER
+314 314 1 A 19 LYS 19 LYS
+315 315 1 A 29 SER 29 SER
+316 316 1 A 39 PRO 39 PRO
+317 317 2 B 67 ILE 67 ILE
+318 318 1 A 131 LEU 131 LEU
+319 319 1 A 30 ALA 30 ALA
+320 320 1 A 59 THR 59 THR
+321 321 1 A 57 LYS 57 LYS
+322 322 2 B 53 GLU 53 GLU
+323 323 1 A 99 ALA 99 ALA
+324 324 1 A 9 ARG 9 ARG
+325 325 2 B 96 ARG 96 ARG
+326 326 2 B 27 ILE 27 ILE
+327 327 1 A 67 PRO 67 PRO
+328 328 2 B 101 PHE 101 PHE
+329 329 2 B 82 VAL 82 VAL
+330 330 1 A 89 ALA 89 ALA
+331 331 1 A 91 GLY 91 GLY
+332 332 1 A 3 ARG 3 ARG
+333 333 1 A 114 HIS 114 HIS
+334 334 2 B 40 ARG 40 ARG
+335 335 1 A 94 GLN 94 GLN
+336 336 2 B 50 LEU 50 LEU
+337 337 1 A 64 ARG 64 ARG
+338 338 1 A 50 ARG 50 ARG
+339 339 1 A 71 LEU 71 LEU
+340 340 1 A 81 THR 81 THR
+341 341 2 B 24 ARG 24 ARG
+342 342 2 B 77 ALA 77 ALA
+343 343 1 A 129 ARG 129 ARG
+344 344 1 A 65 LYS 65 LYS
+345 345 2 B 97 THR 97 THR
+346 346 1 A 11 SER 11 SER
+347 347 1 A 121 GLN 121 GLN
+348 348 2 B 93 ARG 93 ARG
+349 349 2 B 32 LYS 32 LYS
+350 350 2 B 41 ARG 41 ARG
+351 351 1 A 7 THR 7 THR
+352 352 2 B 79 ARG 79 ARG
+353 353 2 B 74 THR 74 THR
+354 354 2 B 37 ARG 37 ARG
+355 355 1 A 63 ILE 63 ILE
+356 356 2 B 83 THR 83 THR
+357 357 2 B 87 VAL 87 VAL
+358 358 2 B 59 LEU 59 LEU
+359 359 2 B 13 LYS 13 LYS
+360 360 1 A 17 PRO 17 PRO
+361 361 2 B 28 GLN 28 GLN
+362 362 2 B 52 TYR 52 TYR
+363 363 1 A 33 THR 33 THR
+364 364 2 B 49 GLY 49 GLY
+365 365 1 A 135 ARG 135 ARG
 #
 #
 loop_
@@ -4219,952 +4222,763 @@ _ihm_derived_distance_restraint.dataset_list_id
 944 1 111 118 'upper bound' . 51.969 1.000 . 4
 945 1 118 176 'upper bound' . 19.035 1.000 . 4
 946 1 128 147 'upper bound' . 50.649 1.000 . 4
-947 2 185 186 'upper bound' . 50.405 1.000 . 4
-948 2 185 187 'upper bound' . 45.115 1.000 . 4
-949 2 188 189 'upper bound' . 43.880 1.000 . 4
-950 2 188 190 'upper bound' . 52.276 1.000 . 4
-951 2 188 191 'upper bound' . 52.654 1.000 . 4
-952 2 188 192 'upper bound' . 49.335 1.000 . 4
-953 2 188 193 'upper bound' . 52.735 1.000 . 4
-954 2 188 194 'upper bound' . 51.147 1.000 . 4
-955 2 195 196 'upper bound' . 46.210 1.000 . 4
-956 2 195 197 'upper bound' . 48.513 1.000 . 4
-957 2 195 198 'upper bound' . 53.537 1.000 . 4
-958 2 195 199 'upper bound' . 40.147 1.000 . 4
-959 2 195 200 'upper bound' . 47.044 1.000 . 4
-960 2 195 201 'upper bound' . 41.159 1.000 . 4
-961 2 195 202 'upper bound' . 42.132 1.000 . 4
-962 2 195 190 'upper bound' . 44.124 1.000 . 4
-963 2 195 203 'upper bound' . 29.444 1.000 . 4
-964 2 195 204 'upper bound' . 47.776 1.000 . 4
-965 2 195 205 'upper bound' . 38.023 1.000 . 4
-966 2 195 206 'upper bound' . 48.606 1.000 . 4
-967 2 195 193 'upper bound' . 52.821 1.000 . 4
-968 2 195 207 'upper bound' . 34.580 1.000 . 4
-969 2 195 208 'upper bound' . 39.451 1.000 . 4
-970 2 195 209 'upper bound' . 24.351 1.000 . 4
-971 2 196 199 'upper bound' . 50.427 1.000 . 4
-972 2 196 210 'upper bound' . 39.732 1.000 . 4
-973 2 196 200 'upper bound' . 41.140 1.000 . 4
-974 2 196 190 'upper bound' . 37.735 1.000 . 4
-975 2 196 203 'upper bound' . 20.379 1.000 . 4
-976 2 196 204 'upper bound' . 50.711 1.000 . 4
-977 2 196 205 'upper bound' . 30.314 1.000 . 4
-978 2 196 206 'upper bound' . 39.539 1.000 . 4
-979 2 196 193 'upper bound' . 42.401 1.000 . 4
-980 2 196 211 'upper bound' . 46.343 1.000 . 4
-981 2 196 207 'upper bound' . 35.196 1.000 . 4
-982 2 196 208 'upper bound' . 35.471 1.000 . 4
-983 2 196 209 'upper bound' . 31.388 1.000 . 4
-984 2 212 213 'upper bound' . 40.974 1.000 . 4
-985 2 212 214 'upper bound' . 53.756 1.000 . 4
-986 2 212 215 'upper bound' . 43.552 1.000 . 4
-987 2 212 216 'upper bound' . 52.503 1.000 . 4
-988 2 212 217 'upper bound' . 48.229 1.000 . 4
-989 2 212 218 'upper bound' . 44.665 1.000 . 4
-990 2 197 219 'upper bound' . 36.641 1.000 . 4
-991 2 197 220 'upper bound' . 50.819 1.000 . 4
-992 2 197 221 'upper bound' . 44.215 1.000 . 4
-993 2 197 222 'upper bound' . 46.166 1.000 . 4
-994 2 223 198 'upper bound' . 51.167 1.000 . 4
-995 2 224 198 'upper bound' . 40.091 1.000 . 4
-996 2 224 199 'upper bound' . 52.964 1.000 . 4
-997 2 224 225 'upper bound' . 36.598 1.000 . 4
-998 2 224 226 'upper bound' . 52.445 1.000 . 4
-999 2 227 228 'upper bound' . 44.931 1.000 . 4
-1000 2 227 229 'upper bound' . 37.362 1.000 . 4
-1001 2 227 202 'upper bound' . 50.535 1.000 . 4
-1002 2 227 193 'upper bound' . 50.420 1.000 . 4
-1003 2 230 231 'upper bound' . 27.757 1.000 . 4
-1004 2 230 232 'upper bound' . 45.754 1.000 . 4
-1005 2 230 199 'upper bound' . 48.611 1.000 . 4
-1006 2 230 233 'upper bound' . 53.060 1.000 . 4
-1007 2 230 234 'upper bound' . 48.671 1.000 . 4
-1008 2 231 232 'upper bound' . 51.014 1.000 . 4
-1009 2 231 233 'upper bound' . 52.763 1.000 . 4
-1010 2 231 234 'upper bound' . 46.576 1.000 . 4
-1011 2 198 235 'upper bound' . 52.053 1.000 . 4
-1012 2 198 236 'upper bound' . 38.516 1.000 . 4
-1013 2 198 225 'upper bound' . 22.740 1.000 . 4
-1014 2 198 192 'upper bound' . 36.984 1.000 . 4
-1015 2 198 237 'upper bound' . 43.604 1.000 . 4
-1016 2 198 226 'upper bound' . 47.409 1.000 . 4
-1017 2 198 238 'upper bound' . 45.521 1.000 . 4
-1018 2 213 215 'upper bound' . 30.125 1.000 . 4
-1019 2 213 203 'upper bound' . 47.846 1.000 . 4
-1020 2 213 239 'upper bound' . 52.940 1.000 . 4
-1021 2 213 240 'upper bound' . 41.284 1.000 . 4
-1022 2 213 217 'upper bound' . 40.490 1.000 . 4
-1023 2 213 218 'upper bound' . 23.379 1.000 . 4
-1024 2 213 211 'upper bound' . 53.272 1.000 . 4
-1025 2 213 208 'upper bound' . 46.631 1.000 . 4
-1026 2 214 215 'upper bound' . 51.580 1.000 . 4
-1027 2 214 228 'upper bound' . 48.470 1.000 . 4
-1028 2 214 241 'upper bound' . 51.199 1.000 . 4
-1029 2 214 242 'upper bound' . 47.396 1.000 . 4
-1030 2 214 243 'upper bound' . 48.191 1.000 . 4
-1031 2 214 244 'upper bound' . 42.218 1.000 . 4
-1032 2 214 245 'upper bound' . 48.545 1.000 . 4
-1033 2 214 218 'upper bound' . 34.324 1.000 . 4
-1034 2 214 246 'upper bound' . 51.131 1.000 . 4
-1035 2 247 248 'upper bound' . 48.434 1.000 . 4
-1036 2 215 241 'upper bound' . 53.110 1.000 . 4
-1037 2 215 243 'upper bound' . 33.449 1.000 . 4
-1038 2 215 216 'upper bound' . 39.832 1.000 . 4
-1039 2 215 245 'upper bound' . 29.780 1.000 . 4
-1040 2 215 218 'upper bound' . 7.767 1.000 . 4
-1041 2 199 210 'upper bound' . 53.469 1.000 . 4
-1042 2 199 200 'upper bound' . 44.533 1.000 . 4
-1043 2 199 190 'upper bound' . 36.458 1.000 . 4
-1044 2 199 203 'upper bound' . 39.972 1.000 . 4
-1045 2 199 204 'upper bound' . 46.193 1.000 . 4
-1046 2 199 225 'upper bound' . 48.477 1.000 . 4
-1047 2 199 205 'upper bound' . 41.014 1.000 . 4
-1048 2 199 238 'upper bound' . 50.097 1.000 . 4
-1049 2 199 206 'upper bound' . 47.596 1.000 . 4
-1050 2 199 211 'upper bound' . 36.292 1.000 . 4
-1051 2 199 207 'upper bound' . 31.862 1.000 . 4
-1052 2 199 208 'upper bound' . 45.674 1.000 . 4
-1053 2 199 209 'upper bound' . 52.849 1.000 . 4
-1054 2 219 220 'upper bound' . 51.895 1.000 . 4
-1055 2 210 229 'upper bound' . 43.418 1.000 . 4
-1056 2 210 190 'upper bound' . 43.531 1.000 . 4
-1057 2 210 203 'upper bound' . 36.720 1.000 . 4
-1058 2 210 204 'upper bound' . 48.748 1.000 . 4
-1059 2 210 205 'upper bound' . 43.504 1.000 . 4
-1060 2 210 193 'upper bound' . 35.134 1.000 . 4
-1061 2 210 211 'upper bound' . 49.796 1.000 . 4
-1062 2 210 207 'upper bound' . 53.347 1.000 . 4
-1063 2 210 209 'upper bound' . 48.517 1.000 . 4
-1064 2 249 250 'upper bound' . 52.854 1.000 . 4
-1065 2 249 251 'upper bound' . 53.040 1.000 . 4
-1066 2 249 225 'upper bound' . 51.479 1.000 . 4
-1067 2 249 246 'upper bound' . 51.458 1.000 . 4
-1068 2 249 252 'upper bound' . 51.532 1.000 . 4
-1069 2 249 253 'upper bound' . 52.691 1.000 . 4
-1070 2 249 254 'upper bound' . 51.366 1.000 . 4
-1071 2 255 256 'upper bound' . 47.713 1.000 . 4
-1072 2 228 229 'upper bound' . 31.291 1.000 . 4
-1073 2 228 241 'upper bound' . 41.757 1.000 . 4
-1074 2 189 201 'upper bound' . 51.758 1.000 . 4
-1075 2 189 256 'upper bound' . 53.202 1.000 . 4
-1076 2 189 202 'upper bound' . 30.650 1.000 . 4
-1077 2 189 257 'upper bound' . 49.869 1.000 . 4
-1078 2 189 190 'upper bound' . 51.427 1.000 . 4
-1079 2 189 191 'upper bound' . 50.533 1.000 . 4
-1080 2 189 192 'upper bound' . 44.495 1.000 . 4
-1081 2 189 237 'upper bound' . 47.769 1.000 . 4
-1082 2 189 241 'upper bound' . 51.740 1.000 . 4
-1083 2 189 193 'upper bound' . 50.724 1.000 . 4
-1084 2 229 193 'upper bound' . 52.233 1.000 . 4
-1085 2 250 258 'upper bound' . 37.344 1.000 . 4
-1086 2 250 201 'upper bound' . 49.850 1.000 . 4
-1087 2 250 259 'upper bound' . 49.333 1.000 . 4
-1088 2 250 202 'upper bound' . 34.940 1.000 . 4
-1089 2 250 257 'upper bound' . 46.003 1.000 . 4
-1090 2 250 190 'upper bound' . 44.094 1.000 . 4
-1091 2 250 191 'upper bound' . 46.199 1.000 . 4
-1092 2 250 260 'upper bound' . 32.264 1.000 . 4
-1093 2 250 251 'upper bound' . 45.795 1.000 . 4
-1094 2 250 236 'upper bound' . 46.704 1.000 . 4
-1095 2 250 192 'upper bound' . 52.676 1.000 . 4
-1096 2 250 261 'upper bound' . 53.383 1.000 . 4
-1097 2 250 262 'upper bound' . 40.697 1.000 . 4
-1098 2 250 263 'upper bound' . 51.785 1.000 . 4
-1099 2 250 218 'upper bound' . 44.414 1.000 . 4
-1100 2 250 253 'upper bound' . 42.450 1.000 . 4
-1101 2 258 201 'upper bound' . 47.451 1.000 . 4
-1102 2 258 256 'upper bound' . 45.048 1.000 . 4
-1103 2 258 259 'upper bound' . 39.711 1.000 . 4
-1104 2 258 202 'upper bound' . 51.901 1.000 . 4
-1105 2 258 257 'upper bound' . 42.989 1.000 . 4
-1106 2 258 190 'upper bound' . 48.157 1.000 . 4
-1107 2 258 260 'upper bound' . 40.739 1.000 . 4
-1108 2 258 239 'upper bound' . 50.843 1.000 . 4
-1109 2 258 251 'upper bound' . 41.216 1.000 . 4
-1110 2 258 262 'upper bound' . 47.046 1.000 . 4
-1111 2 258 253 'upper bound' . 49.364 1.000 . 4
-1112 2 258 264 'upper bound' . 51.792 1.000 . 4
-1113 2 258 207 'upper bound' . 52.727 1.000 . 4
-1114 2 186 201 'upper bound' . 44.380 1.000 . 4
-1115 2 186 202 'upper bound' . 41.346 1.000 . 4
-1116 2 186 257 'upper bound' . 49.492 1.000 . 4
-1117 2 186 221 'upper bound' . 22.384 1.000 . 4
-1118 2 186 187 'upper bound' . 12.868 1.000 . 4
-1119 2 186 261 'upper bound' . 39.592 1.000 . 4
-1120 2 186 263 'upper bound' . 15.771 1.000 . 4
-1121 2 186 265 'upper bound' . 44.594 1.000 . 4
-1122 2 186 193 'upper bound' . 44.704 1.000 . 4
-1123 2 200 190 'upper bound' . 49.882 1.000 . 4
-1124 2 200 203 'upper bound' . 47.221 1.000 . 4
-1125 2 200 205 'upper bound' . 44.904 1.000 . 4
-1126 2 200 193 'upper bound' . 53.135 1.000 . 4
-1127 2 200 211 'upper bound' . 52.398 1.000 . 4
-1128 2 200 207 'upper bound' . 42.741 1.000 . 4
-1129 2 200 208 'upper bound' . 44.944 1.000 . 4
-1130 2 200 209 'upper bound' . 50.407 1.000 . 4
-1131 2 201 256 'upper bound' . 38.438 1.000 . 4
-1132 2 201 266 'upper bound' . 37.066 1.000 . 4
-1133 2 201 259 'upper bound' . 37.569 1.000 . 4
-1134 2 201 202 'upper bound' . 30.337 1.000 . 4
-1135 2 201 257 'upper bound' . 35.547 1.000 . 4
-1136 2 201 191 'upper bound' . 50.393 1.000 . 4
-1137 2 201 260 'upper bound' . 51.900 1.000 . 4
-1138 2 201 251 'upper bound' . 46.772 1.000 . 4
-1139 2 201 267 'upper bound' . 50.078 1.000 . 4
-1140 2 201 238 'upper bound' . 50.502 1.000 . 4
-1141 2 201 253 'upper bound' . 38.790 1.000 . 4
-1142 2 201 254 'upper bound' . 51.191 1.000 . 4
-1143 2 256 259 'upper bound' . 49.024 1.000 . 4
-1144 2 256 202 'upper bound' . 51.000 1.000 . 4
-1145 2 256 257 'upper bound' . 47.027 1.000 . 4
-1146 2 256 251 'upper bound' . 50.693 1.000 . 4
-1147 2 256 268 'upper bound' . 52.092 1.000 . 4
-1148 2 266 202 'upper bound' . 44.168 1.000 . 4
-1149 2 266 257 'upper bound' . 52.579 1.000 . 4
-1150 2 266 241 'upper bound' . 53.188 1.000 . 4
-1151 2 266 253 'upper bound' . 43.592 1.000 . 4
-1152 2 259 202 'upper bound' . 30.329 1.000 . 4
-1153 2 259 257 'upper bound' . 36.660 1.000 . 4
-1154 2 259 260 'upper bound' . 42.521 1.000 . 4
-1155 2 259 251 'upper bound' . 47.910 1.000 . 4
-1156 2 259 262 'upper bound' . 52.827 1.000 . 4
-1157 2 259 253 'upper bound' . 28.165 1.000 . 4
-1158 2 202 257 'upper bound' . 32.377 1.000 . 4
-1159 2 202 190 'upper bound' . 47.813 1.000 . 4
-1160 2 202 191 'upper bound' . 45.773 1.000 . 4
-1161 2 202 269 'upper bound' . 49.783 1.000 . 4
-1162 2 202 260 'upper bound' . 45.041 1.000 . 4
-1163 2 202 251 'upper bound' . 47.141 1.000 . 4
-1164 2 202 235 'upper bound' . 50.245 1.000 . 4
-1165 2 202 225 'upper bound' . 52.907 1.000 . 4
-1166 2 202 192 'upper bound' . 36.532 1.000 . 4
-1167 2 202 241 'upper bound' . 49.567 1.000 . 4
-1168 2 202 263 'upper bound' . 46.312 1.000 . 4
-1169 2 202 218 'upper bound' . 49.973 1.000 . 4
-1170 2 202 265 'upper bound' . 51.496 1.000 . 4
-1171 2 202 253 'upper bound' . 25.108 1.000 . 4
-1172 2 257 190 'upper bound' . 51.760 1.000 . 4
-1173 2 257 191 'upper bound' . 48.680 1.000 . 4
-1174 2 257 260 'upper bound' . 53.472 1.000 . 4
-1175 2 257 270 'upper bound' . 53.005 1.000 . 4
-1176 2 257 251 'upper bound' . 51.102 1.000 . 4
-1177 2 257 265 'upper bound' . 42.941 1.000 . 4
-1178 2 257 253 'upper bound' . 41.993 1.000 . 4
-1179 2 257 194 'upper bound' . 53.048 1.000 . 4
-1180 2 190 191 'upper bound' . 41.201 1.000 . 4
-1181 2 190 203 'upper bound' . 35.998 1.000 . 4
-1182 2 190 204 'upper bound' . 50.342 1.000 . 4
-1183 2 190 205 'upper bound' . 39.633 1.000 . 4
-1184 2 190 237 'upper bound' . 53.761 1.000 . 4
-1185 2 190 206 'upper bound' . 51.921 1.000 . 4
-1186 2 190 194 'upper bound' . 42.796 1.000 . 4
-1187 2 190 211 'upper bound' . 49.032 1.000 . 4
-1188 2 190 207 'upper bound' . 47.747 1.000 . 4
-1189 2 190 208 'upper bound' . 51.033 1.000 . 4
-1190 2 190 209 'upper bound' . 42.572 1.000 . 4
-1191 2 191 253 'upper bound' . 48.637 1.000 . 4
-1192 2 221 187 'upper bound' . 37.272 1.000 . 4
-1193 2 221 261 'upper bound' . 27.534 1.000 . 4
-1194 2 221 263 'upper bound' . 9.339 1.000 . 4
-1195 2 260 251 'upper bound' . 44.945 1.000 . 4
-1196 2 260 218 'upper bound' . 46.324 1.000 . 4
-1197 2 260 253 'upper bound' . 46.087 1.000 . 4
-1198 2 203 204 'upper bound' . 44.491 1.000 . 4
-1199 2 203 225 'upper bound' . 48.700 1.000 . 4
-1200 2 203 205 'upper bound' . 24.043 1.000 . 4
-1201 2 203 206 'upper bound' . 38.673 1.000 . 4
-1202 2 203 193 'upper bound' . 44.457 1.000 . 4
-1203 2 203 253 'upper bound' . 49.763 1.000 . 4
-1204 2 203 211 'upper bound' . 43.187 1.000 . 4
-1205 2 203 207 'upper bound' . 32.718 1.000 . 4
-1206 2 203 208 'upper bound' . 38.295 1.000 . 4
-1207 2 203 209 'upper bound' . 19.323 1.000 . 4
-1208 2 270 271 'upper bound' . 50.472 1.000 . 4
-1209 2 204 225 'upper bound' . 52.816 1.000 . 4
-1210 2 204 205 'upper bound' . 39.223 1.000 . 4
-1211 2 204 211 'upper bound' . 42.962 1.000 . 4
-1212 2 204 207 'upper bound' . 40.994 1.000 . 4
-1213 2 204 208 'upper bound' . 51.436 1.000 . 4
-1214 2 204 209 'upper bound' . 50.799 1.000 . 4
-1215 2 251 235 'upper bound' . 38.998 1.000 . 4
-1216 2 251 236 'upper bound' . 45.575 1.000 . 4
-1217 2 251 225 'upper bound' . 38.153 1.000 . 4
-1218 2 251 192 'upper bound' . 38.799 1.000 . 4
-1219 2 251 237 'upper bound' . 51.275 1.000 . 4
-1220 2 251 226 'upper bound' . 42.329 1.000 . 4
-1221 2 251 263 'upper bound' . 47.060 1.000 . 4
-1222 2 251 218 'upper bound' . 51.441 1.000 . 4
-1223 2 251 252 'upper bound' . 45.428 1.000 . 4
-1224 2 251 253 'upper bound' . 53.359 1.000 . 4
-1225 2 235 236 'upper bound' . 37.072 1.000 . 4
-1226 2 235 225 'upper bound' . 40.021 1.000 . 4
-1227 2 235 192 'upper bound' . 27.894 1.000 . 4
-1228 2 235 237 'upper bound' . 46.180 1.000 . 4
-1229 2 235 226 'upper bound' . 46.508 1.000 . 4
-1230 2 235 263 'upper bound' . 53.115 1.000 . 4
-1231 2 235 218 'upper bound' . 53.139 1.000 . 4
-1232 2 235 254 'upper bound' . 41.632 1.000 . 4
-1233 2 267 238 'upper bound' . 52.587 1.000 . 4
-1234 2 236 225 'upper bound' . 27.039 1.000 . 4
-1235 2 236 192 'upper bound' . 24.566 1.000 . 4
-1236 2 236 237 'upper bound' . 48.270 1.000 . 4
-1237 2 236 226 'upper bound' . 39.601 1.000 . 4
-1238 2 236 238 'upper bound' . 31.412 1.000 . 4
-1239 2 236 263 'upper bound' . 43.033 1.000 . 4
-1240 2 236 252 'upper bound' . 45.933 1.000 . 4
-1241 2 236 254 'upper bound' . 44.643 1.000 . 4
-1242 2 187 261 'upper bound' . 53.800 1.000 . 4
-1243 2 187 242 'upper bound' . 49.105 1.000 . 4
-1244 2 187 263 'upper bound' . 31.729 1.000 . 4
-1245 2 187 265 'upper bound' . 48.674 1.000 . 4
-1246 2 187 253 'upper bound' . 50.971 1.000 . 4
-1247 2 225 205 'upper bound' . 48.243 1.000 . 4
-1248 2 225 192 'upper bound' . 9.040 1.000 . 4
-1249 2 225 237 'upper bound' . 21.743 1.000 . 4
-1250 2 225 226 'upper bound' . 16.185 1.000 . 4
-1251 2 225 238 'upper bound' . 47.043 1.000 . 4
-1252 2 225 263 'upper bound' . 45.434 1.000 . 4
-1253 2 225 246 'upper bound' . 46.143 1.000 . 4
-1254 2 225 252 'upper bound' . 47.054 1.000 . 4
-1255 2 225 254 'upper bound' . 40.723 1.000 . 4
-1256 2 225 211 'upper bound' . 45.102 1.000 . 4
-1257 2 205 206 'upper bound' . 51.618 1.000 . 4
-1258 2 205 193 'upper bound' . 47.070 1.000 . 4
-1259 2 205 211 'upper bound' . 40.161 1.000 . 4
-1260 2 205 207 'upper bound' . 40.698 1.000 . 4
-1261 2 205 208 'upper bound' . 37.003 1.000 . 4
-1262 2 205 209 'upper bound' . 29.842 1.000 . 4
-1263 2 192 237 'upper bound' . 16.671 1.000 . 4
-1264 2 192 226 'upper bound' . 24.893 1.000 . 4
-1265 2 192 262 'upper bound' . 39.398 1.000 . 4
-1266 2 192 238 'upper bound' . 42.566 1.000 . 4
-1267 2 192 263 'upper bound' . 41.251 1.000 . 4
-1268 2 192 254 'upper bound' . 44.019 1.000 . 4
-1269 2 237 226 'upper bound' . 41.436 1.000 . 4
-1270 2 237 238 'upper bound' . 49.980 1.000 . 4
-1271 2 237 263 'upper bound' . 51.667 1.000 . 4
-1272 2 226 238 'upper bound' . 44.113 1.000 . 4
-1273 2 226 252 'upper bound' . 43.468 1.000 . 4
-1274 2 226 254 'upper bound' . 52.806 1.000 . 4
-1275 2 226 211 'upper bound' . 46.545 1.000 . 4
-1276 2 261 263 'upper bound' . 18.934 1.000 . 4
-1277 2 238 253 'upper bound' . 50.167 1.000 . 4
-1278 2 242 243 'upper bound' . 40.070 1.000 . 4
-1279 2 243 244 'upper bound' . 39.801 1.000 . 4
-1280 2 243 216 'upper bound' . 24.553 1.000 . 4
-1281 2 243 245 'upper bound' . 26.852 1.000 . 4
-1282 2 243 218 'upper bound' . 29.082 1.000 . 4
-1283 2 240 272 'upper bound' . 46.056 1.000 . 4
-1284 2 240 207 'upper bound' . 49.618 1.000 . 4
-1285 2 244 216 'upper bound' . 46.501 1.000 . 4
-1286 2 244 245 'upper bound' . 22.088 1.000 . 4
-1287 2 244 218 'upper bound' . 49.402 1.000 . 4
-1288 2 244 246 'upper bound' . 42.809 1.000 . 4
-1289 2 244 273 'upper bound' . 50.354 1.000 . 4
-1290 2 216 245 'upper bound' . 21.901 1.000 . 4
-1291 2 216 218 'upper bound' . 37.851 1.000 . 4
-1292 2 245 222 'upper bound' . 47.861 1.000 . 4
-1293 2 245 218 'upper bound' . 20.675 1.000 . 4
-1294 2 274 246 'upper bound' . 50.152 1.000 . 4
-1295 2 274 252 'upper bound' . 51.663 1.000 . 4
-1296 2 274 234 'upper bound' . 43.770 1.000 . 4
-1297 2 274 272 'upper bound' . 49.057 1.000 . 4
-1298 2 275 273 'upper bound' . 49.737 1.000 . 4
-1299 2 206 211 'upper bound' . 44.948 1.000 . 4
-1300 2 206 207 'upper bound' . 43.293 1.000 . 4
-1301 2 206 208 'upper bound' . 44.631 1.000 . 4
-1302 2 206 209 'upper bound' . 45.075 1.000 . 4
-1303 2 217 264 'upper bound' . 48.436 1.000 . 4
-1304 2 217 254 'upper bound' . 46.878 1.000 . 4
-1305 2 218 253 'upper bound' . 51.977 1.000 . 4
-1306 2 233 272 'upper bound' . 53.571 1.000 . 4
-1307 2 246 252 'upper bound' . 52.626 1.000 . 4
-1308 2 246 276 'upper bound' . 50.361 1.000 . 4
-1309 2 265 253 'upper bound' . 51.970 1.000 . 4
-1310 2 277 278 'upper bound' . 11.127 1.000 . 4
-1311 2 277 279 'upper bound' . 34.574 1.000 . 4
-1312 2 277 280 'upper bound' . 10.315 1.000 . 4
-1313 2 277 281 'upper bound' . 11.418 1.000 . 4
-1314 2 278 279 'upper bound' . 20.300 1.000 . 4
-1315 2 278 280 'upper bound' . 13.386 1.000 . 4
-1316 2 278 281 'upper bound' . 7.421 1.000 . 4
-1317 2 252 254 'upper bound' . 40.518 1.000 . 4
-1318 2 252 276 'upper bound' . 50.997 1.000 . 4
-1319 2 279 280 'upper bound' . 21.011 1.000 . 4
-1320 2 279 281 'upper bound' . 35.062 1.000 . 4
-1321 2 193 209 'upper bound' . 42.486 1.000 . 4
-1322 2 280 281 'upper bound' . 16.856 1.000 . 4
-1323 2 264 282 'upper bound' . 51.438 1.000 . 4
-1324 2 234 276 'upper bound' . 47.621 1.000 . 4
-1325 2 194 209 'upper bound' . 53.750 1.000 . 4
-1326 2 211 207 'upper bound' . 44.514 1.000 . 4
-1327 2 211 208 'upper bound' . 51.357 1.000 . 4
-1328 2 211 209 'upper bound' . 50.377 1.000 . 4
-1329 2 207 208 'upper bound' . 32.283 1.000 . 4
-1330 2 207 209 'upper bound' . 38.156 1.000 . 4
-1331 2 208 209 'upper bound' . 38.728 1.000 . 4
-1332 2 188 283 'upper bound' . 46.912 1.000 . 4
-1333 2 188 284 'upper bound' . 50.240 1.000 . 4
-1334 2 195 285 'upper bound' . 27.247 1.000 . 4
-1335 2 195 286 'upper bound' . 45.575 1.000 . 4
-1336 2 195 287 'upper bound' . 53.727 1.000 . 4
-1337 2 195 288 'upper bound' . 49.641 1.000 . 4
-1338 2 195 289 'upper bound' . 46.596 1.000 . 4
-1339 2 195 290 'upper bound' . 44.680 1.000 . 4
-1340 2 195 291 'upper bound' . 32.209 1.000 . 4
-1341 2 195 292 'upper bound' . 51.918 1.000 . 4
-1342 2 195 293 'upper bound' . 37.150 1.000 . 4
-1343 2 195 294 'upper bound' . 50.123 1.000 . 4
-1344 2 195 295 'upper bound' . 40.053 1.000 . 4
-1345 2 196 286 'upper bound' . 37.218 1.000 . 4
-1346 2 196 296 'upper bound' . 48.531 1.000 . 4
-1347 2 196 288 'upper bound' . 47.448 1.000 . 4
-1348 2 196 289 'upper bound' . 48.402 1.000 . 4
-1349 2 196 290 'upper bound' . 51.849 1.000 . 4
-1350 2 196 291 'upper bound' . 45.995 1.000 . 4
-1351 2 196 293 'upper bound' . 42.096 1.000 . 4
-1352 2 212 297 'upper bound' . 51.858 1.000 . 4
-1353 2 212 298 'upper bound' . 48.038 1.000 . 4
-1354 2 212 299 'upper bound' . 44.071 1.000 . 4
-1355 2 197 300 'upper bound' . 51.089 1.000 . 4
-1356 2 197 285 'upper bound' . 44.352 1.000 . 4
-1357 2 197 287 'upper bound' . 50.337 1.000 . 4
-1358 2 197 301 'upper bound' . 49.388 1.000 . 4
-1359 2 197 290 'upper bound' . 37.041 1.000 . 4
-1360 2 197 291 'upper bound' . 42.493 1.000 . 4
-1361 2 197 293 'upper bound' . 53.409 1.000 . 4
-1362 2 197 294 'upper bound' . 53.058 1.000 . 4
-1363 2 197 295 'upper bound' . 32.930 1.000 . 4
-1364 2 197 302 'upper bound' . 34.443 1.000 . 4
-1365 2 223 288 'upper bound' . 51.517 1.000 . 4
-1366 2 224 303 'upper bound' . 39.882 1.000 . 4
-1367 2 224 288 'upper bound' . 40.521 1.000 . 4
-1368 2 224 304 'upper bound' . 47.662 1.000 . 4
-1369 2 224 305 'upper bound' . 48.188 1.000 . 4
-1370 2 230 292 'upper bound' . 51.210 1.000 . 4
-1371 2 230 306 'upper bound' . 40.861 1.000 . 4
-1372 2 231 307 'upper bound' . 41.726 1.000 . 4
-1373 2 231 308 'upper bound' . 52.449 1.000 . 4
-1374 2 231 309 'upper bound' . 46.693 1.000 . 4
-1375 2 231 306 'upper bound' . 38.126 1.000 . 4
-1376 2 198 288 'upper bound' . 24.799 1.000 . 4
-1377 2 213 286 'upper bound' . 50.575 1.000 . 4
-1378 2 213 299 'upper bound' . 46.470 1.000 . 4
-1379 2 214 310 'upper bound' . 53.381 1.000 . 4
-1380 2 214 297 'upper bound' . 45.071 1.000 . 4
-1381 2 214 309 'upper bound' . 51.928 1.000 . 4
-1382 2 214 311 'upper bound' . 50.167 1.000 . 4
-1383 2 214 298 'upper bound' . 30.121 1.000 . 4
-1384 2 214 299 'upper bound' . 42.937 1.000 . 4
-1385 2 247 312 'upper bound' . 45.903 1.000 . 4
-1386 2 215 313 'upper bound' . 48.006 1.000 . 4
-1387 2 215 314 'upper bound' . 35.570 1.000 . 4
-1388 2 215 310 'upper bound' . 20.557 1.000 . 4
-1389 2 215 315 'upper bound' . 53.000 1.000 . 4
-1390 2 215 297 'upper bound' . 21.426 1.000 . 4
-1391 2 215 299 'upper bound' . 30.234 1.000 . 4
-1392 2 199 286 'upper bound' . 51.248 1.000 . 4
-1393 2 199 288 'upper bound' . 50.448 1.000 . 4
-1394 2 199 291 'upper bound' . 45.966 1.000 . 4
-1395 2 199 293 'upper bound' . 50.357 1.000 . 4
-1396 2 199 295 'upper bound' . 43.857 1.000 . 4
-1397 2 210 314 'upper bound' . 47.212 1.000 . 4
-1398 2 210 289 'upper bound' . 49.237 1.000 . 4
-1399 2 210 293 'upper bound' . 48.226 1.000 . 4
-1400 2 220 306 'upper bound' . 50.466 1.000 . 4
-1401 2 228 309 'upper bound' . 51.197 1.000 . 4
-1402 2 228 316 'upper bound' . 53.165 1.000 . 4
-1403 2 189 317 'upper bound' . 53.019 1.000 . 4
-1404 2 189 307 'upper bound' . 52.660 1.000 . 4
-1405 2 189 284 'upper bound' . 50.273 1.000 . 4
-1406 2 250 318 'upper bound' . 45.415 1.000 . 4
-1407 2 250 319 'upper bound' . 51.700 1.000 . 4
-1408 2 250 320 'upper bound' . 48.326 1.000 . 4
-1409 2 258 321 'upper bound' . 52.879 1.000 . 4
-1410 2 258 318 'upper bound' . 32.705 1.000 . 4
-1411 2 258 322 'upper bound' . 51.615 1.000 . 4
-1412 2 258 319 'upper bound' . 52.462 1.000 . 4
-1413 2 258 320 'upper bound' . 49.875 1.000 . 4
-1414 2 258 323 'upper bound' . 48.892 1.000 . 4
-1415 2 186 321 'upper bound' . 50.122 1.000 . 4
-1416 2 186 318 'upper bound' . 47.105 1.000 . 4
-1417 2 186 322 'upper bound' . 53.097 1.000 . 4
-1418 2 186 319 'upper bound' . 52.748 1.000 . 4
-1419 2 186 320 'upper bound' . 51.585 1.000 . 4
-1420 2 200 286 'upper bound' . 49.732 1.000 . 4
-1421 2 200 287 'upper bound' . 52.176 1.000 . 4
-1422 2 200 291 'upper bound' . 49.553 1.000 . 4
-1423 2 201 324 'upper bound' . 51.130 1.000 . 4
-1424 2 201 317 'upper bound' . 43.049 1.000 . 4
-1425 2 201 318 'upper bound' . 48.651 1.000 . 4
-1426 2 201 319 'upper bound' . 51.334 1.000 . 4
-1427 2 201 325 'upper bound' . 51.007 1.000 . 4
-1428 2 201 292 'upper bound' . 52.780 1.000 . 4
-1429 2 201 316 'upper bound' . 48.916 1.000 . 4
-1430 2 201 326 'upper bound' . 49.395 1.000 . 4
-1431 2 201 323 'upper bound' . 41.513 1.000 . 4
-1432 2 256 321 'upper bound' . 51.133 1.000 . 4
-1433 2 256 327 'upper bound' . 51.617 1.000 . 4
-1434 2 256 318 'upper bound' . 47.027 1.000 . 4
-1435 2 259 321 'upper bound' . 51.871 1.000 . 4
-1436 2 259 327 'upper bound' . 44.487 1.000 . 4
-1437 2 259 318 'upper bound' . 32.670 1.000 . 4
-1438 2 259 319 'upper bound' . 44.747 1.000 . 4
-1439 2 259 284 'upper bound' . 53.194 1.000 . 4
-1440 2 259 326 'upper bound' . 51.125 1.000 . 4
-1441 2 259 323 'upper bound' . 51.656 1.000 . 4
-1442 2 202 317 'upper bound' . 35.927 1.000 . 4
-1443 2 202 327 'upper bound' . 49.877 1.000 . 4
-1444 2 202 318 'upper bound' . 35.707 1.000 . 4
-1445 2 202 288 'upper bound' . 52.941 1.000 . 4
-1446 2 202 319 'upper bound' . 45.241 1.000 . 4
-1447 2 202 320 'upper bound' . 49.842 1.000 . 4
-1448 2 202 284 'upper bound' . 47.614 1.000 . 4
-1449 2 202 325 'upper bound' . 49.587 1.000 . 4
-1450 2 202 328 'upper bound' . 51.030 1.000 . 4
-1451 2 202 326 'upper bound' . 46.157 1.000 . 4
-1452 2 202 323 'upper bound' . 49.688 1.000 . 4
-1453 2 257 317 'upper bound' . 47.520 1.000 . 4
-1454 2 257 318 'upper bound' . 44.177 1.000 . 4
-1455 2 257 313 'upper bound' . 51.861 1.000 . 4
-1456 2 257 284 'upper bound' . 50.366 1.000 . 4
-1457 2 257 325 'upper bound' . 50.207 1.000 . 4
-1458 2 190 286 'upper bound' . 50.709 1.000 . 4
-1459 2 190 283 'upper bound' . 53.607 1.000 . 4
-1460 2 190 291 'upper bound' . 48.481 1.000 . 4
-1461 2 190 293 'upper bound' . 48.952 1.000 . 4
-1462 2 190 295 'upper bound' . 46.444 1.000 . 4
-1463 2 191 324 'upper bound' . 53.512 1.000 . 4
-1464 2 191 317 'upper bound' . 50.603 1.000 . 4
-1465 2 191 329 'upper bound' . 50.408 1.000 . 4
-1466 2 191 325 'upper bound' . 53.041 1.000 . 4
-1467 2 191 316 'upper bound' . 51.177 1.000 . 4
-1468 2 221 318 'upper bound' . 52.264 1.000 . 4
-1469 2 260 317 'upper bound' . 53.339 1.000 . 4
-1470 2 260 318 'upper bound' . 39.411 1.000 . 4
-1471 2 260 320 'upper bound' . 48.652 1.000 . 4
-1472 2 203 285 'upper bound' . 51.902 1.000 . 4
-1473 2 203 286 'upper bound' . 32.099 1.000 . 4
-1474 2 203 296 'upper bound' . 53.281 1.000 . 4
-1475 2 203 288 'upper bound' . 53.401 1.000 . 4
-1476 2 203 289 'upper bound' . 47.131 1.000 . 4
-1477 2 203 291 'upper bound' . 37.239 1.000 . 4
-1478 2 203 293 'upper bound' . 32.263 1.000 . 4
-1479 2 204 293 'upper bound' . 53.774 1.000 . 4
-1480 2 204 306 'upper bound' . 52.630 1.000 . 4
-1481 2 251 321 'upper bound' . 46.503 1.000 . 4
-1482 2 251 318 'upper bound' . 51.382 1.000 . 4
-1483 2 251 319 'upper bound' . 51.247 1.000 . 4
-1484 2 251 320 'upper bound' . 53.274 1.000 . 4
-1485 2 235 288 'upper bound' . 41.156 1.000 . 4
-1486 2 267 329 'upper bound' . 53.584 1.000 . 4
-1487 2 236 288 'upper bound' . 37.967 1.000 . 4
-1488 2 187 321 'upper bound' . 49.560 1.000 . 4
-1489 2 187 327 'upper bound' . 50.827 1.000 . 4
-1490 2 187 318 'upper bound' . 53.425 1.000 . 4
-1491 2 187 322 'upper bound' . 47.159 1.000 . 4
-1492 2 187 330 'upper bound' . 49.898 1.000 . 4
-1493 2 225 308 'upper bound' . 51.534 1.000 . 4
-1494 2 225 315 'upper bound' . 48.112 1.000 . 4
-1495 2 225 303 'upper bound' . 53.804 1.000 . 4
-1496 2 225 288 'upper bound' . 13.283 1.000 . 4
-1497 2 225 331 'upper bound' . 52.300 1.000 . 4
-1498 2 205 285 'upper bound' . 53.402 1.000 . 4
-1499 2 205 286 'upper bound' . 44.554 1.000 . 4
-1500 2 205 314 'upper bound' . 53.603 1.000 . 4
-1501 2 205 288 'upper bound' . 51.655 1.000 . 4
-1502 2 205 289 'upper bound' . 38.543 1.000 . 4
-1503 2 205 304 'upper bound' . 50.718 1.000 . 4
-1504 2 205 290 'upper bound' . 42.901 1.000 . 4
-1505 2 205 291 'upper bound' . 31.624 1.000 . 4
-1506 2 205 293 'upper bound' . 30.973 1.000 . 4
-1507 2 205 295 'upper bound' . 47.250 1.000 . 4
-1508 2 192 317 'upper bound' . 48.040 1.000 . 4
-1509 2 192 301 'upper bound' . 47.088 1.000 . 4
-1510 2 192 288 'upper bound' . 28.924 1.000 . 4
-1511 2 192 284 'upper bound' . 52.822 1.000 . 4
-1512 2 268 324 'upper bound' . 52.929 1.000 . 4
-1513 2 268 327 'upper bound' . 48.957 1.000 . 4
-1514 2 268 318 'upper bound' . 48.808 1.000 . 4
-1515 2 237 315 'upper bound' . 48.311 1.000 . 4
-1516 2 237 288 'upper bound' . 34.903 1.000 . 4
-1517 2 226 303 'upper bound' . 45.369 1.000 . 4
-1518 2 226 288 'upper bound' . 30.170 1.000 . 4
-1519 2 238 288 'upper bound' . 52.089 1.000 . 4
-1520 2 238 302 'upper bound' . 52.829 1.000 . 4
-1521 2 242 297 'upper bound' . 45.840 1.000 . 4
-1522 2 242 299 'upper bound' . 48.018 1.000 . 4
-1523 2 243 314 'upper bound' . 46.293 1.000 . 4
-1524 2 243 310 'upper bound' . 25.141 1.000 . 4
-1525 2 243 315 'upper bound' . 50.190 1.000 . 4
-1526 2 243 297 'upper bound' . 42.130 1.000 . 4
-1527 2 243 298 'upper bound' . 47.170 1.000 . 4
-1528 2 243 299 'upper bound' . 22.525 1.000 . 4
-1529 2 240 332 'upper bound' . 52.716 1.000 . 4
-1530 2 240 291 'upper bound' . 50.875 1.000 . 4
-1531 2 263 333 'upper bound' . 52.020 1.000 . 4
-1532 2 244 296 'upper bound' . 52.628 1.000 . 4
-1533 2 244 334 'upper bound' . 52.730 1.000 . 4
-1534 2 244 310 'upper bound' . 47.774 1.000 . 4
-1535 2 244 311 'upper bound' . 39.567 1.000 . 4
-1536 2 244 298 'upper bound' . 24.635 1.000 . 4
-1537 2 244 299 'upper bound' . 29.789 1.000 . 4
-1538 2 216 314 'upper bound' . 27.794 1.000 . 4
-1539 2 216 310 'upper bound' . 25.569 1.000 . 4
-1540 2 216 315 'upper bound' . 28.898 1.000 . 4
-1541 2 216 297 'upper bound' . 34.072 1.000 . 4
-1542 2 216 298 'upper bound' . 52.914 1.000 . 4
-1543 2 216 299 'upper bound' . 28.550 1.000 . 4
-1544 2 245 296 'upper bound' . 45.304 1.000 . 4
-1545 2 245 314 'upper bound' . 51.233 1.000 . 4
-1546 2 245 310 'upper bound' . 23.652 1.000 . 4
-1547 2 245 297 'upper bound' . 41.980 1.000 . 4
-1548 2 245 335 'upper bound' . 49.311 1.000 . 4
-1549 2 245 298 'upper bound' . 22.203 1.000 . 4
-1550 2 245 299 'upper bound' . 13.662 1.000 . 4
-1551 2 274 303 'upper bound' . 52.452 1.000 . 4
-1552 2 274 309 'upper bound' . 51.015 1.000 . 4
-1553 2 274 311 'upper bound' . 52.374 1.000 . 4
-1554 2 218 314 'upper bound' . 50.059 1.000 . 4
-1555 2 218 310 'upper bound' . 19.794 1.000 . 4
-1556 2 218 297 'upper bound' . 29.229 1.000 . 4
-1557 2 218 298 'upper bound' . 37.139 1.000 . 4
-1558 2 218 316 'upper bound' . 50.774 1.000 . 4
-1559 2 218 299 'upper bound' . 12.918 1.000 . 4
-1560 2 233 307 'upper bound' . 30.252 1.000 . 4
-1561 2 233 303 'upper bound' . 51.161 1.000 . 4
-1562 2 233 309 'upper bound' . 30.969 1.000 . 4
-1563 2 233 316 'upper bound' . 50.294 1.000 . 4
-1564 2 233 306 'upper bound' . 36.340 1.000 . 4
-1565 2 246 335 'upper bound' . 49.784 1.000 . 4
-1566 2 246 311 'upper bound' . 48.651 1.000 . 4
-1567 2 246 326 'upper bound' . 50.272 1.000 . 4
-1568 2 265 321 'upper bound' . 53.467 1.000 . 4
-1569 2 265 319 'upper bound' . 52.156 1.000 . 4
-1570 2 265 325 'upper bound' . 40.632 1.000 . 4
-1571 2 277 336 'upper bound' . 36.395 1.000 . 4
-1572 2 277 337 'upper bound' . 12.259 1.000 . 4
-1573 2 277 338 'upper bound' . 22.498 1.000 . 4
-1574 2 277 317 'upper bound' . 17.849 1.000 . 4
-1575 2 277 339 'upper bound' . 11.211 1.000 . 4
-1576 2 277 286 'upper bound' . 51.510 1.000 . 4
-1577 2 277 333 'upper bound' . 6.838 1.000 . 4
-1578 2 277 340 'upper bound' . 38.231 1.000 . 4
-1579 2 341 284 'upper bound' . 48.544 1.000 . 4
-1580 2 278 336 'upper bound' . 42.981 1.000 . 4
-1581 2 278 337 'upper bound' . 13.506 1.000 . 4
-1582 2 278 338 'upper bound' . 32.946 1.000 . 4
-1583 2 278 317 'upper bound' . 16.121 1.000 . 4
-1584 2 278 339 'upper bound' . 27.827 1.000 . 4
-1585 2 278 333 'upper bound' . 9.140 1.000 . 4
-1586 2 278 340 'upper bound' . 33.000 1.000 . 4
-1587 2 342 343 'upper bound' . 51.422 1.000 . 4
-1588 2 252 318 'upper bound' . 52.744 1.000 . 4
-1589 2 252 344 'upper bound' . 50.988 1.000 . 4
-1590 2 279 336 'upper bound' . 39.909 1.000 . 4
-1591 2 279 337 'upper bound' . 23.969 1.000 . 4
-1592 2 279 338 'upper bound' . 44.986 1.000 . 4
-1593 2 279 317 'upper bound' . 22.987 1.000 . 4
-1594 2 279 339 'upper bound' . 37.032 1.000 . 4
-1595 2 279 333 'upper bound' . 28.486 1.000 . 4
-1596 2 279 340 'upper bound' . 34.005 1.000 . 4
-1597 2 193 296 'upper bound' . 52.338 1.000 . 4
-1598 2 193 289 'upper bound' . 45.909 1.000 . 4
-1599 2 193 283 'upper bound' . 51.614 1.000 . 4
-1600 2 193 309 'upper bound' . 51.114 1.000 . 4
-1601 2 193 290 'upper bound' . 52.257 1.000 . 4
-1602 2 193 292 'upper bound' . 49.270 1.000 . 4
-1603 2 193 293 'upper bound' . 48.527 1.000 . 4
-1604 2 280 336 'upper bound' . 28.297 1.000 . 4
-1605 2 280 337 'upper bound' . 6.838 1.000 . 4
-1606 2 280 338 'upper bound' . 36.397 1.000 . 4
-1607 2 280 317 'upper bound' . 8.510 1.000 . 4
-1608 2 280 339 'upper bound' . 28.170 1.000 . 4
-1609 2 280 286 'upper bound' . 50.451 1.000 . 4
-1610 2 280 333 'upper bound' . 6.838 1.000 . 4
-1611 2 280 345 'upper bound' . 35.551 1.000 . 4
-1612 2 280 340 'upper bound' . 26.231 1.000 . 4
-1613 2 346 347 'upper bound' . 51.994 1.000 . 4
-1614 2 281 336 'upper bound' . 50.409 1.000 . 4
-1615 2 281 337 'upper bound' . 21.987 1.000 . 4
-1616 2 281 338 'upper bound' . 36.181 1.000 . 4
-1617 2 281 317 'upper bound' . 32.273 1.000 . 4
-1618 2 281 339 'upper bound' . 24.750 1.000 . 4
-1619 2 281 333 'upper bound' . 6.838 1.000 . 4
-1620 2 281 340 'upper bound' . 45.716 1.000 . 4
-1621 2 253 324 'upper bound' . 48.098 1.000 . 4
-1622 2 253 318 'upper bound' . 39.444 1.000 . 4
-1623 2 253 322 'upper bound' . 53.691 1.000 . 4
-1624 2 253 284 'upper bound' . 47.696 1.000 . 4
-1625 2 253 325 'upper bound' . 40.108 1.000 . 4
-1626 2 253 348 'upper bound' . 52.936 1.000 . 4
-1627 2 253 292 'upper bound' . 45.577 1.000 . 4
-1628 2 253 344 'upper bound' . 51.601 1.000 . 4
-1629 2 253 316 'upper bound' . 49.154 1.000 . 4
-1630 2 253 331 'upper bound' . 53.407 1.000 . 4
-1631 2 264 349 'upper bound' . 49.236 1.000 . 4
-1632 2 273 334 'upper bound' . 48.634 1.000 . 4
-1633 2 234 307 'upper bound' . 51.211 1.000 . 4
-1634 2 234 306 'upper bound' . 52.927 1.000 . 4
-1635 2 350 308 'upper bound' . 53.520 1.000 . 4
-1636 2 350 287 'upper bound' . 51.575 1.000 . 4
-1637 2 350 289 'upper bound' . 50.727 1.000 . 4
-1638 2 351 330 'upper bound' . 29.297 1.000 . 4
-1639 2 351 352 'upper bound' . 53.635 1.000 . 4
-1640 2 351 326 'upper bound' . 51.278 1.000 . 4
-1641 2 254 288 'upper bound' . 47.902 1.000 . 4
-1642 2 254 295 'upper bound' . 52.189 1.000 . 4
-1643 2 211 286 'upper bound' . 50.701 1.000 . 4
-1644 2 211 293 'upper bound' . 52.759 1.000 . 4
-1645 2 272 353 'upper bound' . 46.327 1.000 . 4
-1646 2 272 303 'upper bound' . 41.906 1.000 . 4
-1647 2 272 354 'upper bound' . 48.004 1.000 . 4
-1648 2 272 305 'upper bound' . 48.151 1.000 . 4
-1649 2 272 306 'upper bound' . 53.818 1.000 . 4
-1650 2 207 355 'upper bound' . 43.641 1.000 . 4
-1651 2 207 324 'upper bound' . 47.123 1.000 . 4
-1652 2 207 286 'upper bound' . 50.208 1.000 . 4
-1653 2 207 356 'upper bound' . 51.093 1.000 . 4
-1654 2 207 303 'upper bound' . 43.006 1.000 . 4
-1655 2 207 332 'upper bound' . 42.688 1.000 . 4
-1656 2 207 289 'upper bound' . 47.936 1.000 . 4
-1657 2 207 354 'upper bound' . 45.607 1.000 . 4
-1658 2 207 304 'upper bound' . 39.478 1.000 . 4
-1659 2 207 305 'upper bound' . 38.544 1.000 . 4
-1660 2 207 290 'upper bound' . 53.567 1.000 . 4
-1661 2 207 322 'upper bound' . 48.567 1.000 . 4
-1662 2 207 291 'upper bound' . 32.840 1.000 . 4
-1663 2 207 345 'upper bound' . 40.312 1.000 . 4
-1664 2 207 293 'upper bound' . 44.456 1.000 . 4
-1665 2 207 316 'upper bound' . 51.797 1.000 . 4
-1666 2 207 295 'upper bound' . 47.049 1.000 . 4
-1667 2 208 286 'upper bound' . 46.675 1.000 . 4
-1668 2 208 289 'upper bound' . 50.627 1.000 . 4
-1669 2 208 291 'upper bound' . 40.922 1.000 . 4
-1670 2 208 293 'upper bound' . 45.837 1.000 . 4
-1671 2 209 285 'upper bound' . 48.005 1.000 . 4
-1672 2 209 286 'upper bound' . 33.456 1.000 . 4
-1673 2 209 333 'upper bound' . 44.602 1.000 . 4
-1674 2 209 296 'upper bound' . 52.588 1.000 . 4
-1675 2 209 289 'upper bound' . 46.349 1.000 . 4
-1676 2 209 290 'upper bound' . 38.001 1.000 . 4
-1677 2 209 291 'upper bound' . 32.123 1.000 . 4
-1678 2 209 293 'upper bound' . 33.169 1.000 . 4
-1679 2 209 295 'upper bound' . 46.934 1.000 . 4
-1680 2 276 311 'upper bound' . 43.003 1.000 . 4
-1681 2 321 324 'upper bound' . 51.413 1.000 . 4
-1682 2 321 318 'upper bound' . 52.848 1.000 . 4
-1683 2 321 356 'upper bound' . 51.202 1.000 . 4
-1684 2 321 332 'upper bound' . 40.385 1.000 . 4
-1685 2 321 305 'upper bound' . 51.643 1.000 . 4
-1686 2 321 322 'upper bound' . 47.323 1.000 . 4
-1687 2 321 345 'upper bound' . 49.128 1.000 . 4
-1688 2 300 285 'upper bound' . 52.113 1.000 . 4
-1689 2 300 287 'upper bound' . 52.578 1.000 . 4
-1690 2 300 289 'upper bound' . 48.792 1.000 . 4
-1691 2 300 290 'upper bound' . 45.037 1.000 . 4
-1692 2 300 291 'upper bound' . 47.113 1.000 . 4
-1693 2 300 293 'upper bound' . 51.217 1.000 . 4
-1694 2 300 295 'upper bound' . 48.200 1.000 . 4
-1695 2 353 308 'upper bound' . 50.515 1.000 . 4
-1696 2 353 287 'upper bound' . 53.256 1.000 . 4
-1697 2 353 330 'upper bound' . 38.525 1.000 . 4
-1698 2 355 324 'upper bound' . 43.917 1.000 . 4
-1699 2 355 322 'upper bound' . 52.705 1.000 . 4
-1700 2 355 357 'upper bound' . 52.086 1.000 . 4
-1701 2 324 303 'upper bound' . 47.243 1.000 . 4
-1702 2 324 329 'upper bound' . 46.424 1.000 . 4
-1703 2 324 292 'upper bound' . 52.605 1.000 . 4
-1704 2 285 286 'upper bound' . 48.124 1.000 . 4
-1705 2 285 287 'upper bound' . 38.872 1.000 . 4
-1706 2 285 301 'upper bound' . 51.874 1.000 . 4
-1707 2 285 289 'upper bound' . 28.054 1.000 . 4
-1708 2 285 290 'upper bound' . 25.616 1.000 . 4
-1709 2 285 291 'upper bound' . 28.738 1.000 . 4
-1710 2 285 293 'upper bound' . 29.479 1.000 . 4
-1711 2 285 294 'upper bound' . 44.106 1.000 . 4
-1712 2 285 295 'upper bound' . 31.912 1.000 . 4
-1713 2 285 302 'upper bound' . 52.936 1.000 . 4
-1714 2 358 287 'upper bound' . 49.235 1.000 . 4
-1715 2 358 289 'upper bound' . 52.828 1.000 . 4
-1716 2 343 356 'upper bound' . 46.479 1.000 . 4
-1717 2 343 332 'upper bound' . 49.625 1.000 . 4
-1718 2 343 289 'upper bound' . 50.671 1.000 . 4
-1719 2 343 304 'upper bound' . 52.359 1.000 . 4
-1720 2 343 305 'upper bound' . 51.491 1.000 . 4
-1721 2 343 322 'upper bound' . 37.265 1.000 . 4
-1722 2 343 357 'upper bound' . 53.509 1.000 . 4
-1723 2 336 337 'upper bound' . 33.675 1.000 . 4
-1724 2 336 317 'upper bound' . 23.122 1.000 . 4
-1725 2 336 339 'upper bound' . 43.327 1.000 . 4
-1726 2 336 333 'upper bound' . 42.994 1.000 . 4
-1727 2 336 340 'upper bound' . 6.838 1.000 . 4
-1728 2 337 338 'upper bound' . 30.222 1.000 . 4
-1729 2 337 317 'upper bound' . 11.085 1.000 . 4
-1730 2 337 339 'upper bound' . 32.099 1.000 . 4
-1731 2 337 286 'upper bound' . 46.607 1.000 . 4
-1732 2 337 333 'upper bound' . 16.372 1.000 . 4
-1733 2 337 345 'upper bound' . 41.757 1.000 . 4
-1734 2 337 340 'upper bound' . 32.853 1.000 . 4
-1735 2 338 317 'upper bound' . 33.865 1.000 . 4
-1736 2 338 339 'upper bound' . 24.235 1.000 . 4
-1737 2 338 333 'upper bound' . 16.306 1.000 . 4
-1738 2 317 318 'upper bound' . 52.113 1.000 . 4
-1739 2 317 339 'upper bound' . 26.927 1.000 . 4
-1740 2 317 333 'upper bound' . 16.630 1.000 . 4
-1741 2 317 325 'upper bound' . 52.180 1.000 . 4
-1742 2 317 345 'upper bound' . 49.420 1.000 . 4
-1743 2 317 316 'upper bound' . 44.133 1.000 . 4
-1744 2 317 340 'upper bound' . 17.751 1.000 . 4
-1745 2 327 319 'upper bound' . 46.514 1.000 . 4
-1746 2 318 329 'upper bound' . 53.106 1.000 . 4
-1747 2 318 322 'upper bound' . 45.556 1.000 . 4
-1748 2 318 319 'upper bound' . 48.053 1.000 . 4
-1749 2 318 320 'upper bound' . 47.527 1.000 . 4
-1750 2 318 284 'upper bound' . 52.960 1.000 . 4
-1751 2 318 306 'upper bound' . 52.267 1.000 . 4
-1752 2 318 323 'upper bound' . 53.696 1.000 . 4
-1753 2 339 333 'upper bound' . 7.538 1.000 . 4
-1754 2 339 340 'upper bound' . 43.226 1.000 . 4
-1755 2 286 333 'upper bound' . 40.900 1.000 . 4
-1756 2 286 296 'upper bound' . 31.360 1.000 . 4
-1757 2 286 287 'upper bound' . 52.255 1.000 . 4
-1758 2 286 289 'upper bound' . 42.848 1.000 . 4
-1759 2 286 290 'upper bound' . 43.852 1.000 . 4
-1760 2 286 291 'upper bound' . 49.703 1.000 . 4
-1761 2 286 293 'upper bound' . 48.934 1.000 . 4
-1762 2 286 295 'upper bound' . 50.213 1.000 . 4
-1763 2 286 302 'upper bound' . 51.378 1.000 . 4
-1764 2 333 289 'upper bound' . 53.008 1.000 . 4
-1765 2 333 283 'upper bound' . 52.318 1.000 . 4
-1766 2 333 349 'upper bound' . 50.392 1.000 . 4
-1767 2 333 345 'upper bound' . 49.874 1.000 . 4
-1768 2 333 340 'upper bound' . 44.249 1.000 . 4
-1769 2 313 308 'upper bound' . 48.055 1.000 . 4
-1770 2 313 319 'upper bound' . 51.078 1.000 . 4
-1771 2 313 299 'upper bound' . 49.525 1.000 . 4
-1772 2 359 294 'upper bound' . 47.805 1.000 . 4
-1773 2 359 360 'upper bound' . 50.568 1.000 . 4
-1774 2 307 309 'upper bound' . 21.451 1.000 . 4
-1775 2 307 292 'upper bound' . 42.691 1.000 . 4
-1776 2 307 316 'upper bound' . 44.197 1.000 . 4
-1777 2 307 306 'upper bound' . 42.793 1.000 . 4
-1778 2 356 287 'upper bound' . 52.737 1.000 . 4
-1779 2 356 332 'upper bound' . 6.838 1.000 . 4
-1780 2 356 289 'upper bound' . 46.086 1.000 . 4
-1781 2 356 354 'upper bound' . 46.571 1.000 . 4
-1782 2 356 304 'upper bound' . 44.330 1.000 . 4
-1783 2 356 305 'upper bound' . 41.625 1.000 . 4
-1784 2 356 290 'upper bound' . 48.878 1.000 . 4
-1785 2 356 361 'upper bound' . 44.218 1.000 . 4
-1786 2 296 297 'upper bound' . 52.197 1.000 . 4
-1787 2 296 293 'upper bound' . 52.216 1.000 . 4
-1788 2 296 299 'upper bound' . 52.129 1.000 . 4
-1789 2 308 287 'upper bound' . 48.429 1.000 . 4
-1790 2 308 303 'upper bound' . 51.919 1.000 . 4
-1791 2 308 289 'upper bound' . 47.307 1.000 . 4
-1792 2 334 362 'upper bound' . 49.121 1.000 . 4
-1793 2 334 363 'upper bound' . 47.290 1.000 . 4
-1794 2 314 310 'upper bound' . 27.517 1.000 . 4
-1795 2 314 315 'upper bound' . 28.955 1.000 . 4
-1796 2 314 297 'upper bound' . 29.431 1.000 . 4
-1797 2 314 299 'upper bound' . 51.167 1.000 . 4
-1798 2 310 315 'upper bound' . 39.164 1.000 . 4
-1799 2 310 297 'upper bound' . 19.057 1.000 . 4
-1800 2 310 298 'upper bound' . 50.662 1.000 . 4
-1801 2 310 299 'upper bound' . 26.019 1.000 . 4
-1802 2 364 301 'upper bound' . 49.333 1.000 . 4
-1803 2 364 304 'upper bound' . 47.808 1.000 . 4
-1804 2 364 294 'upper bound' . 50.971 1.000 . 4
-1805 2 315 297 'upper bound' . 39.265 1.000 . 4
-1806 2 287 289 'upper bound' . 27.659 1.000 . 4
-1807 2 287 290 'upper bound' . 26.929 1.000 . 4
-1808 2 287 322 'upper bound' . 53.754 1.000 . 4
-1809 2 287 291 'upper bound' . 32.511 1.000 . 4
-1810 2 287 293 'upper bound' . 38.127 1.000 . 4
-1811 2 287 295 'upper bound' . 38.159 1.000 . 4
-1812 2 303 354 'upper bound' . 49.839 1.000 . 4
-1813 2 303 304 'upper bound' . 53.206 1.000 . 4
-1814 2 303 309 'upper bound' . 46.844 1.000 . 4
-1815 2 303 305 'upper bound' . 46.513 1.000 . 4
-1816 2 365 301 'upper bound' . 52.185 1.000 . 4
-1817 2 365 366 'upper bound' . 42.635 1.000 . 4
-1818 2 365 330 'upper bound' . 52.358 1.000 . 4
-1819 2 301 283 'upper bound' . 53.397 1.000 . 4
-1820 2 301 294 'upper bound' . 49.105 1.000 . 4
-1821 2 301 295 'upper bound' . 50.613 1.000 . 4
-1822 2 288 319 'upper bound' . 52.795 1.000 . 4
-1823 2 332 289 'upper bound' . 52.461 1.000 . 4
-1824 2 332 354 'upper bound' . 41.975 1.000 . 4
-1825 2 332 304 'upper bound' . 25.876 1.000 . 4
-1826 2 332 305 'upper bound' . 36.622 1.000 . 4
-1827 2 332 290 'upper bound' . 43.662 1.000 . 4
-1828 2 332 322 'upper bound' . 48.058 1.000 . 4
-1829 2 332 361 'upper bound' . 45.174 1.000 . 4
-1830 2 332 291 'upper bound' . 48.659 1.000 . 4
-1831 2 332 345 'upper bound' . 42.085 1.000 . 4
-1832 2 332 294 'upper bound' . 46.344 1.000 . 4
-1833 2 297 298 'upper bound' . 50.707 1.000 . 4
-1834 2 297 299 'upper bound' . 35.653 1.000 . 4
-1835 2 297 331 'upper bound' . 51.743 1.000 . 4
-1836 2 289 290 'upper bound' . 25.278 1.000 . 4
-1837 2 289 325 'upper bound' . 53.787 1.000 . 4
-1838 2 289 291 'upper bound' . 28.612 1.000 . 4
-1839 2 289 345 'upper bound' . 53.482 1.000 . 4
-1840 2 289 293 'upper bound' . 22.306 1.000 . 4
-1841 2 289 295 'upper bound' . 39.484 1.000 . 4
-1842 2 354 304 'upper bound' . 33.575 1.000 . 4
-1843 2 354 305 'upper bound' . 31.689 1.000 . 4
-1844 2 354 361 'upper bound' . 42.649 1.000 . 4
-1845 2 354 345 'upper bound' . 45.695 1.000 . 4
-1846 2 335 311 'upper bound' . 52.104 1.000 . 4
-1847 2 335 299 'upper bound' . 46.723 1.000 . 4
-1848 2 304 305 'upper bound' . 6.838 1.000 . 4
-1849 2 304 322 'upper bound' . 50.253 1.000 . 4
-1850 2 304 361 'upper bound' . 26.223 1.000 . 4
-1851 2 304 345 'upper bound' . 26.147 1.000 . 4
-1852 2 304 348 'upper bound' . 51.277 1.000 . 4
-1853 2 283 367 'upper bound' . 52.351 1.000 . 4
-1854 2 309 292 'upper bound' . 50.861 1.000 . 4
-1855 2 329 322 'upper bound' . 44.197 1.000 . 4
-1856 2 305 322 'upper bound' . 44.969 1.000 . 4
-1857 2 305 361 'upper bound' . 18.517 1.000 . 4
-1858 2 305 345 'upper bound' . 25.672 1.000 . 4
-1859 2 305 295 'upper bound' . 52.754 1.000 . 4
-1860 2 290 291 'upper bound' . 15.674 1.000 . 4
-1861 2 290 293 'upper bound' . 29.154 1.000 . 4
-1862 2 290 295 'upper bound' . 23.562 1.000 . 4
-1863 2 290 302 'upper bound' . 52.648 1.000 . 4
-1864 2 322 320 'upper bound' . 44.170 1.000 . 4
-1865 2 322 291 'upper bound' . 51.929 1.000 . 4
-1866 2 322 345 'upper bound' . 52.634 1.000 . 4
-1867 2 322 302 'upper bound' . 51.929 1.000 . 4
-1868 2 311 298 'upper bound' . 38.816 1.000 . 4
-1869 2 311 299 'upper bound' . 43.521 1.000 . 4
-1870 2 284 325 'upper bound' . 52.310 1.000 . 4
-1871 2 284 306 'upper bound' . 47.086 1.000 . 4
-1872 2 291 293 'upper bound' . 18.115 1.000 . 4
-1873 2 291 294 'upper bound' . 47.907 1.000 . 4
-1874 2 291 295 'upper bound' . 26.445 1.000 . 4
-1875 2 345 360 'upper bound' . 53.736 1.000 . 4
-1876 2 328 330 'upper bound' . 17.147 1.000 . 4
-1877 2 328 326 'upper bound' . 41.488 1.000 . 4
-1878 2 298 299 'upper bound' . 26.095 1.000 . 4
-1879 2 330 326 'upper bound' . 48.081 1.000 . 4
-1880 2 348 344 'upper bound' . 50.485 1.000 . 4
-1881 2 292 316 'upper bound' . 34.268 1.000 . 4
-1882 2 292 306 'upper bound' . 38.117 1.000 . 4
-1883 2 292 368 'upper bound' . 50.291 1.000 . 4
-1884 2 292 326 'upper bound' . 51.663 1.000 . 4
-1885 2 293 294 'upper bound' . 52.457 1.000 . 4
-1886 2 293 295 'upper bound' . 45.434 1.000 . 4
-1887 2 294 295 'upper bound' . 52.040 1.000 . 4
-1888 2 294 302 'upper bound' . 53.049 1.000 . 4
-1889 2 352 326 'upper bound' . 52.678 1.000 . 4
-1890 2 295 302 'upper bound' . 51.969 1.000 . 4
-1891 2 302 360 'upper bound' . 19.035 1.000 . 4
-1892 2 312 331 'upper bound' . 50.649 1.000 . 4
+947 2 185 186 'upper bound' . 50.405 1.000 . 5
+948 2 187 188 'upper bound' . 53.383 1.000 . 5
+949 2 189 190 'upper bound' . 51.580 1.000 . 5
+950 2 191 192 'upper bound' . 31.360 1.000 . 5
+951 2 193 194 'upper bound' . 53.402 1.000 . 5
+952 2 195 196 'upper bound' . 53.520 1.000 . 5
+953 2 197 198 'upper bound' . 42.691 1.000 . 5
+954 2 199 200 'upper bound' . 41.757 1.000 . 5
+955 2 201 202 'upper bound' . 6.838 1.000 . 5
+956 2 201 203 'upper bound' . 28.297 1.000 . 5
+957 2 204 205 'upper bound' . 32.283 1.000 . 5
+958 2 206 207 'upper bound' . 51.202 1.000 . 5
+959 2 208 209 'upper bound' . 52.907 1.000 . 5
+960 2 210 211 'upper bound' . 41.201 1.000 . 5
+961 2 212 213 'upper bound' . 22.306 1.000 . 5
+962 2 211 214 'upper bound' . 48.637 1.000 . 5
+963 2 215 216 'upper bound' . 53.727 1.000 . 5
+964 2 217 218 'upper bound' . 11.418 1.000 . 5
+965 2 219 220 'upper bound' . 23.652 1.000 . 5
+966 2 221 222 'upper bound' . 53.049 1.000 . 5
+967 2 223 224 'upper bound' . 51.382 1.000 . 5
+968 2 225 226 'upper bound' . 53.401 1.000 . 5
+969 2 227 228 'upper bound' . 37.032 1.000 . 5
+970 2 229 230 'upper bound' . 40.632 1.000 . 5
+971 2 231 208 'upper bound' . 44.168 1.000 . 5
+972 2 232 233 'upper bound' . 43.880 1.000 . 5
+973 2 234 235 'upper bound' . 47.212 1.000 . 5
+974 2 196 212 'upper bound' . 47.307 1.000 . 5
+975 2 198 236 'upper bound' . 50.291 1.000 . 5
+976 2 237 238 'upper bound' . 31.729 1.000 . 5
+977 2 239 240 'upper bound' . 51.422 1.000 . 5
+978 2 241 242 'upper bound' . 48.659 1.000 . 5
+979 2 243 244 'upper bound' . 51.366 1.000 . 5
+980 2 245 246 'upper bound' . 41.488 1.000 . 5
+981 2 247 248 'upper bound' . 41.436 1.000 . 5
+982 2 249 250 'upper bound' . 33.865 1.000 . 5
+983 2 248 226 'upper bound' . 30.170 1.000 . 5
+984 2 215 251 'upper bound' . 47.044 1.000 . 5
+985 2 187 210 'upper bound' . 44.094 1.000 . 5
+986 2 193 205 'upper bound' . 37.003 1.000 . 5
+987 2 190 252 'upper bound' . 30.234 1.000 . 5
+988 2 223 206 'upper bound' . 46.503 1.000 . 5
+989 2 253 254 'upper bound' . 52.587 1.000 . 5
+990 2 208 255 'upper bound' . 45.241 1.000 . 5
+991 2 256 257 'upper bound' . 51.849 1.000 . 5
+992 2 242 213 'upper bound' . 18.115 1.000 . 5
+993 2 185 237 'upper bound' . 45.115 1.000 . 5
+994 2 250 230 'upper bound' . 52.180 1.000 . 5
+995 2 187 214 'upper bound' . 42.450 1.000 . 5
+996 2 258 203 'upper bound' . 42.981 1.000 . 5
+997 2 220 259 'upper bound' . 19.057 1.000 . 5
+998 2 224 255 'upper bound' . 48.053 1.000 . 5
+999 2 209 260 'upper bound' . 9.040 1.000 . 5
+1000 2 191 213 'upper bound' . 48.934 1.000 . 5
+1001 2 261 204 'upper bound' . 40.994 1.000 . 5
+1002 2 262 263 'upper bound' . 48.436 1.000 . 5
+1003 2 264 265 'upper bound' . 46.693 1.000 . 5
+1004 2 266 254 'upper bound' . 50.097 1.000 . 5
+1005 2 267 212 'upper bound' . 45.909 1.000 . 5
+1006 2 187 268 'upper bound' . 49.333 1.000 . 5
+1007 2 257 242 'upper bound' . 15.674 1.000 . 5
+1008 2 269 270 'upper bound' . 50.354 1.000 . 5
+1009 2 271 272 'upper bound' . 52.358 1.000 . 5
+1010 2 250 228 'upper bound' . 26.927 1.000 . 5
+1011 2 273 274 'upper bound' . 50.472 1.000 . 5
+1012 2 266 261 'upper bound' . 46.193 1.000 . 5
+1013 2 275 276 'upper bound' . 37.851 1.000 . 5
+1014 2 277 248 'upper bound' . 52.445 1.000 . 5
+1015 2 199 250 'upper bound' . 11.085 1.000 . 5
+1016 2 247 226 'upper bound' . 34.903 1.000 . 5
+1017 2 278 279 'upper bound' . 51.167 1.000 . 5
+1018 2 280 242 'upper bound' . 47.113 1.000 . 5
+1019 2 267 265 'upper bound' . 51.114 1.000 . 5
+1020 2 281 250 'upper bound' . 47.520 1.000 . 5
+1021 2 267 282 'upper bound' . 51.614 1.000 . 5
+1022 2 263 283 'upper bound' . 51.438 1.000 . 5
+1023 2 284 219 'upper bound' . 26.852 1.000 . 5
+1024 2 209 285 'upper bound' . 52.300 1.000 . 5
+1025 2 234 213 'upper bound' . 48.226 1.000 . 5
+1026 2 208 230 'upper bound' . 49.587 1.000 . 5
+1027 2 208 260 'upper bound' . 36.532 1.000 . 5
+1028 2 286 287 'upper bound' . 44.170 1.000 . 5
+1029 2 223 209 'upper bound' . 38.153 1.000 . 5
+1030 2 288 281 'upper bound' . 47.027 1.000 . 5
+1031 2 210 205 'upper bound' . 51.033 1.000 . 5
+1032 2 260 238 'upper bound' . 41.251 1.000 . 5
+1033 2 225 192 'upper bound' . 53.281 1.000 . 5
+1034 2 260 250 'upper bound' . 48.040 1.000 . 5
+1035 2 243 289 'upper bound' . 51.532 1.000 . 5
+1036 2 190 290 'upper bound' . 53.110 1.000 . 5
+1037 2 258 228 'upper bound' . 27.827 1.000 . 5
+1038 2 291 292 'upper bound' . 48.038 1.000 . 5
+1039 2 233 290 'upper bound' . 51.740 1.000 . 5
+1040 2 269 293 'upper bound' . 39.567 1.000 . 5
+1041 2 294 213 'upper bound' . 33.169 1.000 . 5
+1042 2 266 213 'upper bound' . 50.357 1.000 . 5
+1043 2 279 260 'upper bound' . 36.984 1.000 . 5
+1044 2 216 212 'upper bound' . 27.659 1.000 . 5
+1045 2 272 246 'upper bound' . 48.081 1.000 . 5
+1046 2 295 296 'upper bound' . 53.060 1.000 . 5
+1047 2 250 297 'upper bound' . 44.133 1.000 . 5
+1048 2 205 242 'upper bound' . 40.922 1.000 . 5
+1049 2 298 299 'upper bound' . 49.388 1.000 . 5
+1050 2 243 187 'upper bound' . 52.854 1.000 . 5
+1051 2 300 231 'upper bound' . 37.066 1.000 . 5
+1052 2 199 202 'upper bound' . 16.372 1.000 . 5
+1053 2 301 302 'upper bound' . 52.754 1.000 . 5
+1054 2 193 257 'upper bound' . 42.901 1.000 . 5
+1055 2 237 286 'upper bound' . 47.159 1.000 . 5
+1056 2 277 209 'upper bound' . 36.598 1.000 . 5
+1057 2 217 227 'upper bound' . 34.574 1.000 . 5
+1058 2 266 242 'upper bound' . 45.966 1.000 . 5
+1059 2 225 242 'upper bound' . 37.239 1.000 . 5
+1060 2 217 199 'upper bound' . 12.259 1.000 . 5
+1061 2 209 303 'upper bound' . 45.102 1.000 . 5
+1062 2 259 285 'upper bound' . 51.743 1.000 . 5
+1063 2 190 220 'upper bound' . 20.557 1.000 . 5
+1064 2 275 304 'upper bound' . 28.898 1.000 . 5
+1065 2 300 305 'upper bound' . 51.130 1.000 . 5
+1066 2 186 300 'upper bound' . 44.380 1.000 . 5
+1067 2 253 306 'upper bound' . 53.584 1.000 . 5
+1068 2 202 307 'upper bound' . 44.249 1.000 . 5
+1069 2 220 304 'upper bound' . 39.164 1.000 . 5
+1070 2 308 297 'upper bound' . 53.165 1.000 . 5
+1071 2 291 309 'upper bound' . 40.974 1.000 . 5
+1072 2 233 300 'upper bound' . 51.758 1.000 . 5
+1073 2 223 310 'upper bound' . 38.998 1.000 . 5
+1074 2 241 200 'upper bound' . 42.085 1.000 . 5
+1075 2 260 248 'upper bound' . 24.893 1.000 . 5
+1076 2 300 255 'upper bound' . 51.334 1.000 . 5
+1077 2 225 294 'upper bound' . 19.323 1.000 . 5
+1078 2 203 202 'upper bound' . 42.994 1.000 . 5
+1079 2 289 244 'upper bound' . 40.518 1.000 . 5
+1080 2 207 241 'upper bound' . 6.838 1.000 . 5
+1081 2 301 311 'upper bound' . 18.517 1.000 . 5
+1082 2 194 302 'upper bound' . 31.912 1.000 . 5
+1083 2 259 252 'upper bound' . 35.653 1.000 . 5
+1084 2 312 313 'upper bound' . 48.957 1.000 . 5
+1085 2 293 292 'upper bound' . 38.816 1.000 . 5
+1086 2 206 241 'upper bound' . 40.385 1.000 . 5
+1087 2 314 287 'upper bound' . 49.875 1.000 . 5
+1088 2 208 281 'upper bound' . 32.377 1.000 . 5
+1089 2 198 246 'upper bound' . 51.663 1.000 . 5
+1090 2 214 297 'upper bound' . 49.154 1.000 . 5
+1091 2 300 268 'upper bound' . 37.569 1.000 . 5
+1092 2 264 296 'upper bound' . 52.763 1.000 . 5
+1093 2 208 315 'upper bound' . 49.783 1.000 . 5
+1094 2 266 251 'upper bound' . 44.533 1.000 . 5
+1095 2 201 199 'upper bound' . 6.838 1.000 . 5
+1096 2 305 198 'upper bound' . 52.605 1.000 . 5
+1097 2 300 297 'upper bound' . 48.916 1.000 . 5
+1098 2 189 269 'upper bound' . 42.218 1.000 . 5
+1099 2 251 193 'upper bound' . 44.904 1.000 . 5
+1100 2 217 250 'upper bound' . 17.849 1.000 . 5
+1101 2 217 203 'upper bound' . 36.395 1.000 . 5
+1102 2 316 209 'upper bound' . 27.039 1.000 . 5
+1103 2 186 206 'upper bound' . 50.122 1.000 . 5
+1104 2 232 211 'upper bound' . 52.654 1.000 . 5
+1105 2 268 317 'upper bound' . 53.194 1.000 . 5
+1106 2 275 292 'upper bound' . 52.914 1.000 . 5
+1107 2 298 318 'upper bound' . 50.819 1.000 . 5
+1108 2 242 302 'upper bound' . 26.445 1.000 . 5
+1109 2 319 276 'upper bound' . 46.324 1.000 . 5
+1110 2 201 200 'upper bound' . 35.551 1.000 . 5
+1111 2 190 219 'upper bound' . 29.780 1.000 . 5
+1112 2 191 212 'upper bound' . 42.848 1.000 . 5
+1113 2 320 241 'upper bound' . 52.716 1.000 . 5
+1114 2 321 259 'upper bound' . 45.840 1.000 . 5
+1115 2 193 322 'upper bound' . 50.718 1.000 . 5
+1116 2 298 222 'upper bound' . 34.443 1.000 . 5
+1117 2 323 293 'upper bound' . 43.003 1.000 . 5
+1118 2 215 267 'upper bound' . 52.821 1.000 . 5
+1119 2 300 214 'upper bound' . 38.790 1.000 . 5
+1120 2 248 289 'upper bound' . 43.468 1.000 . 5
+1121 2 232 324 'upper bound' . 51.147 1.000 . 5
+1122 2 256 212 'upper bound' . 48.402 1.000 . 5
+1123 2 208 325 'upper bound' . 49.688 1.000 . 5
+1124 2 257 302 'upper bound' . 23.562 1.000 . 5
+1125 2 322 311 'upper bound' . 26.223 1.000 . 5
+1126 2 326 255 'upper bound' . 51.078 1.000 . 5
+1127 2 242 221 'upper bound' . 47.907 1.000 . 5
+1128 2 215 205 'upper bound' . 39.451 1.000 . 5
+1129 2 233 288 'upper bound' . 53.202 1.000 . 5
+1130 2 327 204 'upper bound' . 43.293 1.000 . 5
+1131 2 294 194 'upper bound' . 48.005 1.000 . 5
+1132 2 248 303 'upper bound' . 46.545 1.000 . 5
+1133 2 266 210 'upper bound' . 36.458 1.000 . 5
+1134 2 190 259 'upper bound' . 21.426 1.000 . 5
+1135 2 187 255 'upper bound' . 51.700 1.000 . 5
+1136 2 266 226 'upper bound' . 50.448 1.000 . 5
+1137 2 204 328 'upper bound' . 43.641 1.000 . 5
+1138 2 268 255 'upper bound' . 44.747 1.000 . 5
+1139 2 244 226 'upper bound' . 47.902 1.000 . 5
+1140 2 210 204 'upper bound' . 47.747 1.000 . 5
+1141 2 225 261 'upper bound' . 44.491 1.000 . 5
+1142 2 214 285 'upper bound' . 53.407 1.000 . 5
+1143 2 309 262 'upper bound' . 40.490 1.000 . 5
+1144 2 300 208 'upper bound' . 30.337 1.000 . 5
+1145 2 266 225 'upper bound' . 39.972 1.000 . 5
+1146 2 298 221 'upper bound' . 53.058 1.000 . 5
+1147 2 289 323 'upper bound' . 50.997 1.000 . 5
+1148 2 204 242 'upper bound' . 32.840 1.000 . 5
+1149 2 198 329 'upper bound' . 38.117 1.000 . 5
+1150 2 223 289 'upper bound' . 45.428 1.000 . 5
+1151 2 300 250 'upper bound' . 43.049 1.000 . 5
+1152 2 327 303 'upper bound' . 44.948 1.000 . 5
+1153 2 264 330 'upper bound' . 46.576 1.000 . 5
+1154 2 331 272 'upper bound' . 29.297 1.000 . 5
+1155 2 209 289 'upper bound' . 47.054 1.000 . 5
+1156 2 275 219 'upper bound' . 21.901 1.000 . 5
+1157 2 266 303 'upper bound' . 36.292 1.000 . 5
+1158 2 201 228 'upper bound' . 28.170 1.000 . 5
+1159 2 203 250 'upper bound' . 23.122 1.000 . 5
+1160 2 256 205 'upper bound' . 35.471 1.000 . 5
+1161 2 328 286 'upper bound' . 52.705 1.000 . 5
+1162 2 211 230 'upper bound' . 53.041 1.000 . 5
+1163 2 234 204 'upper bound' . 53.347 1.000 . 5
+1164 2 224 317 'upper bound' . 52.960 1.000 . 5
+1165 2 258 250 'upper bound' . 16.121 1.000 . 5
+1166 2 300 246 'upper bound' . 49.395 1.000 . 5
+1167 2 261 213 'upper bound' . 53.774 1.000 . 5
+1168 2 288 223 'upper bound' . 50.693 1.000 . 5
+1169 2 218 203 'upper bound' . 50.409 1.000 . 5
+1170 2 225 194 'upper bound' . 51.902 1.000 . 5
+1171 2 217 202 'upper bound' . 6.838 1.000 . 5
+1172 2 332 238 'upper bound' . 9.339 1.000 . 5
+1173 2 195 216 'upper bound' . 51.575 1.000 . 5
+1174 2 234 303 'upper bound' . 49.796 1.000 . 5
+1175 2 268 281 'upper bound' . 36.660 1.000 . 5
+1176 2 284 235 'upper bound' . 46.293 1.000 . 5
+1177 2 314 263 'upper bound' . 51.792 1.000 . 5
+1178 2 264 333 'upper bound' . 51.014 1.000 . 5
+1179 2 215 221 'upper bound' . 50.123 1.000 . 5
+1180 2 327 205 'upper bound' . 44.631 1.000 . 5
+1181 2 305 334 'upper bound' . 47.243 1.000 . 5
+1182 2 251 205 'upper bound' . 44.944 1.000 . 5
+1183 2 232 210 'upper bound' . 52.276 1.000 . 5
+1184 2 210 302 'upper bound' . 46.444 1.000 . 5
+1185 2 189 284 'upper bound' . 48.191 1.000 . 5
+1186 2 314 204 'upper bound' . 52.727 1.000 . 5
+1187 2 280 194 'upper bound' . 52.113 1.000 . 5
+1188 2 208 246 'upper bound' . 46.157 1.000 . 5
+1189 2 201 307 'upper bound' . 26.231 1.000 . 5
+1190 2 321 252 'upper bound' . 48.018 1.000 . 5
+1191 2 237 229 'upper bound' . 48.674 1.000 . 5
+1192 2 258 218 'upper bound' . 7.421 1.000 . 5
+1193 2 218 249 'upper bound' . 36.181 1.000 . 5
+1194 2 240 207 'upper bound' . 46.479 1.000 . 5
+1195 2 291 259 'upper bound' . 51.858 1.000 . 5
+1196 2 213 302 'upper bound' . 45.434 1.000 . 5
+1197 2 258 199 'upper bound' . 13.506 1.000 . 5
+1198 2 300 223 'upper bound' . 46.772 1.000 . 5
+1199 2 291 190 'upper bound' . 43.552 1.000 . 5
+1200 2 326 252 'upper bound' . 49.525 1.000 . 5
+1201 2 214 317 'upper bound' . 47.696 1.000 . 5
+1202 2 232 282 'upper bound' . 46.912 1.000 . 5
+1203 2 202 200 'upper bound' . 49.874 1.000 . 5
+1204 2 250 202 'upper bound' . 16.630 1.000 . 5
+1205 2 240 301 'upper bound' . 51.491 1.000 . 5
+1206 2 275 220 'upper bound' . 25.569 1.000 . 5
+1207 2 260 247 'upper bound' . 16.671 1.000 . 5
+1208 2 205 191 'upper bound' . 46.675 1.000 . 5
+1209 2 284 304 'upper bound' . 50.190 1.000 . 5
+1210 2 204 213 'upper bound' . 44.456 1.000 . 5
+1211 2 225 209 'upper bound' . 48.700 1.000 . 5
+1212 2 296 335 'upper bound' . 53.571 1.000 . 5
+1213 2 251 191 'upper bound' . 49.732 1.000 . 5
+1214 2 223 238 'upper bound' . 47.060 1.000 . 5
+1215 2 336 200 'upper bound' . 45.695 1.000 . 5
+1216 2 298 213 'upper bound' . 53.409 1.000 . 5
+1217 2 337 330 'upper bound' . 43.770 1.000 . 5
+1218 2 224 287 'upper bound' . 47.527 1.000 . 5
+1219 2 194 212 'upper bound' . 28.054 1.000 . 5
+1220 2 196 216 'upper bound' . 48.429 1.000 . 5
+1221 2 268 214 'upper bound' . 28.165 1.000 . 5
+1222 2 187 338 'upper bound' . 40.697 1.000 . 5
+1223 2 250 307 'upper bound' . 17.751 1.000 . 5
+1224 2 258 249 'upper bound' . 32.946 1.000 . 5
+1225 2 262 244 'upper bound' . 46.878 1.000 . 5
+1226 2 336 301 'upper bound' . 31.689 1.000 . 5
+1227 2 248 254 'upper bound' . 44.113 1.000 . 5
+1228 2 256 192 'upper bound' . 48.531 1.000 . 5
+1229 2 201 191 'upper bound' . 50.451 1.000 . 5
+1230 2 206 305 'upper bound' . 51.413 1.000 . 5
+1231 2 296 329 'upper bound' . 36.340 1.000 . 5
+1232 2 248 244 'upper bound' . 52.806 1.000 . 5
+1233 2 243 339 'upper bound' . 51.458 1.000 . 5
+1234 2 233 317 'upper bound' . 50.273 1.000 . 5
+1235 2 303 191 'upper bound' . 50.701 1.000 . 5
+1236 2 324 294 'upper bound' . 53.750 1.000 . 5
+1237 2 299 282 'upper bound' . 53.397 1.000 . 5
+1238 2 228 307 'upper bound' . 43.226 1.000 . 5
+1239 2 309 276 'upper bound' . 23.379 1.000 . 5
+1240 2 291 275 'upper bound' . 52.503 1.000 . 5
+1241 2 337 289 'upper bound' . 51.663 1.000 . 5
+1242 2 291 189 'upper bound' . 53.756 1.000 . 5
+1243 2 208 317 'upper bound' . 47.614 1.000 . 5
+1244 2 332 224 'upper bound' . 52.264 1.000 . 5
+1245 2 286 242 'upper bound' . 51.929 1.000 . 5
+1246 2 247 304 'upper bound' . 48.311 1.000 . 5
+1247 2 281 273 'upper bound' . 53.005 1.000 . 5
+1248 2 225 213 'upper bound' . 32.263 1.000 . 5
+1249 2 280 212 'upper bound' . 48.792 1.000 . 5
+1250 2 293 252 'upper bound' . 43.521 1.000 . 5
+1251 2 330 329 'upper bound' . 52.927 1.000 . 5
+1252 2 217 307 'upper bound' . 38.231 1.000 . 5
+1253 2 227 307 'upper bound' . 34.005 1.000 . 5
+1254 2 215 208 'upper bound' . 42.132 1.000 . 5
+1255 2 215 257 'upper bound' . 44.680 1.000 . 5
+1256 2 326 196 'upper bound' . 48.055 1.000 . 5
+1257 2 250 200 'upper bound' . 49.420 1.000 . 5
+1258 2 209 196 'upper bound' . 51.534 1.000 . 5
+1259 2 234 212 'upper bound' . 49.237 1.000 . 5
+1260 2 215 213 'upper bound' . 37.150 1.000 . 5
+1261 2 189 339 'upper bound' . 51.131 1.000 . 5
+1262 2 340 341 'upper bound' . 51.994 1.000 . 5
+1263 2 266 209 'upper bound' . 48.477 1.000 . 5
+1264 2 215 204 'upper bound' . 34.580 1.000 . 5
+1265 2 277 301 'upper bound' . 48.188 1.000 . 5
+1266 2 193 303 'upper bound' . 40.161 1.000 . 5
+1267 2 194 222 'upper bound' . 52.936 1.000 . 5
+1268 2 261 205 'upper bound' . 51.436 1.000 . 5
+1269 2 214 342 'upper bound' . 52.936 1.000 . 5
+1270 2 310 247 'upper bound' . 46.180 1.000 . 5
+1271 2 276 259 'upper bound' . 29.229 1.000 . 5
+1272 2 275 252 'upper bound' . 28.550 1.000 . 5
+1273 2 314 208 'upper bound' . 51.901 1.000 . 5
+1274 2 247 238 'upper bound' . 51.667 1.000 . 5
+1275 2 298 332 'upper bound' . 44.215 1.000 . 5
+1276 2 298 343 'upper bound' . 36.641 1.000 . 5
+1277 2 186 286 'upper bound' . 53.097 1.000 . 5
+1278 2 227 249 'upper bound' . 44.986 1.000 . 5
+1279 2 257 222 'upper bound' . 52.648 1.000 . 5
+1280 2 256 226 'upper bound' . 47.448 1.000 . 5
+1281 2 233 247 'upper bound' . 47.769 1.000 . 5
+1282 2 261 294 'upper bound' . 50.799 1.000 . 5
+1283 2 344 270 'upper bound' . 49.737 1.000 . 5
+1284 2 223 255 'upper bound' . 51.247 1.000 . 5
+1285 2 211 250 'upper bound' . 50.603 1.000 . 5
+1286 2 256 242 'upper bound' . 45.995 1.000 . 5
+1287 2 208 250 'upper bound' . 35.927 1.000 . 5
+1288 2 234 193 'upper bound' . 43.504 1.000 . 5
+1289 2 314 224 'upper bound' . 32.705 1.000 . 5
+1290 2 284 269 'upper bound' . 39.801 1.000 . 5
+1291 2 193 235 'upper bound' . 53.603 1.000 . 5
+1292 2 232 317 'upper bound' . 50.240 1.000 . 5
+1293 2 337 293 'upper bound' . 52.374 1.000 . 5
+1294 2 281 324 'upper bound' . 53.048 1.000 . 5
+1295 2 193 191 'upper bound' . 44.554 1.000 . 5
+1296 2 205 213 'upper bound' . 45.837 1.000 . 5
+1297 2 211 306 'upper bound' . 50.408 1.000 . 5
+1298 2 186 281 'upper bound' . 49.492 1.000 . 5
+1299 2 243 214 'upper bound' . 52.691 1.000 . 5
+1300 2 310 276 'upper bound' . 53.139 1.000 . 5
+1301 2 314 286 'upper bound' . 51.615 1.000 . 5
+1302 2 319 223 'upper bound' . 44.945 1.000 . 5
+1303 2 235 259 'upper bound' . 29.431 1.000 . 5
+1304 2 300 198 'upper bound' . 52.780 1.000 . 5
+1305 2 208 290 'upper bound' . 49.567 1.000 . 5
+1306 2 187 260 'upper bound' . 52.676 1.000 . 5
+1307 2 208 319 'upper bound' . 45.041 1.000 . 5
+1308 2 192 213 'upper bound' . 52.216 1.000 . 5
+1309 2 210 225 'upper bound' . 35.998 1.000 . 5
+1310 2 251 204 'upper bound' . 42.741 1.000 . 5
+1311 2 291 262 'upper bound' . 48.229 1.000 . 5
+1312 2 227 201 'upper bound' . 21.011 1.000 . 5
+1313 2 203 199 'upper bound' . 33.675 1.000 . 5
+1314 2 197 265 'upper bound' . 21.451 1.000 . 5
+1315 2 247 254 'upper bound' . 49.980 1.000 . 5
+1316 2 210 213 'upper bound' . 48.952 1.000 . 5
+1317 2 200 345 'upper bound' . 53.736 1.000 . 5
+1318 2 346 308 'upper bound' . 44.931 1.000 . 5
+1319 2 193 212 'upper bound' . 38.543 1.000 . 5
+1320 2 256 213 'upper bound' . 42.096 1.000 . 5
+1321 2 186 224 'upper bound' . 47.105 1.000 . 5
+1322 2 208 224 'upper bound' . 35.707 1.000 . 5
+1323 2 207 301 'upper bound' . 41.625 1.000 . 5
+1324 2 339 289 'upper bound' . 52.626 1.000 . 5
+1325 2 210 294 'upper bound' . 42.572 1.000 . 5
+1326 2 347 348 'upper bound' . 45.903 1.000 . 5
+1327 2 194 257 'upper bound' . 25.616 1.000 . 5
+1328 2 197 297 'upper bound' . 44.197 1.000 . 5
+1329 2 303 213 'upper bound' . 52.759 1.000 . 5
+1330 2 215 198 'upper bound' . 51.918 1.000 . 5
+1331 2 268 338 'upper bound' . 52.827 1.000 . 5
+1332 2 276 235 'upper bound' . 50.059 1.000 . 5
+1333 2 295 264 'upper bound' . 27.757 1.000 . 5
+1334 2 300 281 'upper bound' . 35.547 1.000 . 5
+1335 2 204 301 'upper bound' . 38.544 1.000 . 5
+1336 2 349 350 'upper bound' . 49.121 1.000 . 5
+1337 2 316 248 'upper bound' . 39.601 1.000 . 5
+1338 2 275 259 'upper bound' . 34.072 1.000 . 5
+1339 2 204 257 'upper bound' . 53.567 1.000 . 5
+1340 2 300 253 'upper bound' . 50.078 1.000 . 5
+1341 2 233 211 'upper bound' . 50.533 1.000 . 5
+1342 2 217 228 'upper bound' . 11.211 1.000 . 5
+1343 2 204 207 'upper bound' . 51.093 1.000 . 5
+1344 2 347 351 'upper bound' . 48.434 1.000 . 5
+1345 2 284 220 'upper bound' . 25.141 1.000 . 5
+1346 2 267 213 'upper bound' . 48.527 1.000 . 5
+1347 2 260 317 'upper bound' . 52.822 1.000 . 5
+1348 2 217 258 'upper bound' . 11.127 1.000 . 5
+1349 2 193 267 'upper bound' . 47.070 1.000 . 5
+1350 2 337 265 'upper bound' . 51.015 1.000 . 5
+1351 2 277 334 'upper bound' . 39.882 1.000 . 5
+1352 2 237 188 'upper bound' . 53.800 1.000 . 5
+1353 2 194 299 'upper bound' . 51.874 1.000 . 5
+1354 2 202 212 'upper bound' . 53.008 1.000 . 5
+1355 2 214 352 'upper bound' . 51.601 1.000 . 5
+1356 2 223 260 'upper bound' . 38.799 1.000 . 5
+1357 2 199 228 'upper bound' . 32.099 1.000 . 5
+1358 2 204 297 'upper bound' . 51.797 1.000 . 5
+1359 2 299 221 'upper bound' . 49.105 1.000 . 5
+1360 2 189 259 'upper bound' . 45.071 1.000 . 5
+1361 2 308 265 'upper bound' . 51.197 1.000 . 5
+1362 2 229 255 'upper bound' . 52.156 1.000 . 5
+1363 2 291 252 'upper bound' . 44.071 1.000 . 5
+1364 2 282 353 'upper bound' . 52.351 1.000 . 5
+1365 2 277 279 'upper bound' . 40.091 1.000 . 5
+1366 2 300 319 'upper bound' . 51.900 1.000 . 5
+1367 2 186 287 'upper bound' . 51.585 1.000 . 5
+1368 2 300 254 'upper bound' . 50.502 1.000 . 5
+1369 2 280 213 'upper bound' . 51.217 1.000 . 5
+1370 2 322 286 'upper bound' . 50.253 1.000 . 5
+1371 2 219 276 'upper bound' . 20.675 1.000 . 5
+1372 2 196 334 'upper bound' . 51.919 1.000 . 5
+1373 2 322 200 'upper bound' . 26.147 1.000 . 5
+1374 2 281 317 'upper bound' . 50.366 1.000 . 5
+1375 2 281 224 'upper bound' . 44.177 1.000 . 5
+1376 2 243 223 'upper bound' . 53.040 1.000 . 5
+1377 2 291 276 'upper bound' . 44.665 1.000 . 5
+1378 2 288 268 'upper bound' . 49.024 1.000 . 5
+1379 2 237 272 'upper bound' . 49.898 1.000 . 5
+1380 2 198 297 'upper bound' . 34.268 1.000 . 5
+1381 2 218 202 'upper bound' . 6.838 1.000 . 5
+1382 2 284 276 'upper bound' . 29.082 1.000 . 5
+1383 2 289 224 'upper bound' . 52.744 1.000 . 5
+1384 2 256 251 'upper bound' . 41.140 1.000 . 5
+1385 2 266 327 'upper bound' . 47.596 1.000 . 5
+1386 2 186 208 'upper bound' . 41.346 1.000 . 5
+1387 2 319 214 'upper bound' . 46.087 1.000 . 5
+1388 2 304 259 'upper bound' . 39.265 1.000 . 5
+1389 2 233 210 'upper bound' . 51.427 1.000 . 5
+1390 2 258 307 'upper bound' . 33.000 1.000 . 5
+1391 2 232 260 'upper bound' . 49.335 1.000 . 5
+1392 2 205 294 'upper bound' . 38.728 1.000 . 5
+1393 2 233 208 'upper bound' . 30.650 1.000 . 5
+1394 2 212 230 'upper bound' . 53.787 1.000 . 5
+1395 2 209 248 'upper bound' . 16.185 1.000 . 5
+1396 2 300 230 'upper bound' . 51.007 1.000 . 5
+1397 2 335 301 'upper bound' . 48.151 1.000 . 5
+1398 2 206 224 'upper bound' . 52.848 1.000 . 5
+1399 2 194 213 'upper bound' . 29.479 1.000 . 5
+1400 2 199 249 'upper bound' . 30.222 1.000 . 5
+1401 2 227 199 'upper bound' . 23.969 1.000 . 5
+1402 2 223 316 'upper bound' . 45.575 1.000 . 5
+1403 2 332 188 'upper bound' . 27.534 1.000 . 5
+1404 2 269 192 'upper bound' . 52.628 1.000 . 5
+1405 2 237 206 'upper bound' . 49.560 1.000 . 5
+1406 2 204 322 'upper bound' . 39.478 1.000 . 5
+1407 2 310 260 'upper bound' . 27.894 1.000 . 5
+1408 2 295 198 'upper bound' . 51.210 1.000 . 5
+1409 2 187 223 'upper bound' . 45.795 1.000 . 5
+1410 2 301 286 'upper bound' . 44.969 1.000 . 5
+1411 2 225 212 'upper bound' . 47.131 1.000 . 5
+1412 2 314 319 'upper bound' . 40.739 1.000 . 5
+1413 2 206 200 'upper bound' . 49.128 1.000 . 5
+1414 2 270 349 'upper bound' . 48.634 1.000 . 5
+1415 2 212 242 'upper bound' . 28.612 1.000 . 5
+1416 2 335 329 'upper bound' . 53.818 1.000 . 5
+1417 2 312 224 'upper bound' . 48.808 1.000 . 5
+1418 2 227 250 'upper bound' . 22.987 1.000 . 5
+1419 2 256 266 'upper bound' . 50.427 1.000 . 5
+1420 2 260 244 'upper bound' . 44.019 1.000 . 5
+1421 2 187 300 'upper bound' . 49.850 1.000 . 5
+1422 2 281 230 'upper bound' . 50.207 1.000 . 5
+1423 2 190 235 'upper bound' . 35.570 1.000 . 5
+1424 2 251 242 'upper bound' . 49.553 1.000 . 5
+1425 2 240 286 'upper bound' . 37.265 1.000 . 5
+1426 2 314 338 'upper bound' . 47.046 1.000 . 5
+1427 2 335 336 'upper bound' . 48.004 1.000 . 5
+1428 2 210 247 'upper bound' . 53.761 1.000 . 5
+1429 2 207 257 'upper bound' . 48.878 1.000 . 5
+1430 2 209 247 'upper bound' . 21.743 1.000 . 5
+1431 2 281 319 'upper bound' . 53.472 1.000 . 5
+1432 2 219 292 'upper bound' . 22.203 1.000 . 5
+1433 2 191 242 'upper bound' . 49.703 1.000 . 5
+1434 2 193 213 'upper bound' . 30.973 1.000 . 5
+1435 2 258 201 'upper bound' . 13.386 1.000 . 5
+1436 2 206 286 'upper bound' . 47.323 1.000 . 5
+1437 2 321 284 'upper bound' . 40.070 1.000 . 5
+1438 2 217 191 'upper bound' . 51.510 1.000 . 5
+1439 2 336 311 'upper bound' . 42.649 1.000 . 5
+1440 2 214 286 'upper bound' . 53.691 1.000 . 5
+1441 2 276 292 'upper bound' . 37.139 1.000 . 5
+1442 2 354 322 'upper bound' . 47.808 1.000 . 5
+1443 2 240 322 'upper bound' . 52.359 1.000 . 5
+1444 2 314 281 'upper bound' . 42.989 1.000 . 5
+1445 2 219 235 'upper bound' . 51.233 1.000 . 5
+1446 2 234 294 'upper bound' . 48.517 1.000 . 5
+1447 2 233 197 'upper bound' . 52.660 1.000 . 5
+1448 2 269 275 'upper bound' . 46.501 1.000 . 5
+1449 2 288 313 'upper bound' . 51.617 1.000 . 5
+1450 2 216 257 'upper bound' . 26.929 1.000 . 5
+1451 2 190 275 'upper bound' . 39.832 1.000 . 5
+1452 2 231 281 'upper bound' . 52.579 1.000 . 5
+1453 2 296 334 'upper bound' . 51.161 1.000 . 5
+1454 2 314 300 'upper bound' . 47.451 1.000 . 5
+1455 2 320 335 'upper bound' . 46.056 1.000 . 5
+1456 2 189 290 'upper bound' . 51.199 1.000 . 5
+1457 2 190 276 'upper bound' . 7.767 1.000 . 5
+1458 2 220 292 'upper bound' . 50.662 1.000 . 5
+1459 2 194 242 'upper bound' . 28.738 1.000 . 5
+1460 2 322 301 'upper bound' . 6.838 1.000 . 5
+1461 2 277 226 'upper bound' . 40.521 1.000 . 5
+1462 2 289 352 'upper bound' . 50.988 1.000 . 5
+1463 2 224 325 'upper bound' . 53.696 1.000 . 5
+1464 2 208 310 'upper bound' . 50.245 1.000 . 5
+1465 2 225 327 'upper bound' . 38.673 1.000 . 5
+1466 2 310 238 'upper bound' . 53.115 1.000 . 5
+1467 2 310 244 'upper bound' . 41.632 1.000 . 5
+1468 2 298 355 'upper bound' . 46.166 1.000 . 5
+1469 2 279 316 'upper bound' . 38.516 1.000 . 5
+1470 2 210 242 'upper bound' . 48.481 1.000 . 5
+1471 2 268 325 'upper bound' . 51.656 1.000 . 5
+1472 2 186 332 'upper bound' . 22.384 1.000 . 5
+1473 2 240 356 'upper bound' . 53.509 1.000 . 5
+1474 2 357 246 'upper bound' . 52.678 1.000 . 5
+1475 2 233 281 'upper bound' . 49.869 1.000 . 5
+1476 2 300 325 'upper bound' . 41.513 1.000 . 5
+1477 2 215 191 'upper bound' . 45.575 1.000 . 5
+1478 2 339 323 'upper bound' . 50.361 1.000 . 5
+1479 2 215 300 'upper bound' . 41.159 1.000 . 5
+1480 2 227 202 'upper bound' . 28.486 1.000 . 5
+1481 2 265 198 'upper bound' . 50.861 1.000 . 5
+1482 2 238 202 'upper bound' . 52.020 1.000 . 5
+1483 2 199 191 'upper bound' . 46.607 1.000 . 5
+1484 2 226 255 'upper bound' . 52.795 1.000 . 5
+1485 2 207 216 'upper bound' . 52.737 1.000 . 5
+1486 2 215 242 'upper bound' . 32.209 1.000 . 5
+1487 2 225 191 'upper bound' . 32.099 1.000 . 5
+1488 2 266 234 'upper bound' . 53.469 1.000 . 5
+1489 2 241 311 'upper bound' . 45.174 1.000 . 5
+1490 2 215 261 'upper bound' . 47.776 1.000 . 5
+1491 2 208 238 'upper bound' . 46.312 1.000 . 5
+1492 2 231 290 'upper bound' . 53.188 1.000 . 5
+1493 2 309 205 'upper bound' . 46.631 1.000 . 5
+1494 2 207 322 'upper bound' . 44.330 1.000 . 5
+1495 2 280 257 'upper bound' . 45.037 1.000 . 5
+1496 2 279 209 'upper bound' . 22.740 1.000 . 5
+1497 2 300 224 'upper bound' . 48.651 1.000 . 5
+1498 2 215 298 'upper bound' . 48.513 1.000 . 5
+1499 2 268 319 'upper bound' . 42.521 1.000 . 5
+1500 2 189 293 'upper bound' . 50.167 1.000 . 5
+1501 2 225 214 'upper bound' . 49.763 1.000 . 5
+1502 2 284 259 'upper bound' . 42.130 1.000 . 5
+1503 2 241 301 'upper bound' . 36.622 1.000 . 5
+1504 2 268 208 'upper bound' . 30.329 1.000 . 5
+1505 2 204 294 'upper bound' . 38.156 1.000 . 5
+1506 2 201 218 'upper bound' . 16.856 1.000 . 5
+1507 2 303 205 'upper bound' . 51.357 1.000 . 5
+1508 2 256 327 'upper bound' . 39.539 1.000 . 5
+1509 2 209 244 'upper bound' . 40.723 1.000 . 5
+1510 2 266 193 'upper bound' . 41.014 1.000 . 5
+1511 2 316 247 'upper bound' . 48.270 1.000 . 5
+1512 2 208 245 'upper bound' . 51.030 1.000 . 5
+1513 2 207 212 'upper bound' . 46.086 1.000 . 5
+1514 2 213 221 'upper bound' . 52.457 1.000 . 5
+1515 2 210 303 'upper bound' . 49.032 1.000 . 5
+1516 2 266 294 'upper bound' . 52.849 1.000 . 5
+1517 2 217 249 'upper bound' . 22.498 1.000 . 5
+1518 2 241 286 'upper bound' . 48.058 1.000 . 5
+1519 2 210 327 'upper bound' . 51.921 1.000 . 5
+1520 2 212 302 'upper bound' . 39.484 1.000 . 5
+1521 2 206 301 'upper bound' . 51.643 1.000 . 5
+1522 2 225 303 'upper bound' . 43.187 1.000 . 5
+1523 2 243 209 'upper bound' . 51.479 1.000 . 5
+1524 2 268 206 'upper bound' . 51.871 1.000 . 5
+1525 2 348 285 'upper bound' . 50.649 1.000 . 5
+1526 2 223 214 'upper bound' . 53.359 1.000 . 5
+1527 2 295 333 'upper bound' . 45.754 1.000 . 5
+1528 2 204 191 'upper bound' . 50.208 1.000 . 5
+1529 2 202 358 'upper bound' . 50.392 1.000 . 5
+1530 2 249 202 'upper bound' . 16.306 1.000 . 5
+1531 2 337 339 'upper bound' . 50.152 1.000 . 5
+1532 2 194 191 'upper bound' . 48.124 1.000 . 5
+1533 2 327 294 'upper bound' . 45.075 1.000 . 5
+1534 2 288 224 'upper bound' . 47.027 1.000 . 5
+1535 2 310 248 'upper bound' . 46.508 1.000 . 5
+1536 2 209 193 'upper bound' . 48.243 1.000 . 5
+1537 2 212 200 'upper bound' . 53.482 1.000 . 5
+1538 2 269 292 'upper bound' . 24.635 1.000 . 5
+1539 2 331 246 'upper bound' . 51.278 1.000 . 5
+1540 2 251 303 'upper bound' . 52.398 1.000 . 5
+1541 2 298 216 'upper bound' . 50.337 1.000 . 5
+1542 2 288 208 'upper bound' . 51.000 1.000 . 5
+1543 2 296 265 'upper bound' . 30.969 1.000 . 5
+1544 2 215 226 'upper bound' . 49.641 1.000 . 5
+1545 2 277 266 'upper bound' . 52.964 1.000 . 5
+1546 2 316 244 'upper bound' . 44.643 1.000 . 5
+1547 2 256 234 'upper bound' . 39.732 1.000 . 5
+1548 2 235 304 'upper bound' . 28.955 1.000 . 5
+1549 2 266 205 'upper bound' . 45.674 1.000 . 5
+1550 2 281 223 'upper bound' . 51.102 1.000 . 5
+1551 2 269 276 'upper bound' . 49.402 1.000 . 5
+1552 2 215 327 'upper bound' . 48.606 1.000 . 5
+1553 2 216 302 'upper bound' . 38.159 1.000 . 5
+1554 2 359 212 'upper bound' . 52.828 1.000 . 5
+1555 2 251 294 'upper bound' . 50.407 1.000 . 5
+1556 2 314 214 'upper bound' . 49.364 1.000 . 5
+1557 2 210 261 'upper bound' . 50.342 1.000 . 5
+1558 2 281 229 'upper bound' . 42.941 1.000 . 5
+1559 2 343 318 'upper bound' . 51.895 1.000 . 5
+1560 2 215 210 'upper bound' . 44.124 1.000 . 5
+1561 2 334 265 'upper bound' . 46.844 1.000 . 5
+1562 2 203 307 'upper bound' . 6.838 1.000 . 5
+1563 2 187 316 'upper bound' . 46.704 1.000 . 5
+1564 2 234 210 'upper bound' . 43.531 1.000 . 5
+1565 2 219 192 'upper bound' . 45.304 1.000 . 5
+1566 2 189 265 'upper bound' . 51.928 1.000 . 5
+1567 2 221 302 'upper bound' . 52.040 1.000 . 5
+1568 2 288 206 'upper bound' . 51.133 1.000 . 5
+1569 2 251 267 'upper bound' . 53.135 1.000 . 5
+1570 2 319 287 'upper bound' . 48.652 1.000 . 5
+1571 2 193 302 'upper bound' . 47.250 1.000 . 5
+1572 2 204 302 'upper bound' . 47.049 1.000 . 5
+1573 2 314 255 'upper bound' . 52.462 1.000 . 5
+1574 2 337 335 'upper bound' . 49.057 1.000 . 5
+1575 2 298 242 'upper bound' . 42.493 1.000 . 5
+1576 2 267 192 'upper bound' . 52.338 1.000 . 5
+1577 2 193 226 'upper bound' . 51.655 1.000 . 5
+1578 2 359 216 'upper bound' . 49.235 1.000 . 5
+1579 2 308 360 'upper bound' . 31.291 1.000 . 5
+1580 2 361 345 'upper bound' . 50.568 1.000 . 5
+1581 2 190 284 'upper bound' . 33.449 1.000 . 5
+1582 2 309 190 'upper bound' . 30.125 1.000 . 5
+1583 2 191 257 'upper bound' . 43.852 1.000 . 5
+1584 2 207 336 'upper bound' . 46.571 1.000 . 5
+1585 2 296 297 'upper bound' . 50.294 1.000 . 5
+1586 2 214 305 'upper bound' . 48.098 1.000 . 5
+1587 2 235 220 'upper bound' . 27.517 1.000 . 5
+1588 2 294 191 'upper bound' . 33.456 1.000 . 5
+1589 2 248 334 'upper bound' . 45.369 1.000 . 5
+1590 2 199 307 'upper bound' . 32.853 1.000 . 5
+1591 2 237 313 'upper bound' . 50.827 1.000 . 5
+1592 2 240 212 'upper bound' . 50.671 1.000 . 5
+1593 2 204 241 'upper bound' . 42.688 1.000 . 5
+1594 2 256 225 'upper bound' . 20.379 1.000 . 5
+1595 2 334 336 'upper bound' . 49.839 1.000 . 5
+1596 2 187 208 'upper bound' . 34.940 1.000 . 5
+1597 2 281 210 'upper bound' . 51.760 1.000 . 5
+1598 2 193 242 'upper bound' . 31.624 1.000 . 5
+1599 2 187 211 'upper bound' . 46.199 1.000 . 5
+1600 2 354 221 'upper bound' . 50.971 1.000 . 5
+1601 2 264 197 'upper bound' . 41.726 1.000 . 5
+1602 2 256 204 'upper bound' . 35.196 1.000 . 5
+1603 2 309 303 'upper bound' . 53.272 1.000 . 5
+1604 2 219 259 'upper bound' . 41.980 1.000 . 5
+1605 2 250 224 'upper bound' . 52.113 1.000 . 5
+1606 2 186 229 'upper bound' . 44.594 1.000 . 5
+1607 2 187 238 'upper bound' . 51.785 1.000 . 5
+1608 2 295 266 'upper bound' . 48.611 1.000 . 5
+1609 2 219 355 'upper bound' . 47.861 1.000 . 5
+1610 2 362 293 'upper bound' . 52.104 1.000 . 5
+1611 2 207 311 'upper bound' . 44.218 1.000 . 5
+1612 2 294 302 'upper bound' . 46.934 1.000 . 5
+1613 2 212 257 'upper bound' . 25.278 1.000 . 5
+1614 2 209 334 'upper bound' . 53.804 1.000 . 5
+1615 2 330 323 'upper bound' . 47.621 1.000 . 5
+1616 2 342 352 'upper bound' . 50.485 1.000 . 5
+1617 2 245 272 'upper bound' . 17.147 1.000 . 5
+1618 2 260 226 'upper bound' . 28.924 1.000 . 5
+1619 2 314 363 'upper bound' . 50.843 1.000 . 5
+1620 2 189 220 'upper bound' . 53.381 1.000 . 5
+1621 2 292 252 'upper bound' . 26.095 1.000 . 5
+1622 2 186 188 'upper bound' . 39.592 1.000 . 5
+1623 2 268 313 'upper bound' . 44.487 1.000 . 5
+1624 2 309 252 'upper bound' . 46.470 1.000 . 5
+1625 2 190 326 'upper bound' . 48.006 1.000 . 5
+1626 2 280 216 'upper bound' . 52.578 1.000 . 5
+1627 2 314 268 'upper bound' . 39.711 1.000 . 5
+1628 2 261 303 'upper bound' . 42.962 1.000 . 5
+1629 2 349 364 'upper bound' . 47.290 1.000 . 5
+1630 2 215 194 'upper bound' . 27.247 1.000 . 5
+1631 2 223 247 'upper bound' . 51.275 1.000 . 5
+1632 2 187 287 'upper bound' . 48.326 1.000 . 5
+1633 2 269 349 'upper bound' . 52.730 1.000 . 5
+1634 2 335 334 'upper bound' . 41.906 1.000 . 5
+1635 2 251 210 'upper bound' . 49.882 1.000 . 5
+1636 2 279 226 'upper bound' . 24.799 1.000 . 5
+1637 2 296 197 'upper bound' . 30.252 1.000 . 5
+1638 2 295 330 'upper bound' . 48.671 1.000 . 5
+1639 2 256 261 'upper bound' . 50.711 1.000 . 5
+1640 2 319 224 'upper bound' . 39.411 1.000 . 5
+1641 2 194 216 'upper bound' . 38.872 1.000 . 5
+1642 2 214 198 'upper bound' . 45.577 1.000 . 5
+1643 2 209 304 'upper bound' . 48.112 1.000 . 5
+1644 2 266 204 'upper bound' . 31.862 1.000 . 5
+1645 2 263 358 'upper bound' . 49.236 1.000 . 5
+1646 2 195 212 'upper bound' . 50.727 1.000 . 5
+1647 2 309 225 'upper bound' . 47.846 1.000 . 5
+1648 2 204 286 'upper bound' . 48.567 1.000 . 5
+1649 2 280 302 'upper bound' . 48.200 1.000 . 5
+1650 2 300 244 'upper bound' . 51.191 1.000 . 5
+1651 2 222 345 'upper bound' . 19.035 1.000 . 5
+1652 2 260 338 'upper bound' . 39.398 1.000 . 5
+1653 2 269 219 'upper bound' . 22.088 1.000 . 5
+1654 2 233 260 'upper bound' . 44.495 1.000 . 5
+1655 2 258 227 'upper bound' . 20.300 1.000 . 5
+1656 2 266 302 'upper bound' . 43.857 1.000 . 5
+1657 2 188 238 'upper bound' . 18.934 1.000 . 5
+1658 2 190 304 'upper bound' . 53.000 1.000 . 5
+1659 2 256 191 'upper bound' . 37.218 1.000 . 5
+1660 2 336 322 'upper bound' . 33.575 1.000 . 5
+1661 2 186 237 'upper bound' . 12.868 1.000 . 5
+1662 2 204 212 'upper bound' . 47.936 1.000 . 5
+1663 2 208 226 'upper bound' . 52.941 1.000 . 5
+1664 2 279 254 'upper bound' . 45.521 1.000 . 5
+1665 2 331 357 'upper bound' . 53.635 1.000 . 5
+1666 2 305 306 'upper bound' . 46.424 1.000 . 5
+1667 2 302 222 'upper bound' . 51.969 1.000 . 5
+1668 2 310 226 'upper bound' . 41.156 1.000 . 5
+1669 2 365 288 'upper bound' . 47.713 1.000 . 5
+1670 2 256 193 'upper bound' . 30.314 1.000 . 5
+1671 2 208 229 'upper bound' . 51.496 1.000 . 5
+1672 2 193 204 'upper bound' . 40.698 1.000 . 5
+1673 2 254 226 'upper bound' . 52.089 1.000 . 5
+1674 2 237 321 'upper bound' . 49.105 1.000 . 5
+1675 2 261 329 'upper bound' . 52.630 1.000 . 5
+1676 2 210 191 'upper bound' . 50.709 1.000 . 5
+1677 2 234 267 'upper bound' . 35.134 1.000 . 5
+1678 2 334 301 'upper bound' . 46.513 1.000 . 5
+1679 2 208 223 'upper bound' . 47.141 1.000 . 5
+1680 2 225 193 'upper bound' . 24.043 1.000 . 5
+1681 2 214 230 'upper bound' . 40.108 1.000 . 5
+1682 2 300 211 'upper bound' . 50.393 1.000 . 5
+1683 2 261 209 'upper bound' . 52.816 1.000 . 5
+1684 2 281 326 'upper bound' . 51.861 1.000 . 5
+1685 2 298 257 'upper bound' . 37.041 1.000 . 5
+1686 2 193 327 'upper bound' . 51.618 1.000 . 5
+1687 2 256 303 'upper bound' . 46.343 1.000 . 5
+1688 2 314 325 'upper bound' . 48.892 1.000 . 5
+1689 2 225 267 'upper bound' . 44.457 1.000 . 5
+1690 2 256 294 'upper bound' . 31.388 1.000 . 5
+1691 2 193 294 'upper bound' . 29.842 1.000 . 5
+1692 2 240 241 'upper bound' . 49.625 1.000 . 5
+1693 2 316 260 'upper bound' . 24.566 1.000 . 5
+1694 2 251 225 'upper bound' . 47.221 1.000 . 5
+1695 2 219 252 'upper bound' . 13.662 1.000 . 5
+1696 2 279 247 'upper bound' . 43.604 1.000 . 5
+1697 2 303 294 'upper bound' . 50.377 1.000 . 5
+1698 2 209 238 'upper bound' . 45.434 1.000 . 5
+1699 2 339 362 'upper bound' . 49.784 1.000 . 5
+1700 2 216 286 'upper bound' . 53.754 1.000 . 5
+1701 2 254 214 'upper bound' . 50.167 1.000 . 5
+1702 2 288 312 'upper bound' . 52.092 1.000 . 5
+1703 2 281 211 'upper bound' . 48.680 1.000 . 5
 #
 #
 loop_
@@ -5181,8 +4995,8 @@ loop_
 _ihm_model_group.id
 _ihm_model_group.name
 _ihm_model_group.details
-1 'Cluster 0 in state State_0' .
-2 'Cluster 0 in state State_0' .
+1 'Cluster 0, Full data set,  in state State_0' .
+2 'Cluster 0, 80% of the dataset, set 1,  in state State_0' .
 #
 #
 loop_
@@ -5386,188 +5200,188 @@ _ihm_sphere_obj_site.model_id
 180 2 101 101 B 97.696 7.612 -61.458 3.259 . 1
 181 2 102 102 B 97.916 9.692 -64.603 2.273 . 1
 182 2 103 103 B 98.442 12.653 -62.389 2.273 . 1
-183 1 39 39 A 86.032 9.190 -40.394 2.780 . 2
-184 1 40 40 A 88.689 6.539 -40.069 3.051 . 2
-185 1 41 41 A 92.104 8.007 -39.695 3.244 . 2
-186 1 42 42 A 95.213 7.086 -41.657 3.318 . 2
-187 1 43 43 A 95.216 3.334 -41.608 3.047 . 2
-188 1 44 44 A 96.343 1.624 -44.730 2.780 . 2
-189 1 45 45 A 92.704 1.641 -45.703 2.273 . 2
-190 1 46 46 A 92.694 5.427 -45.587 2.799 . 2
-191 1 47 47 A 95.684 5.728 -47.850 2.888 . 2
-192 1 48 48 A 94.307 3.185 -50.249 2.516 . 2
-193 1 49 49 A 91.011 4.978 -50.468 3.052 . 2
-194 1 50 50 A 92.584 8.326 -51.107 3.244 . 2
-195 1 51 51 A 94.842 6.897 -53.727 2.997 . 2
-196 1 52 52 A 91.962 5.203 -55.464 3.047 . 2
-197 1 53 53 A 90.119 8.455 -55.867 3.244 . 2
-198 1 54 54 A 93.233 10.316 -56.891 3.244 . 2
-199 1 55 55 A 94.221 7.751 -59.469 3.259 . 2
-200 1 56 56 A 90.720 7.398 -60.731 3.008 . 2
-201 1 57 57 A 90.829 11.051 -61.630 3.047 . 2
-202 1 58 58 A 94.317 10.994 -63.184 2.609 . 2
-203 1 59 59 A 95.293 9.879 -66.682 2.799 . 2
-204 1 60 60 A 98.976 9.038 -66.088 2.997 . 2
-205 1 61 61 A 100.154 5.520 -66.697 3.052 . 2
-206 1 62 62 A 100.958 3.586 -63.562 3.052 . 2
-207 1 63 63 A 103.611 1.263 -64.981 3.047 . 2
-208 1 64 64 A 107.164 2.464 -65.324 3.244 . 2
-209 1 65 65 A 107.642 3.217 -68.982 3.047 . 2
-210 1 66 66 A 111.063 1.809 -69.606 3.052 . 2
-211 1 67 67 A 110.410 -1.502 -68.008 2.780 . 2
-212 1 68 68 A 107.176 -1.728 -69.925 3.259 . 2
-213 1 69 69 A 109.091 -0.955 -73.099 3.008 . 2
-214 1 70 70 A 111.594 -3.681 -72.457 3.244 . 2
-215 1 71 71 A 108.850 -6.194 -71.833 3.052 . 2
-216 1 72 72 A 107.201 -5.337 -75.112 2.888 . 2
-217 1 73 73 A 110.415 -5.655 -77.041 3.244 . 2
-218 1 74 74 A 111.257 -8.962 -75.421 2.997 . 2
-219 1 75 75 A 107.891 -10.422 -76.387 3.047 . 2
-220 1 76 76 A 108.211 -9.005 -79.888 2.516 . 2
-221 1 77 77 A 111.482 -10.824 -80.277 3.008 . 2
-222 1 78 78 A 109.653 -14.080 -80.773 2.866 . 2
-223 1 79 79 A 107.235 -12.888 -83.410 3.259 . 2
-224 1 80 80 A 109.712 -11.110 -85.573 3.047 . 2
-225 1 81 81 A 113.391 -10.400 -85.707 2.799 . 2
-226 1 82 82 A 114.630 -6.851 -86.067 2.866 . 2
-227 1 83 83 A 111.311 -5.282 -85.268 3.052 . 2
-228 1 84 84 A 111.202 -1.659 -84.234 3.244 . 2
-229 1 85 85 A 108.483 0.047 -82.288 3.259 . 2
-230 1 86 86 A 107.506 3.644 -82.623 3.008 . 2
-231 1 87 87 A 107.266 5.237 -79.243 2.609 . 2
-232 1 88 88 A 103.599 5.823 -79.843 2.609 . 2
-233 1 89 89 A 103.102 2.159 -80.563 2.516 . 2
-234 1 90 90 A 104.553 1.173 -77.227 3.047 . 2
-235 1 91 91 A 102.364 3.788 -75.637 2.273 . 2
-236 1 92 92 A 99.274 2.385 -77.274 2.516 . 2
-237 1 93 93 A 100.150 -1.023 -75.956 3.052 . 2
-238 1 94 94 A 100.735 0.369 -72.519 3.008 . 2
-239 1 95 95 A 97.417 2.165 -72.490 2.997 . 2
-240 1 96 96 A 95.584 -0.964 -73.511 2.609 . 2
-241 1 97 97 A 97.390 -3.186 -71.051 2.888 . 2
-242 1 98 98 A 96.850 -0.904 -68.106 2.997 . 2
-243 1 99 99 A 93.242 -0.456 -69.042 2.516 . 2
-244 1 100 100 A 92.910 -4.224 -68.966 3.318 . 2
-245 1 101 101 A 94.410 -4.657 -65.542 3.052 . 2
-246 1 102 102 A 92.368 -1.822 -64.151 2.888 . 2
-247 1 103 103 A 89.131 -3.244 -65.418 2.609 . 2
-248 1 104 104 A 90.200 -6.571 -63.996 3.052 . 2
-249 1 105 105 A 90.690 -5.054 -60.580 3.259 . 2
-250 1 106 106 A 87.336 -3.362 -60.702 2.997 . 2
-251 1 107 107 A 85.528 -6.609 -61.335 2.866 . 2
-252 1 108 108 A 87.698 -8.381 -58.816 2.799 . 2
-253 1 109 109 A 86.770 -5.811 -56.219 2.887 . 2
-254 1 110 110 A 83.109 -6.406 -56.887 3.052 . 2
-255 1 111 111 A 83.689 -10.100 -56.385 2.516 . 2
-256 1 112 112 A 85.328 -9.503 -53.030 2.516 . 2
-257 1 113 113 A 82.454 -7.326 -51.907 3.047 . 2
-258 1 114 114 A 79.938 -9.962 -52.848 3.051 . 2
-259 1 115 115 A 81.961 -12.177 -50.529 2.516 . 2
-260 1 116 116 A 81.539 -9.441 -47.923 3.047 . 2
-261 1 117 117 A 85.290 -9.165 -47.832 3.244 . 2
-262 1 118 118 A 87.321 -5.984 -48.041 2.888 . 2
-263 1 119 119 A 90.401 -7.676 -49.370 2.799 . 2
-264 1 120 120 A 90.699 -9.068 -52.838 3.047 . 2
-265 1 121 121 A 92.123 -12.524 -53.179 3.008 . 2
-266 1 122 122 A 93.186 -14.670 -56.113 3.047 . 2
-267 1 123 123 A 89.806 -16.314 -55.907 3.047 . 2
-268 1 124 124 A 88.194 -13.001 -56.746 2.866 . 2
-269 1 125 125 A 90.326 -12.553 -59.830 3.047 . 2
-270 1 126 126 A 89.604 -16.096 -60.901 3.047 . 2
-271 1 127 127 A 85.860 -15.613 -60.556 3.052 . 2
-272 1 128 128 A 85.928 -12.400 -62.498 2.516 . 2
-273 1 129 129 A 87.943 -13.989 -65.260 3.244 . 2
-274 1 130 130 A 85.600 -16.942 -65.575 3.244 . 2
-275 1 131 131 A 82.597 -14.676 -65.814 3.052 . 2
-276 1 132 132 A 84.483 -12.614 -68.363 3.244 . 2
-277 1 133 133 A 85.131 -15.774 -70.308 2.273 . 2
-278 1 134 134 A 88.858 -15.387 -70.328 2.997 . 2
-279 1 135 135 A 89.213 -18.446 -68.151 3.244 . 2
-280 1 136 136 A 85.761 -19.394 -69.287 2.609 . 2
-281 2 20 20 B 120.317 -9.489 -54.981 3.244 . 2
-282 2 21 21 B 118.542 -9.047 -51.721 3.047 . 2
-283 2 22 22 B 115.942 -11.653 -51.047 3.047 . 2
-284 2 23 23 B 112.975 -10.258 -49.229 3.052 . 2
-285 2 24 24 B 111.042 -12.507 -46.927 3.244 . 2
-286 2 25 25 B 107.837 -12.719 -44.900 2.866 . 2
-287 2 26 26 B 106.375 -9.697 -46.643 2.887 . 2
-288 2 27 27 B 103.188 -11.609 -47.344 3.047 . 2
-289 2 28 28 B 102.468 -11.696 -43.628 3.008 . 2
-290 2 29 29 B 102.167 -7.930 -43.854 2.273 . 2
-291 2 30 30 B 98.687 -8.472 -45.177 3.047 . 2
-292 2 31 31 B 97.108 -9.142 -41.852 2.799 . 2
-293 2 32 32 B 93.834 -10.648 -40.830 3.047 . 2
-294 2 33 33 B 92.314 -7.319 -40.010 2.780 . 2
-295 2 34 34 B 93.341 -5.857 -43.331 2.516 . 2
-296 2 35 35 B 91.737 -8.748 -45.147 3.047 . 2
-297 2 36 36 B 88.673 -8.520 -42.969 3.244 . 2
-298 2 37 37 B 88.255 -4.891 -43.894 3.244 . 2
-299 2 38 38 B 88.492 -5.794 -47.547 3.052 . 2
-300 2 39 39 B 85.903 -8.507 -47.130 2.516 . 2
-301 2 40 40 B 83.642 -6.057 -45.356 3.244 . 2
-302 2 41 41 B 83.953 -3.703 -48.289 3.244 . 2
-303 2 42 42 B 82.872 -6.740 -50.237 2.273 . 2
-304 2 43 43 B 79.886 -6.966 -47.941 2.273 . 2
-305 2 44 44 B 80.910 -10.346 -46.611 2.888 . 2
-306 2 45 45 B 79.143 -11.073 -43.331 3.047 . 2
-307 2 46 46 B 81.232 -13.907 -41.972 3.244 . 2
-308 2 47 47 B 84.715 -15.099 -42.681 3.047 . 2
-309 2 48 48 B 86.218 -18.550 -42.380 2.609 . 2
-310 2 49 49 B 89.637 -18.956 -40.834 2.273 . 2
-311 2 50 50 B 90.940 -20.506 -44.037 3.052 . 2
-312 2 51 51 B 90.265 -17.416 -46.134 3.047 . 2
-313 2 52 52 B 93.110 -15.322 -44.820 3.318 . 2
-314 2 53 53 B 95.759 -17.651 -46.145 2.997 . 2
-315 2 54 54 B 93.889 -18.058 -49.415 2.997 . 2
-316 2 55 55 B 93.596 -14.322 -49.920 2.888 . 2
-317 2 56 56 B 97.284 -13.924 -49.275 3.244 . 2
-318 2 57 57 B 98.125 -16.472 -51.919 2.516 . 2
-319 2 58 58 B 95.775 -14.861 -54.396 2.888 . 2
-320 2 59 59 B 97.186 -11.402 -53.831 3.052 . 2
-321 2 60 60 B 100.734 -12.623 -54.086 3.047 . 2
-322 2 61 61 B 100.236 -14.227 -57.479 2.609 . 2
-323 2 62 62 B 98.442 -11.130 -58.633 3.259 . 2
-324 2 63 63 B 101.245 -8.876 -57.484 3.052 . 2
-325 2 64 64 B 103.917 -10.944 -59.100 2.997 . 2
-326 2 65 65 B 102.048 -10.860 -62.371 2.609 . 2
-327 2 66 66 B 101.541 -7.114 -62.272 2.888 . 2
-328 2 67 67 B 105.074 -6.333 -61.189 3.047 . 2
-329 2 68 68 B 106.487 -8.495 -63.934 3.244 . 2
-330 2 69 69 B 104.554 -6.612 -66.568 2.866 . 2
-331 2 70 70 B 105.389 -3.264 -65.042 2.609 . 2
-332 2 71 71 B 109.081 -4.019 -65.020 2.888 . 2
-333 2 72 72 B 108.795 -5.101 -68.616 2.799 . 2
-334 2 73 73 B 107.582 -1.651 -69.547 3.318 . 2
-335 2 74 74 B 110.324 -0.121 -67.474 2.799 . 2
-336 2 75 75 B 113.065 -2.220 -69.038 2.997 . 2
-337 2 76 76 B 111.823 -1.496 -72.514 3.051 . 2
-338 2 77 77 B 112.102 2.170 -71.646 2.516 . 2
-339 2 78 78 B 115.612 1.470 -70.432 3.047 . 2
-340 2 79 79 B 114.646 3.180 -67.221 3.244 . 2
-341 2 80 80 B 115.913 2.173 -63.816 3.047 . 2
-342 2 81 81 B 112.862 3.149 -61.859 2.799 . 2
-343 2 82 82 B 109.339 1.821 -62.151 2.888 . 2
-344 2 83 83 B 106.815 4.577 -62.585 2.799 . 2
-345 2 84 84 B 103.202 4.717 -61.530 2.609 . 2
-346 2 85 85 B 102.479 4.867 -65.240 3.052 . 2
-347 2 86 86 B 104.365 1.630 -65.706 2.866 . 2
-348 2 87 87 B 102.018 0.105 -63.173 2.888 . 2
-349 2 88 88 B 98.909 1.497 -64.798 2.888 . 2
-350 2 89 89 B 99.941 0.093 -68.143 3.318 . 2
-351 2 90 90 B 100.688 -3.261 -66.591 2.516 . 2
-352 2 91 91 B 97.264 -3.285 -64.992 3.052 . 2
-353 2 92 92 B 95.635 -2.449 -68.285 3.047 . 2
-354 2 93 93 B 97.201 -5.482 -69.796 3.244 . 2
-355 2 94 94 B 95.539 -7.402 -66.950 3.008 . 2
-356 2 95 95 B 92.236 -5.879 -67.956 2.273 . 2
-357 2 96 96 B 92.055 -3.700 -64.923 3.244 . 2
-358 2 97 97 B 91.936 0.031 -65.280 2.799 . 2
-359 2 98 98 B 93.341 2.237 -62.574 3.052 . 2
-360 2 99 99 B 92.368 5.893 -62.260 3.318 . 2
-361 2 100 100 B 94.191 8.757 -60.569 2.273 . 2
-362 2 101 101 B 97.696 7.612 -61.458 3.259 . 2
-363 2 102 102 B 97.916 9.692 -64.603 2.273 . 2
-364 2 103 103 B 98.442 12.653 -62.389 2.273 . 2
+183 1 39 39 A -66.359 22.469 -7.834 2.780 . 2
+184 1 40 40 A -65.942 23.620 -4.271 3.051 . 2
+185 1 41 41 A -65.858 27.345 -3.996 3.244 . 2
+186 1 42 42 A -63.299 29.441 -2.147 3.318 . 2
+187 1 43 43 A -62.967 27.716 1.170 3.047 . 2
+188 1 44 44 A -59.538 27.576 2.643 2.780 . 2
+189 1 45 45 A -59.225 24.273 0.857 2.273 . 2
+190 1 46 46 A -59.724 26.026 -2.463 2.799 . 2
+191 1 47 47 A -57.014 28.547 -1.795 2.888 . 2
+192 1 48 48 A -54.649 25.898 -0.569 2.516 . 2
+193 1 49 49 A -55.194 23.800 -3.640 3.052 . 2
+194 1 50 50 A -54.631 26.660 -6.005 3.244 . 2
+195 1 51 51 A -51.525 27.700 -4.196 2.997 . 2
+196 1 52 52 A -50.157 24.192 -4.269 3.047 . 2
+197 1 53 53 A -50.415 24.027 -8.016 3.244 . 2
+198 1 54 54 A -49.055 27.515 -8.456 3.244 . 2
+199 1 55 55 A -46.098 26.916 -6.199 3.259 . 2
+200 1 56 56 A -45.440 23.534 -7.646 3.008 . 2
+201 1 57 57 A -44.909 25.217 -10.970 3.047 . 2
+202 1 58 58 A -42.770 28.090 -9.646 2.609 . 2
+203 1 59 59 A -39.061 28.050 -8.828 2.799 . 2
+204 1 60 60 A -38.912 30.969 -6.361 2.997 . 2
+205 1 61 61 A -37.753 30.315 -2.845 3.052 . 2
+206 1 62 62 A -40.486 30.474 -0.253 3.052 . 2
+207 1 63 63 A -38.397 31.580 2.723 3.047 . 2
+208 1 64 64 A -37.558 35.225 3.173 3.244 . 2
+209 1 65 65 A -33.969 35.592 2.098 3.047 . 2
+210 1 66 66 A -32.615 37.884 4.742 3.052 . 2
+211 1 67 67 A -33.960 35.956 7.643 2.780 . 2
+212 1 68 68 A -32.626 32.794 6.090 3.259 . 2
+213 1 69 69 A -29.261 34.488 5.714 3.008 . 2
+214 1 70 70 A -29.174 35.503 9.329 3.244 . 2
+215 1 71 71 A -30.013 31.997 10.440 3.052 . 2
+216 1 72 72 A -27.177 30.580 8.400 2.888 . 2
+217 1 73 73 A -24.693 33.050 9.769 3.244 . 2
+218 1 74 74 A -25.797 32.443 13.330 2.997 . 2
+219 1 75 75 A -25.293 28.700 12.968 3.047 . 2
+220 1 76 76 A -21.952 29.251 11.266 2.516 . 2
+221 1 77 77 A -20.814 31.247 14.245 3.008 . 2
+222 1 78 78 A -20.319 28.080 16.223 2.866 . 2
+223 1 79 79 A -18.281 26.212 13.658 3.259 . 2
+224 1 80 80 A -15.908 28.975 12.816 3.047 . 2
+225 1 81 81 A -15.204 32.527 13.790 2.799 . 2
+226 1 82 82 A -14.993 35.216 11.147 2.866 . 2
+227 1 83 83 A -16.517 33.107 8.437 3.052 . 2
+228 1 84 84 A -17.915 34.797 5.372 3.244 . 2
+229 1 85 85 A -20.470 33.406 3.001 3.259 . 2
+230 1 86 86 A -20.677 34.170 -0.658 3.008 . 2
+231 1 87 87 A -24.190 35.065 -1.592 2.609 . 2
+232 1 88 88 A -24.305 32.042 -3.828 2.609 . 2
+233 1 89 89 A -23.317 29.834 -0.940 2.516 . 2
+234 1 90 90 A -26.229 31.022 1.135 3.047 . 2
+235 1 91 91 A -28.435 30.478 -1.864 2.273 . 2
+236 1 92 92 A -27.232 26.930 -2.269 2.516 . 2
+237 1 93 93 A -28.024 26.272 1.345 3.052 . 2
+238 1 94 94 A -31.428 27.808 0.961 3.008 . 2
+239 1 95 95 A -32.220 25.720 -2.081 2.997 . 2
+240 1 96 96 A -31.225 22.550 -0.305 2.609 . 2
+241 1 97 97 A -33.092 23.383 2.868 2.888 . 2
+242 1 98 98 A -36.302 24.286 1.119 2.997 . 2
+243 1 99 99 A -36.064 21.213 -1.025 2.516 . 2
+244 1 100 100 A -35.814 19.190 2.162 3.318 . 2
+245 1 101 101 A -38.861 20.688 3.787 3.052 . 2
+246 1 102 102 A -40.868 20.352 0.624 2.888 . 2
+247 1 103 103 A -40.051 16.706 0.235 2.609 . 2
+248 1 104 104 A -40.919 16.267 3.880 3.052 . 2
+249 1 105 105 A -44.333 17.775 3.340 3.259 . 2
+250 1 106 106 A -44.972 15.591 0.349 2.997 . 2
+251 1 107 107 A -44.341 12.430 2.306 2.866 . 2
+252 1 108 108 A -46.248 13.799 5.252 2.799 . 2
+253 1 109 109 A -49.214 14.454 3.020 2.887 . 2
+254 1 110 110 A -49.141 10.883 1.816 3.052 . 2
+255 1 111 111 A -49.157 9.743 5.413 2.516 . 2
+256 1 112 112 A -52.217 11.831 6.180 2.516 . 2
+257 1 113 113 A -54.040 10.430 3.185 3.047 . 2
+258 1 114 114 A -53.293 6.894 4.239 3.051 . 2
+259 1 115 115 A -54.985 7.907 7.477 2.516 . 2
+260 1 116 116 A -57.888 9.086 5.323 3.047 . 2
+261 1 117 117 A -57.347 12.525 6.749 3.244 . 2
+262 1 118 118 A -57.109 15.758 4.806 2.888 . 2
+263 1 119 119 A -55.096 17.542 7.429 2.799 . 2
+264 1 120 120 A -51.506 16.780 8.197 3.047 . 2
+265 1 121 121 A -50.573 16.401 11.813 3.008 . 2
+266 1 122 122 A -47.296 16.023 13.675 3.047 . 2
+267 1 123 123 A -47.924 12.312 13.668 3.047 . 2
+268 1 124 124 A -47.721 12.330 9.894 2.866 . 2
+269 1 125 125 A -44.372 14.075 9.915 3.047 . 2
+270 1 126 126 A -43.091 11.686 12.537 3.047 . 2
+271 1 127 127 A -44.134 8.651 10.520 3.052 . 2
+272 1 128 128 A -42.545 9.981 7.387 2.516 . 2
+273 1 129 129 A -39.327 10.717 9.207 3.244 . 2
+274 1 130 130 A -39.130 7.257 10.722 3.244 . 2
+275 1 131 131 A -39.652 5.634 7.361 3.052 . 2
+276 1 132 132 A -37.034 7.965 5.942 3.244 . 2
+277 1 133 133 A -34.696 6.863 8.682 2.273 . 2
+278 1 134 134 A -34.062 10.321 9.981 2.997 . 2
+279 1 135 135 A -35.822 9.460 13.203 3.244 . 2
+280 1 136 136 A -35.219 5.859 12.324 2.609 . 2
+281 2 20 20 B -45.590 42.054 21.348 3.244 . 2
+282 2 21 21 B -49.109 40.820 21.066 3.047 . 2
+283 2 22 22 B -49.599 37.338 22.347 3.047 . 2
+284 2 23 23 B -52.128 35.433 20.339 3.052 . 2
+285 2 24 24 B -54.157 32.773 22.041 3.244 . 2
+286 2 25 25 B -56.572 29.920 21.364 2.866 . 2
+287 2 26 26 B -55.792 29.958 17.662 2.887 . 2
+288 2 27 27 B -55.205 26.222 17.721 3.047 . 2
+289 2 28 28 B -58.877 25.696 18.477 3.008 . 2
+290 2 29 29 B -59.536 27.168 15.053 2.273 . 2
+291 2 30 30 B -58.698 23.783 13.640 3.047 . 2
+292 2 31 31 B -62.002 22.210 14.417 2.799 . 2
+293 2 32 32 B -63.177 18.655 14.551 3.047 . 2
+294 2 33 33 B -64.940 18.888 11.250 2.780 . 2
+295 2 34 34 B -61.902 20.340 9.552 2.516 . 2
+296 2 35 35 B -59.774 17.506 10.844 3.047 . 2
+297 2 36 36 B -62.409 14.989 9.892 3.244 . 2
+298 2 37 37 B -62.383 16.265 6.347 3.244 . 2
+299 2 38 38 B -58.631 15.908 6.245 3.052 . 2
+300 2 39 39 B -58.848 12.375 7.552 2.516 . 2
+301 2 40 40 B -61.454 11.583 4.936 3.244 . 2
+302 2 41 41 B -59.099 12.831 2.265 3.244 . 2
+303 2 42 42 B -56.730 10.386 3.875 2.273 . 2
+304 2 43 43 B -59.366 7.732 3.379 2.273 . 2
+305 2 44 44 B -59.740 7.124 7.084 2.888 . 2
+306 2 45 45 B -63.018 5.356 7.816 3.047 . 2
+307 2 46 46 B -63.371 5.945 11.526 3.244 . 2
+308 2 47 47 B -61.871 8.445 13.884 3.047 . 2
+309 2 48 48 B -61.163 8.186 17.583 2.609 . 2
+310 2 49 49 B -62.017 11.086 19.843 2.273 . 2
+311 2 50 50 B -58.385 11.390 20.883 3.052 . 2
+312 2 51 51 B -57.154 12.142 17.373 3.047 . 2
+313 2 52 52 B -58.426 15.684 17.174 3.318 . 2
+314 2 53 53 B -56.216 16.894 19.977 2.997 . 2
+315 2 54 54 B -53.277 14.917 18.629 2.997 . 2
+316 2 55 55 B -53.659 16.371 15.160 2.888 . 2
+317 2 56 56 B -53.780 19.845 16.606 3.244 . 2
+318 2 57 57 B -50.540 19.300 18.451 2.516 . 2
+319 2 58 58 B -48.885 17.867 15.374 2.888 . 2
+320 2 59 59 B -49.965 20.743 13.175 3.052 . 2
+321 2 60 60 B -48.885 23.306 15.708 3.047 . 2
+322 2 61 61 B -45.346 21.983 15.955 2.609 . 2
+323 2 62 62 B -45.202 21.786 12.203 3.259 . 2
+324 2 63 63 B -46.356 25.359 11.804 3.052 . 2
+325 2 64 64 B -43.921 26.698 14.314 2.997 . 2
+326 2 65 65 B -41.089 24.950 12.546 2.609 . 2
+327 2 66 66 B -42.089 26.243 9.136 2.888 . 2
+328 2 67 67 B -42.739 29.776 10.302 3.047 . 2
+329 2 68 68 B -39.397 29.913 12.039 3.244 . 2
+330 2 69 69 B -37.584 28.969 8.870 2.866 . 2
+331 2 70 70 B -39.656 31.323 6.772 2.609 . 2
+332 2 71 71 B -38.922 34.240 9.042 2.888 . 2
+333 2 72 72 B -35.269 33.339 8.879 2.799 . 2
+334 2 73 73 B -35.325 33.829 5.138 3.318 . 2
+335 2 74 74 B -37.219 37.049 5.582 2.799 . 2
+336 2 75 75 B -34.815 38.438 8.163 2.997 . 2
+337 2 76 76 B -31.827 37.533 6.065 3.051 . 2
+338 2 77 77 B -33.423 39.516 3.274 2.516 . 2
+339 2 78 78 B -33.878 42.346 5.737 3.047 . 2
+340 2 79 79 B -37.498 42.415 4.708 3.244 . 2
+341 2 80 80 B -40.352 43.208 7.041 3.047 . 2
+342 2 81 81 B -42.936 41.040 5.394 2.799 . 2
+343 2 82 82 B -42.925 37.295 4.913 2.888 . 2
+344 2 83 83 B -43.516 36.323 1.327 2.799 . 2
+345 2 84 84 B -45.138 33.233 -0.091 2.609 . 2
+346 2 85 85 B -41.715 32.512 -1.532 3.052 . 2
+347 2 86 86 B -40.255 32.661 1.946 2.866 . 2
+348 2 87 87 B -42.732 29.979 2.908 2.888 . 2
+349 2 88 88 B -41.970 27.807 -0.083 2.888 . 2
+350 2 89 89 B -38.277 27.933 0.675 3.318 . 2
+351 2 90 90 B -38.915 27.102 4.296 2.516 . 2
+352 2 91 91 B -40.994 24.125 3.248 3.052 . 2
+353 2 92 92 B -38.268 22.938 0.934 3.047 . 2
+354 2 93 93 B -35.897 22.855 3.816 3.244 . 2
+355 2 94 94 B -38.480 20.609 5.500 3.008 . 2
+356 2 95 95 B -38.373 18.352 2.478 2.273 . 2
+357 2 96 96 B -41.799 19.326 1.343 3.244 . 2
+358 2 97 97 B -42.294 20.937 -2.007 2.799 . 2
+359 2 98 98 B -45.160 23.314 -2.559 3.052 . 2
+360 2 99 99 B -46.421 24.162 -6.037 3.318 . 2
+361 2 100 100 B -48.387 27.172 -7.244 2.273 . 2
+362 2 101 101 B -46.721 29.707 -4.966 3.259 . 2
+363 2 102 102 B -44.116 30.739 -7.499 2.273 . 2
+364 2 103 103 B -46.814 32.668 -9.215 2.273 . 2
 #
 #
 loop_
@@ -5581,8 +5395,9 @@ _ihm_ensemble_info.num_ensemble_models
 _ihm_ensemble_info.num_ensemble_models_deposited
 _ihm_ensemble_info.ensemble_precision_value
 _ihm_ensemble_info.ensemble_file_id
-1 'Cluster 0 in state State_0' 1 1 . dRMSD 20000 1 1.040 .
-2 'Cluster 0 in state State_0' 1 2 . dRMSD 20000 1 1.030 .
+1 'Cluster 0, Full data set,  in state State_0' 1 1 . RMSD 20000 1 1.040 .
+2 'Cluster 0, 80% of the dataset, set 1,  in state State_0' 1 2 . RMSD 10000 1
+1.200 .
 #
 #
 loop_
@@ -5592,10 +5407,10 @@ _ihm_localization_density_files.ensemble_id
 _ihm_localization_density_files.entity_id
 _ihm_localization_density_files.asym_id
 _ihm_localization_density_files.entity_poly_segment_id
-1 7 1 1 A 3
-2 8 1 2 B 4
-3 7 2 1 A 3
-4 8 2 2 B 4
+1 8 1 1 A 3
+2 9 1 2 B 4
+3 10 2 1 A 3
+4 11 2 2 B 4
 #
 #
 loop_
