@@ -2,10 +2,29 @@ Data and code for Integrative Structure Determination using data from point muta
 
 # pE-Map data
 The clustered pE-MAP for the histones and correlation maps are available in the supplementary data of [https://science.sciencemag.org/content/370/6522/eaaz4910.abstract].
+
+
 The yeast RNAPII pE-MAP is available in the supplementary materials of [https://www.sciencedirect.com/science/article/pii/S0092867413009380].
+
+
 The bacterial RNAP point mutation data are available in the supplementary materials of [https://www.biorxiv.org/content/10.1101/2020.06.16.155770v1.abstract].
 
 # pE-Map restraint
+
+Four files are included in the `restraint` directory: 
+
+* update_pemap_imp.sh
+* include/PEMAPRestraint.h
+* src/PEMAPRestraint.cpp
+* restraint/pyext/src/pemap.py
+
+Use the `update_pemap_imp.sh` file to copy the pEMAP restraint files into the IMP directory. The `update_pemap_imp.sh` file needs to be edited to indicate the path your local IMP directory. Additionally, edit the file `modules/isd/pyext/swig.i-in` to add the following lines:
+
+```
+IMP_SWIG_OBJECT(IMP::isd, PEMAPRestraint, PEMAPRestraints);
+```
+
+Make sure to re-compile the code after adding the files. 
 
 # Modeling of the H3-H4 dimer
 
