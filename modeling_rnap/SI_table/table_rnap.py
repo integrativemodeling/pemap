@@ -75,7 +75,7 @@ validation['Percent of excluded volume restraints satisfied per structure'] = ['
 benchmark['Structural accuracy (95 \% CI)'] = ['16.8 (12.5-23.2) \AA']
 benchmark['PDB used for benchmark'] = ['1I3Q']
 
-software['Modeling scripts'] = ['https://github.com/salilab/pemap']
+software['Modeling scripts and data'] = ['https://integrativemodeling.org/systems/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
 software['Visualization and plotting'] = ['UCSF Chimera, version 1.10', 'Matplotlib, version 3.0.3 ']
 
@@ -101,7 +101,7 @@ print(sampling_list)
 # Compile all information
 # 
 ################################################
-variable_dict = {'complex': 'RNAPII rpb1-rpb2 dimer',
+variable_dict = {'complex': 'RNAPII Rpb1-Rpb2 dimer',
                  'number': 2,
                  'input_information': input_information_list, 
                  'representation': representation_list,
@@ -110,8 +110,7 @@ variable_dict = {'complex': 'RNAPII rpb1-rpb2 dimer',
                  'clustering':clustering_list,
                  'validation':validation_list,
                  'benchmark':benchmark_list,
-                 'software':software_list,
-                 'data':data_availability_list}
+                 'software':software_list}
 
 ################################################
 # Generate tex, pdf file

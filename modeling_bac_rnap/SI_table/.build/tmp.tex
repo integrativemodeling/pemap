@@ -6,10 +6,10 @@
 \fontfamily{phv}\fontseries{mc}\selectfont
 \begin{document}
 
-\setcounter{table}{2}
+\setcounter{table}{8}
 
 \begin{longtable}{ p{.48\textwidth} | p{.48\textwidth} } 
-\caption{Summary of Integrative Structure Determination of Bacterial RNAP subunits rpob and rpoc}
+\caption{Summary of Integrative Structure Determination of Bacterial RNAP subunits Rpob and Rpoc}
   
   &  \\
   \textbf{1) Gathering information} & \\
@@ -38,20 +38,16 @@
                 \textit{Spatial restraints encoded into scoring function} & Excluded volume; applied to the R1 representation\\
             & Sequence connectivity; applied to the R1 representation \\
             & pE-MAP MIC pair-restraints; applied to the R1 representation \\
-          
-
+        
 
    &  \\
     \normalsize{\textbf{3) Structural Sampling}} & \\
     \hline
             \textit{Sampling method} & Replica Exchange Gibbs sampling, based on Metropolis Monte Carlo\\
                 \textit{Replica exchange temperature range} & 1.0 - 2.5\\
-                \textit{Number of replicas} & 8\\
+                \textit{Number of replicas} & 4\\
                 \textit{Number of runs} & 50\\
                 \textit{Number of structures generated} & 2500000\\
-                \textit{Movers for rigid bodies} & Random translation up to 1.0 \AA\\
-            & Random rotation up to 0.2
- radians \\
                 \textit{Movers for flexible string of bead} & Random translation up to 4.0 \AA\\
                 \textit{CPU time} & 16 hours on 20 processors\\
         
@@ -61,52 +57,45 @@
    \textbf{Models selected for validation} & \\
     \hline
           \textit{Number of models after equilibration} & 2500000\\
-                \textit{Number of models that satisfy the input information} & 382928\\
-                \textit{Number of structures in samples A/B} & 189328/193600\\
-                \textit{p-value of non-parametric Kolmogorov-Smirnov two-sample test} & 0.035 (threshold p-value $>$ 0.05)\\
+                \textit{Number of models that satisfy the input information} & 656275\\
+                \textit{Number of structures in samples A/B} & 407275/249000\\
+                \textit{p-value of non-parametric Kolmogorov-Smirnov two-sample test} & 0.251 (threshold p-value $>$ 0.05)\\
                 \textit{Kolmogorov-Smirnov two-sample test statistic, D} & 0.0\\
            \hline
     
     \textbf{Thoroughness of the structural sampling} & \\
     \hline
-          \textit{Sampling precision} & 23.03 \AA \\
-                \textit{Homogeneity of proportions $\chi^2$ test (p-value)/Cramer’s V value} & 1.0/0.0 (thresholds: p-value$>$0.05 OR Cramer's V$<$0.1)\\
+          \textit{Sampling precision} & 9.38 \AA \\
+                \textit{Homogeneity of proportions $\chi^2$ test (p-value)/Cramer’s V value} & 1.000/0.000 (thresholds: p-value$>$0.05 OR Cramer's V$<$0.1)\\
                 \textit{Number of clusters} & 1\\
-                \textit{Cluster populations} & cluster 1 : 91.5 $\%$\\
-                \textit{Cluster precisions} & cluster 1 : 5.25 \AA\\
-                \textit{Average cross-correlation between localization probability densities of samples A and B} & cluster 1: 0.71\\
+                \textit{Cluster populations} & cluster 1 : 100.0 $\%$\\
+                \textit{Cluster precisions} & cluster 1 : 6.61 \AA\\
+                \textit{Average cross-correlation between localization probability densities of samples A and B} & cluster 1: 0.68\\
            \hline
   
   \textbf{Validation by information used for modeling} & \\
   \hline
           \textit{Percent of sequence connectivity restraints satisfied per structure} & 99 \%\\
-                \textit{Percent pE-MAP restraints satisfied per structure} & 92 \%\\
+                \textit{Percent pE-MAP restraints satisfied per structure} & 94 \%\\
                 \textit{Percent of excluded volume restraints satisfied per structure} & 99 \%\\
           &  \\
   
   \textbf{5) Benchmark} & \\
   \hline
-          \textit{Structural accuracy (95 \% CI)} & 14.3 (12.2-18.4) \AA\\
+          \textit{Structural accuracy (95 \% CI)} & 15.0 (12.1-18.2) \AA\\
                 \textit{PDB used for benchmark} & 4YG2\\
           
    &  \\
   \normalsize{\textbf{6) Software and data availability}} & \\
     \hline
-   \textbf{Software} & \\
-   \hline
              \textit{Modeling programs} & IMP PMI module, version develop-39c22a602\\
              & Integrative Modeling Platform (IMP), version develop-39c22a602 \\
-                  \textit{Modeling scripts} & https://github.com/salilab/pemap\\
+                  \textit{Modeling scripts and data} & https://integrativemodeling.org/systems/pemap\\
                   \textit{Homology detection and structure prediction} & HHPred, version 2.0.16\\
                   \textit{Visualization and plotting} & UCSF Chimera, version 1.10\\
              & Matplotlib, version 3.0.3  \\
           \hline
 
-  \textbf{Data} & \\
-    \hline
-            \textit{PDB-dev accesion code} & TBD\\
-                  \textit{pE-MAP data deposition} & https://github.com/salilab/pemap\\
-          \hline
   
 \end{longtable}
 \end{document}

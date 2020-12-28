@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  10 JUL 2019 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 NOV 2020 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -194,7 +194,7 @@ Overfull \hbox (1.6511pt too wide) in alignment at lines 11--39
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 66--66
+Underfull \hbox (badness 1067) in paragraph at lines 62--62
 []|\OT1/cmr/m/it/10 p-value of non-parametric Kolmogorov-Smirnov two-sample
  []
 
@@ -207,17 +207,17 @@ Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ™ in font cmti10!
 
-Overfull \hbox (1.6511pt too wide) in alignment at lines 67--98
- [] [] 
- []
-
-
-Underfull \hbox (badness 6078) in paragraph at lines 98--99
+Underfull \hbox (badness 6078) in paragraph at lines 92--93
 []|\OT1/cmr/m/n/10 Integrative Mod-el-ing Plat-form (IMP), ver-sion develop-
  []
 
 
-Overfull \hbox (1.6511pt too wide) in alignment at lines 98--112
+Overfull \hbox (1.6511pt too wide) in alignment at lines 67--95
+ [] [] 
+ []
+
+
+Overfull \hbox (1.6511pt too wide) in alignment at lines 95--101
  [] [] 
  []
 
@@ -230,7 +230,7 @@ _table/.build/tmp.aux) )
 Here is how much of TeX's memory you used:
  2069 strings out of 492995
  33812 string characters out of 6132704
- 109484 words of memory out of 5000000
+ 107484 words of memory out of 5000000
  5662 multiletter control sequences out of 15000+600000
  4901 words of font info for 17 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -243,7 +243,7 @@ onts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti10.pfb>
 Output written on /Users/iecheverria/Dropbox/UCSF/pE-MAP/modeling_pmi2/repo/mod
-eling_histones/SI_table/.build/tmp.pdf (2 pages, 84830 bytes).
+eling_histones/SI_table/.build/tmp.pdf (2 pages, 84472 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream

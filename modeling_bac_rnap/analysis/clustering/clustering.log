@@ -1,17 +1,26 @@
-Getting top scoring models at subsets of size: [2999, 5999, 8999, 11999, 14999, 17999, 20999, 23999, 26999, 29999]
-Size of conformation matrix (19999, 2516, 3)
-Mode: cuda Superposition: True Number of cores: 1
-Size of RMSD matrix (flattened): (199970001,)
+Getting top scoring models at subsets of size: [1500, 3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000]
+Size of conformation matrix (15000, 2516, 3)
+Mode: cpu_omp Superposition: True Number of cores: 1
+Size of RMSD matrix (flattened): (112492500,)
 Loading matrix data from Distances_Matrix.data.bin ...  Done
-Size of RMSD matrix (unpacked, N x N): (19999, 19999)
-Size of Sample A: 9888  ; Size of Sample B:  10111 ; Total 19999
+
+Size of RMSD matrix (unpacked, N x N): (15000, 15000)
+Size of Sample A: 11031  ; Size of Sample B:  3969 ; Total 15000
 Calculating sampling precision
-Minimum and maximum pairwise model distances: 0.5343339 44.048115
-Clustering at thresholds: [ 0.53433388  8.03433388 15.53433388 23.03433388 30.53433388 38.03433388]
-Clustering at threshold 8.034
-Contingency table: [[8869. 9226.]
- [ 408.  315.]
- [ 309.  311.]
- [ 186.  175.]
- [  62.   42.]
- [  40.   11.]]
+Minimum and maximum pairwise model distances: 0.3779332 17.790897
+Clustering at thresholds: [ 0.3779332  1.3779332  2.3779332  3.3779332  4.3779332  5.3779332
+  6.3779332  7.3779332  8.3779332  9.3779332 10.3779332 11.3779332
+ 12.3779332 13.3779332 14.3779332 15.3779332 16.3779332 17.3779332]
+(0.37793320417404175, 0.0, <type 'float'>, False)
+(1.3779332041740417, 0.0, <type 'numpy.float64'>, False)
+(2.3779332041740417, 0.0, <type 'numpy.float64'>, False)
+(3.3779332041740417, 0.0, <type 'numpy.float64'>, False)
+(4.377933204174042, 0.0, <type 'numpy.float64'>, False)
+(5.377933204174042, 9.461461286563296e-297, <type 'numpy.float64'>, False)
+(6.377933204174042, 1.3465119862458378e-96, <type 'numpy.float64'>, False)
+(7.377933204174042, 0.0015017438264529573, <type 'numpy.float64'>, False)
+(8.377933204174042, 1.204913449408445e-138, <type 'numpy.float64'>, False)
+(9.377933204174042, 1.0, <type 'float'>, True)
+('-------------', 1.0)
+Clustering at threshold 9.378
+Contingency table: [[10615.  3965.]]

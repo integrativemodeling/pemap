@@ -25,12 +25,15 @@ mmcif_file = '../modeling/BacRNAP_pEMAP_initial.cif'
 analysis_dir = '../analysis/'
 clustering_dir = os.path.join(analysis_dir,'clustering')
 rmf3 = os.path.join(clustering_dir,'cluster.0','cluster_center_model.rmf3')
-
+print('hola 1!!!', rmf3)
 I = get_input_information(mmcif_file)
+print('hola 2!!!')
+
 #input_information = I.get_dictionaries()
 
 R = get_representation(clustering_dir)
 representation = R.get_dictionaries()
+
 
 S = read_modeling_information(modeling_script,
                               analysis_dir,
@@ -70,13 +73,13 @@ representation['Spatial restraints encoded into scoring function'].append('pE-MA
 
 sampling['CPU time'] = ['16 hours on 20 processors']
 
-validation['Percent pE-MAP restraints satisfied per structure'] = ['92 \%']
+validation['Percent pE-MAP restraints satisfied per structure'] = ['94 \%']
 validation['Percent of excluded volume restraints satisfied per structure'] = ['99 \%']
 
-benchmark['Structural accuracy (95 \% CI)'] = ['14.3 (12.2-18.4) \AA']
+benchmark['Structural accuracy (95 \% CI)'] = ['15.0 (12.1-18.2) \AA']
 benchmark['PDB used for benchmark'] = ['4YG2']
 
-software['Modeling scripts'] = ['https://github.com/salilab/pemap']
+software['Modeling scripts and data'] = ['https://integrativemodeling.org/systems/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
 software['Visualization and plotting'] = ['UCSF Chimera, version 1.10', 'Matplotlib, version 3.0.3 ']
 
@@ -102,7 +105,7 @@ print(sampling_list)
 # Compile all information
 # 
 ################################################
-variable_dict = {'complex': 'Bacterial RNAP subunits rpob and rpoc',
+variable_dict = {'complex': 'Bacterial RNAP subunits Rpob and Rpoc',
                  'number':3,
                  'input_information': input_information_list, 
                  'representation': representation_list,
@@ -111,13 +114,15 @@ variable_dict = {'complex': 'Bacterial RNAP subunits rpob and rpoc',
                  'clustering':clustering_list,
                  'validation':validation_list,
                  'benchmark':benchmark_list,
-                 'software':software_list,
-                 'data':data_availability_list}
+                 'software':software_list}
+                 #'data':data_availability_list}
 
 ################################################
 # Generate tex, pdf file
 ################################################
 template = utils.get_template('../../pyext/src/analysis/SI_template.tex')
+
+print('hola!!!')
 utils.compile_pdf_from_template(template, variable_dict, './table_SI_bacrnap.pdf')
 
 exit()

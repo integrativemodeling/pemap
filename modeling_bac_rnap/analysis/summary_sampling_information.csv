@@ -1,8 +1,8 @@
-Number_of_replicas,8
+Number_of_replicas,4
 N_equilibrated,765856
 Number_of_runs,50
-N_selected,382928
+N_selected,656275
 N_total,2500000
-N_sample_A,189328
-N_sample_B,193600
+N_sample_A,407275
+N_sample_B,249000
 Replica_exchange_temperature_range,1.0-4.0

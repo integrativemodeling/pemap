@@ -6,17 +6,18 @@
 \fontfamily{phv}\fontseries{mc}\selectfont
 \begin{document}
 
-\setcounter{table}{1}
+\setcounter{table}{7}
 
 \begin{longtable}{ p{.48\textwidth} | p{.48\textwidth} } 
-\caption{Summary of Integrative Structure Determination of RNAPII rpb1-rpb2 dimer}
+\caption{Summary of Integrative Structure Determination of RNAPII Rpb1-Rpb2 dimer}
   
   &  \\
   \textbf{1) Gathering information} & \\
     \hline
 
-            \textit{Prior models} & rpb1 comparative model, template 6GMH:A\\
-            & rpb2 comparative model, template 4AYB:B \\
+            \textit{Prior models} & rpb1: comparative model, template 6GMH:A\\
+            & rpb2: comparative model, template 4AYB:B \\
+            & None: sequence  \\
                 \textit{Physical principles and statistical preferences} & Excluded volume\\
             & Sequence connectivity \\
                 \textit{Experimental data} & 123 pE-MAP derived distance restraints\\
@@ -40,8 +41,7 @@
                 \textit{Spatial restraints encoded into scoring function} & Excluded volume; applied to the R1 representation\\
             & Sequence connectivity; applied to the R1 representation \\
             & pE-MAP MIC pair-restraints; applied to the R1 representation \\
-          
-
+        
 
    &  \\
     \normalsize{\textbf{3) Structural Sampling}} & \\
@@ -51,9 +51,6 @@
                 \textit{Number of replicas} & 8\\
                 \textit{Number of runs} & 60\\
                 \textit{Number of structures generated} & 3600000\\
-                \textit{Movers for rigid bodies} & Random translation up to 2.0 \AA\\
-            & Random rotation up to 0.2
- radians \\
                 \textit{Movers for flexible string of bead} & Random translation up to 4.0 \AA\\
                 \textit{CPU time} & 36 hours on 20 processors\\
         
@@ -97,22 +94,15 @@
    &  \\
   \normalsize{\textbf{6) Software and data availability}} & \\
     \hline
-   \textbf{Software} & \\
-   \hline
              \textit{Modeling programs} & IMP PMI module, version develop-39c22a602\\
              & Integrative Modeling Platform (IMP), version develop-39c22a602 \\
              & MODELLER, version 9.21 \\
-                  \textit{Modeling scripts} & https://github.com/salilab/pemap\\
+                  \textit{Modeling scripts and data} & https://integrativemodeling.org/systems/pemap\\
                   \textit{Homology detection and structure prediction} & HHPred, version 2.0.16\\
                   \textit{Visualization and plotting} & UCSF Chimera, version 1.10\\
              & Matplotlib, version 3.0.3  \\
           \hline
 
-  \textbf{Data} & \\
-    \hline
-            \textit{PDB-dev accesion code} & TBD\\
-                  \textit{pE-MAP data deposition} & https://github.com/salilab/pemap\\
-          \hline
   
 \end{longtable}
 \end{document}

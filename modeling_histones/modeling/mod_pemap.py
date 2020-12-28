@@ -1,5 +1,5 @@
 ###############################
-# Modeling of Rpb1/Rpb2
+# Modeling of H3/H4
 # dimer using pE-MAP data
 #
 # Salilab - UCSF

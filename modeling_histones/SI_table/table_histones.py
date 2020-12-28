@@ -74,7 +74,7 @@ benchmark['Structural accuracy (95 \% CI)'] = ['3.8 (2.6-5.1) \AA']
 benchmark['PDB used for benchmark'] = ['1ID3']
 
 
-software['Modeling scripts'] = ['https://github.com/salilab/pemap']
+software['Modeling scripts and data'] = ['https://integrativemodeling.org/systems/pemap']
 software['Homology detection and structure prediction'] = ['HHPred, version 2.0.16']
 software['Visualization and plotting'] = ['UCSF Chimera, version 1.10', 'Matplotlib, version 3.0.3 ']
 
@@ -109,8 +109,8 @@ variable_dict = {'complex': 'Histones H3-H4 dimer',
                  'clustering':clustering_list,
                  'validation':validation_list,
                  'benchmark':benchmark_list,
-                 'software':software_list,
-                 'data':data_availability_list}
+                 'software':software_list}
+                 #'data':data_availability_list}
 
 ################################################
 # Generate tex, pdf file

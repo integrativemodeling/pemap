@@ -1,4 +1,4 @@
-The sampling precision is defined as the largest allowed RMSD between the cluster centroid and a  BacRNAP_pEMAP model within any cluster in the finest clustering for which each sample contributes models proportionally to its size (considering both significance and magnitude of the difference) and for which a sufficient proportion of all models occur in sufficiently large clusters. The sampling precision for our  BacRNAP_pEMAP  modeling is 8.034  A.
+The sampling precision is defined as the largest allowed RMSD between the cluster centroid and a  BacRNAP_pEMAP model within any cluster in the finest clustering for which each sample contributes models proportionally to its size (considering both significance and magnitude of the difference) and for which a sufficient proportion of all models occur in sufficiently large clusters. The sampling precision for our  BacRNAP_pEMAP  modeling is 9.378  A.
 Sampling precision, P-value, Cramer's V and percentage of clustered models below:
-23.0343338847 1.0 0.0 99.9149957498
+9.378	1.000	0.000	97.200
 

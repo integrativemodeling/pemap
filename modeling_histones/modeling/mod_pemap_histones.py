@@ -24,9 +24,10 @@ import sys
 ####################### INPUT FILES ######################
 print(len(sys.argv))
 if len(sys.argv) < 2:
+    print(len(sys.argv))
     print('USAGE: python mod_pemap_histones.py ../data/hbhistmic_180904_impute_pcsort975_5_4th_uniq_c03.txt')
     exit()
-
+    
 mic_file = sys.argv[1]
 print('Using file ...', mic_file)
 ###################### SYSTEM SETUP ######################
@@ -53,11 +54,12 @@ else:
 ##############################
 
 if '--mmcif' in sys.argv:
+    print('hola')
     # Record the modeling protocol to an mmCIF file
     po = IMP.pmi.mmcif.ProtocolOutput(open('h3_h4_pEMAP_all.cif', 'w'))
     po.system.title = ('Genetic interaction mapping informs integrative determination of biomolecular assembly structures')
     bs_sys.system.add_protocol_output(po)
-   
+    
     # Add publication
     #po.system.citations.append(ihm.Citation.from_pubmed_id(0000))
 
@@ -145,6 +147,11 @@ IMP.pmi.tools.shuffle_configuration(root_hier,
 dof.optimize_flexible_beads(200)
 ############################# SAMPLING ##############################
 # Run replica exchange Monte Carlo sampling
+
+num_frames = 50000
+if '--mmcif' in sys.argv or '--test' in sys.argv:
+    num_frames=5
+
 rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     root_hier=root_hier,                          
                                     crosslink_restraints=rmf_restraints,          
@@ -154,12 +161,11 @@ rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     global_output_directory="output/",
                                     output_objects=output_objects,
                                     monte_carlo_steps=10,
-                                    number_of_frames=50000,
+                                    number_of_frames=num_frames,
                                     number_of_best_scoring_models=0,
                                     test_mode=True)
 
 rex.execute_macro()
-
 
 ############################# mmCIF #################################
 
@@ -302,5 +308,5 @@ if A == 100:
     #                  "imp_deposition_tutorial-v0.2.zip")
     #po.system.update_locations_in_repositories([repo])
 
-#po.flush()
+po.flush()
 
