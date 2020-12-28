@@ -1,0 +1,17 @@
+cp src/OccamsRestraint_new.cpp ../imp/modules/isd/src/
+cp src/FrameInfo.cpp ../imp/modules/isd/src/
+cp src/OccamsPositionalRestraint.cpp ../imp/modules/isd/src/
+cp src/ResidueBindingRestraint.cpp ../imp/modules/isd/src/
+cp src/pEMapRestraint.cpp ../imp/modules/isd/src/
+
+cp include/OccamsRestraint_new.h ../imp/modules/isd/include/
+cp include/FrameInfo.h ../imp/modules/isd/include/
+cp include/OccamsPositionalRestraint.h ../imp/modules/isd/include/
+cp include/ResidueBindingRestraint.h ../imp/modules/isd/include/
+cp include/pEMapRestraint.h ../imp/modules/isd/include/
+
+cp pyext/swig.i-in ../imp/modules/isd/pyext/
+cp pyext/src/occams_restraint.py ../imp/modules/pmi/pyext/src/restraints/occams.py
+cp pyext/src/npc_restraints.py ../imp/modules/pmi/pyext/src/restraints/
+cp pyext/src/pemap.py ../imp/modules/pmi/pyext/src/restraints/pemap.py
+cp pyext/src/binding_restraint.py ../imp/modules/pmi/pyext/src/restraints/residue_binding.py
