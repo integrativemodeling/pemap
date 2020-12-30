@@ -22,6 +22,7 @@ Use the `update_pemap_imp.sh` file to copy the pEMAP restraint files into the IM
 
 ```
 IMP_SWIG_OBJECT(IMP::isd, PEMAPRestraint, PEMAPRestraints);
+%include "IMP/isd/PEMAPRestraint.h"
 ```
 
 Make sure to re-compile the code after adding the files. 
@@ -36,7 +37,7 @@ Data used for modeling includes:
 
 2) Comparative models of H3 and H4
 
-3) Processed pE-MAP data files containing the pairs of residues to which the pE-MAP distance restraints will be applied. The format of these files is:
+3) Processed pE-MAP data file containing the pairs of residues to which the pE-MAP distance restraints will be applied. The format of these files is:
 
 ```
 protein1 protein2 residue1 residue2 MIC_value distance_in_xray_structure (if known)
@@ -65,9 +66,7 @@ The analysis uses the PMI_analysis module in: https://github.com/salilab/PMI_ana
 
 # Modeling of Bacterial RNAP II
 
-## Running the simulations (directory XX)
-
-## Analysis of simulations (directory XX)
+# Other files
 
 
 ## Information

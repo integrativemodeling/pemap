@@ -1,3 +1,7 @@
+"""@namespace IMP.pmi.restraints.pemap
+Restraints for handling pemap data.
+"""
+
 #!/usr/bin/env python
 import IMP
 import IMP.core
@@ -14,7 +18,8 @@ import itertools
 import operator
 import os
 import math
-#IMP.pmi.restraints.RestraintBase
+
+
 class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
     
     def __init__(self,
@@ -22,14 +27,16 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
                  mic_file,
                  sigma_init = 4.0,
                  weight=1.0,
-                 slope = 0.0,
                  label = None):
 
         """
         Constructor:
         @param root_hier         Hierarchy of the system
         @param mic_file          File containing p1,r1,p2,r2,MIC
+        @param sigma_init        Initial value for noise parameter
         @param weight            Weight of the restraint
+        @param label             Extra text to label the restraint so that it is
+                                 searchable in the output  
         """
 
         self.root_hier = root_hier
@@ -39,29 +46,19 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
         super(PEMAPRestraint, self).__init__(
             self.m, name="PEMAPRestraint", label=label, weight=weight)
 
-        self.weight = weight
-        self.slope = slope
-        self.sigma_init = sigma_init
         
+        self.mic_file = mic_file
+        self.sigma_init = sigma_init
+        self.weight = weight
         
         # Nuisance particles
         self.sigma_dictionary={}
-        self.psi_dictionary={}
         
         self.sigma_is_sampled = True
         self.rs_sig = self._create_restraint_set("sigma")
         self._create_sigma('sigma_0', self.sigma_init)
         sigma_0 = self.sigma_dictionary['sigma_0'][0].get_particle_index()
-        
-        #self.psi_is_sampled = True
-        #self.rs_psi = self._create_restraint_set("psi")
-        # Create particle
-        #psi_init = 0.01
-        #self._create_psi('psi_0', psi_init)
-        #psip_0 = self.psi_dictionary['psi_0'][0].get_particle_index()
-
-        
-        
+    
         # Pairs of restrainted beads 
         self.pairs = []
        
@@ -73,7 +70,22 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
         self.rs = IMP.RestraintSet(self.m, 'PEMAPRestraint')
         
         # Read file
-        for line in open(mic_file):
+        self._read_mic_file()
+
+        print('PEMAP restraints> Number of restrained pairs:', len(self.pairs))
+        
+        # Add pairs to restraint
+        for (p0, p1, d_mic) in self.pairs:
+            self.pmr.add_contribution(p0.get_index(), p1.get_index(), d_mic)
+            
+        rname = self.pmr.get_name()
+        self.rs.add_restraint(self.pmr)
+
+        self.restraint_sets = [self.rs] + self.restraint_sets[1:]
+
+    def _read_mic_file(self):
+        # Read file
+        for line in open(self.mic_file):
             vals = line.split()
             if (vals[0]=="#"):
                 continue
@@ -94,29 +106,23 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
             ########################
             # Select particles
             ########################
-            try:
-                s0 = IMP.atom.Selection(root_hier,
-                                        molecule = prot1,
-                                        residue_index = resi1)
-                s1 = IMP.atom.Selection(root_hier,
-                                      molecule = prot2, 
-                                      residue_index=resi2)
+            s0 = IMP.atom.Selection(self.root_hier,
+                                    molecule = prot1,
+                                    residue_index = resi1).get_selected_particles()
+            s1 = IMP.atom.Selection(self.root_hier,
+                                    molecule = prot2, 
+                                    residue_index = resi2).get_selected_particles()
+            if len(s0)>0 and len(s1)>0:
                 
-                p0 = s0.get_selected_particles()[0]
-                p1 = s1.get_selected_particles()[0]
+                p0 = s0[0]
+                p1 = s1[0]
 
-                ########################
-                # Setup restraint
-                ########################
-                self.pmr.add_contribution(p0.get_index(), p1.get_index(), d_mic)
-                self.pairs.append((p0, resi1, p1, resi2, dist))
-            except:
-                print("SimplifiedPEMAP: WARNING> residue %d of chain %s is not there (w/ %d %s)" % (resi1,prot1,resi2,prot2))
-            
-        rname = self.pmr.get_name()
-        self.rs.add_restraint(self.pmr)
+                self.pairs.append((p0, p1, dist))
 
-        self.restraint_sets = [self.rs] + self.restraint_sets[1:]
+            else:
+                 print("PEMAP restraint: WARNING> residue %d of chain %s is not there (w/ %d %s)"
+                       % (resi1,prot1,resi2,prot2))
+        
         
     def get_d_mic(self, mic):
         k = -0.014744
@@ -126,82 +132,10 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
         else:
             return (math.log(0.6)-n)/k
         
-    def get_line_params(self, pemap_file):
-        import numpy as np
-        import pylab as pl
-
-        data = open(pemap_file)
-        D = data.readlines()
-        data.close()
-
-        cc,ds = [],[]
-        
-        for d in D:
-            d = d.strip().split()
-            c=float(d[4])
-            s=float(d[5])
-            cc.append(c)
-            ds.append(s)
-        ccm,dsm=[],[]
-        L = np.linspace(min(ds),max(ds),num=11)
-        for i in xrange(1,len(L)):
-            m = [x for x,j in enumerate(ds) if L[i-1]<=j<L[i]]
-            if len(m)==0: continue
-            c = max([cc[j] for j in m])
-            ccm.append(cc[cc.index(c)])
-            dsm.append(ds[cc.index(c)])
-        ccm=np.array(ccm[1:])
-        dsm=np.array(dsm[1:])
-        A = np.vstack([dsm, np.ones(len(dsm))]).T
-        k,n = np.linalg.lstsq(A, ccm)[0]
-        print("Line parameters are: k=%f and n=%f" % (k,n))
-
-        
-        pl.plot(ds,cc,'ko')
-        pl.plot(dsm,ccm,'ro')
-        pl.plot(L,-0.0075*L+1.,'r-')
-        pl.plot(L,k*L+n,'k-')
-        pl.show()
-        return k,n    
-
     def get_upper_bound(self,mic,k,n):   
         if mic <= 0.6:
             return (log(mic) - n) / k
         else: return (log(0.6) - n) / k
-    
-    def get_lower_bond(self,pearsoncc):
-        return (pearsoncc-1.)/-0.0551
-
-    def _create_psi(self, name,psiinit):
-        """ Creates nuisances on the data uncertainty """
-
-        m = self.root_hier.get_model()
-        
-        if name in self.psi_dictionary:
-            return self.psi_dictionary[name][0]
-        psiminnuis = 0.0000001
-        psimaxnuis = 0.9999999
-        psimin = 0.01
-        psimax = 0.99
-        psitrans = 0.1
-        psi = IMP.pmi.tools.SetupNuisance(m,
-                                          psiinit,
-                                          psiminnuis,
-                                          psimaxnuis,
-                                          self.psi_is_sampled).get_particle()
-        self.psi_dictionary[name] = (
-            psi,
-            psitrans,
-            self.psi_is_sampled)
-
-        self.rs_psi.add_restraint(IMP.isd.UniformPrior(self.m,
-                                                       psi,
-                                                       1000000000.0,
-                                                       psimax,
-                                                       psimin))
-
-        #self.rs_psi.add_restraint(IMP.isd.JeffreysRestraint(self.m, psi))
-        return psi
     
     def _create_sigma(self, name, sigmainit):
         """ This is called internally. Creates a nuisance
@@ -254,34 +188,7 @@ class PEMAPRestraint(IMP.pmi.restraints.RestraintBase):
             output["PEMAPRestraint_" +
                    str(sigma_name) + self.label] = str(
                        self.sigma_dictionary[sigma_name][0].get_scale())
-    
-        '''
-        satif = 0
-        tot = 0
-        for i in range(len(self.pairs)):
 
-            p0 =self.pairs[i][0]
-            p1 =self.pairs[i][2]
-            resid0 =self.pairs[i][1]
-            resid1 =self.pairs[i][3]
-            d = self.pairs[i][4]
-            #up = self.pairs[i][5]
-            
-            #ln = self.pairs[i][6]
-
-            label = 'p0'+":"+str(resid0)+"_"+'p1'+":"+str(resid1)+'_'+str(d)
-            output["SimplifiedPEMAP_Score_"+label]=str(self.weight*ln.unprotected_evaluate(None))
-
-            d0=IMP.core.XYZ(p0)
-            d1=IMP.core.XYZ(p1)
-            dist_sim = IMP.core.get_distance(d0,d1)
-            output["SimplifiedPEMAP_Distance_"+label]=str(dist_sim)
-
-            if dist_sim < 1.5*d:
-                satif += 1.
-            tot += 1
-        output["SimplifiedPEMAP_Satisfied"]=str(satif/tot)
-        ''' 
         return output
 
 class COMDistanceRestraint(IMP.pmi.restraints.RestraintBase):
@@ -292,17 +199,17 @@ class COMDistanceRestraint(IMP.pmi.restraints.RestraintBase):
                  protein1,
                  distance = 60.0,
                  strength = 1.0,
-                 label = None,
-                 weight = 1.0):
+                 label = None):
 
         """ Setup an upper-bound distance restraint
             between the center-of-mass of two proteins
-        @ param root_hier 
-        @ param protein1
-        @ param protein2
-        @ param distance
-        @ param strength
-        @ param label
+        @ param root_hier    Hierarchy of the system 
+        @ param protein1     Name of first protein being restrained
+        @ param protein2     Name of second protein being restrained
+        @ param distance     Target distance between centers-of-mass
+        @ param strength     Strenght of the harmonic restraint
+        @ param label        Extra text to label the restraint so that it is
+                             searchable in the output  
         @ param weight
         """
 
@@ -316,27 +223,23 @@ class COMDistanceRestraint(IMP.pmi.restraints.RestraintBase):
 
     
         self.strength = strength
-        self.weight = weight
         self.distance = distance
         
         # Setup restraint
         self.rs = self._create_restraint_set()
-        
-        
-        s0 = IMP.atom.Selection(root_hier,
+                
+        s0 = IMP.atom.Selection(self.root_hier,
                                 molecule = protein0)
         
         p0 = s0.get_selected_particles()
         if len(p0)==0:
-            print("COMDistanceRestraint: WARNING> cannot select protein %s)" % (protein0))
-            exit()
-        s1 = IMP.atom.Selection(root_hier,
+            raise TypeError("COMDistanceRestraint: WARNING> cannot select protein %s)" % (protein0))
+        s1 = IMP.atom.Selection(self.root_hier,
                                 molecule = protein1) 
         p1 = s1.get_selected_particles()
         if len(p1)==0:
-            print("COMDistanceRestraint: WARNING> cannot select protein %s)" % (protein1))
-            exit()
-
+            raise TypeError("COMDistanceRestraint: WARNING> cannot select protein %s)" % (protein1))
+            
         # Get COMs
         self.com0 = IMP.atom.CenterOfMass.setup_particle(IMP.Particle(model), p0)
         self.com1 = IMP.atom.CenterOfMass.setup_particle(IMP.Particle(model), p1)
@@ -353,12 +256,5 @@ class COMDistanceRestraint(IMP.pmi.restraints.RestraintBase):
         df = IMP.core.DistancePairScore(hub)
         dr = IMP.core.PairRestraint(model, df, (self.com0, self.com1))
         self.rs.add_restraint(dr)
-
-    def get_output(self):
-
-        output = super(COMDistanceRestraint, self).get_output()
-        
-        return output
-
 
 

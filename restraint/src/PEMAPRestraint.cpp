@@ -1,15 +1,14 @@
 /**
- *  \file isd/pEMapRestraint.h
- *  \brief A sigmoid shaped restraint between
- *  residues with discrete classifier
- *  and ambiguous assignment. To be used with
- *  cross-linking mass-spectrometry data.
+ *  \file isd/PEMapRestraint.h
+ *  \brief A Bayesian harmonic upper bound restraint between
+ *  residues. To be used with
+ *  PEMAP data.
  *
- *  Copyright 2007-2017 IMP Inventors. All rights reserved.
+ *  Copyright 2007-2020 IMP Inventors. All rights reserved.
  *
  */
 
-#include <IMP/isd/pEMapRestraint.h>
+#include <IMP/isd/PEMAPRestraint.h>
 #include <IMP/algebra/VectorD.h>
 #include <IMP/core/XYZ.h>
 #include <IMP/isd/Scale.h>
@@ -18,10 +17,8 @@
 
 IMPISD_BEGIN_NAMESPACE
 
-namespace {
-  static const double PI = 3.1415926535897931;
-}
-pEMapRestraint::pEMapRestraint(Model* m,
+
+PEMAPRestraint::PEMAPRestraint(Model* m,
                                ParticleIndex sigma,
                                Float slope,
 			       bool part_of_log_score,
@@ -34,7 +31,7 @@ pEMapRestraint::pEMapRestraint(Model* m,
   {
 }
 
-void pEMapRestraint::add_contribution(const ParticleIndex& pii0,
+void PEMAPRestraint::add_contribution(const ParticleIndex& pii0,
                                       const ParticleIndex& pii1,
 				      const Float& d_mic){
   
@@ -43,7 +40,7 @@ void pEMapRestraint::add_contribution(const ParticleIndex& pii0,
   default_range_.push_back((int)default_range_.size());
 }
 
-Float pEMapRestraint::evaluate_for_contributions(Ints c,
+Float PEMAPRestraint::evaluate_for_contributions(Ints c,
                                                  DerivativeAccumulator *accum) const{
 
   double score = 0.0;
@@ -69,12 +66,12 @@ Float pEMapRestraint::evaluate_for_contributions(Ints c,
   return score;
 }
 
-double pEMapRestraint::unprotected_evaluate(DerivativeAccumulator *accum)
+double PEMAPRestraint::unprotected_evaluate(DerivativeAccumulator *accum)
   const {
   return evaluate_for_contributions(default_range_,accum);
 }
 
-ModelObjectsTemp pEMapRestraint::do_get_inputs() const {
+ModelObjectsTemp PEMAPRestraint::do_get_inputs() const {
     ParticlesTemp ret;
     for (unsigned int k = 0; k < get_number_of_contributions(); ++k) {
         ret.push_back(get_model()->get_particle(ppis_[k][0]));

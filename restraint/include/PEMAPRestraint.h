@@ -1,9 +1,9 @@
 /**
- *  \file IMP/isd/pEMApRestraint.h
- *  \brief A uniform/Cauchy distribution
- *  with prior knowledge on the false positive rate.
+ *  \file IMP/isd/PEMAPRestraint.h
+ *  \brief Spatial restraint derived from
+ *  PEMAP data
  *
- *  Copyright 2007-2017 IMP Inventors. All rights reserved.
+ *  Copyright 2007-2020 IMP Inventors. All rights reserved.
  *
  */
 
@@ -18,24 +18,23 @@
 IMPISD_BEGIN_NAMESPACE
 
 //! Restrain atom pairs based on a set of crosslinks.
-class IMPISDEXPORT pEMapRestraint : public Restraint {
+class IMPISDEXPORT PEMAPRestraint : public Restraint {
 public:
   //! Constructor
   /**
      \param[in] m      The IMP model 
-     \param[in] c      The M*gamma normalization constant
-     \param[in] psi    The xlink uncertainty nuisance particle
-     \param[in] slope Exponential factor added to the score
+     \param[in] sigma  The noise parameter
+     \param[in] slope  Exponential factor added to the score
      \param[in] part_of_log_score If true, will return probability instead of
                                   score (but the derivative will still be for a log)
      \param[in] name The restraint name
 
    */
-  pEMapRestraint(IMP::Model* m,
+  PEMAPRestraint(IMP::Model* m,
                  ParticleIndex sigma,
                  Float slope = 0.01,
 		 bool part_of_log_score=false,
-		 std::string name = "pEMapRestraint%1%");
+		 std::string name = "PEMAPRestraint%1%");
 
   //! Add a contribution to this xlink
   /**
@@ -61,13 +60,13 @@ public:
 
   virtual double unprotected_evaluate(IMP::DerivativeAccumulator* accum) const IMP_OVERRIDE;
   virtual IMP::ModelObjectsTemp do_get_inputs() const IMP_OVERRIDE;
-  void show(std::ostream &out) const { out << "pEMap restraint with "
+  void show(std::ostream &out) const { out << "PEMAP restraint with "
                                            <<get_number_of_contributions()
                                            <<" contributions"; }
   void set_slope(Float slope) { slope_=slope; }
   void set_part_of_log_score(bool hey) { part_of_log_score_=hey; }
 
-  IMP_OBJECT_METHODS(pEMapRestraint);
+  IMP_OBJECT_METHODS(PEMAPRestraint);
  private:
   ParticleIndexPairs ppis_;
   ParticleIndex sigma_;

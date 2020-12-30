@@ -32,8 +32,6 @@ mic_file = sys.argv[1]
 print('Using file ...', mic_file)
 ###################### SYSTEM SETUP ######################
 
-
-
 mdl = IMP.Model()
 topo = 'top_his_comp_models.dat'
 reader_sys = IMP.pmi.topology.TopologyReader(topo,
@@ -112,7 +110,7 @@ output_objects.append(evr1)
 # pE-map restraint
 ##############################
 
-pemap = IMP.pmi.restraints.pemap.pEMapRestraint(root_hier,
+pemap = IMP.pmi.restraints.pemap.PEMAPRestraint(root_hier,
                                                 mic_file,
                                                 sigma_init=5.0)
 
@@ -120,7 +118,7 @@ pemap = IMP.pmi.restraints.pemap.pEMapRestraint(root_hier,
 pemap.add_to_model()
 pemap.set_weight(1.0)
 output_objects.append(pemap)
-print('output pemap: ', pemap.get_output())
+print('Output PEMAP restraint: ', pemap.get_output())
 dof.get_nuisances_from_restraint(pemap)
 
 ##############################
@@ -136,7 +134,7 @@ dCOM = IMP.pmi.restraints.pemap.COMDistanceRestraint(root_hier,
 dCOM.add_to_model()
 dCOM.set_weight(1.0)
 output_objects.append(dCOM)
-print('output dCOM: ', dCOM.get_output())
+print('Output dCOM restraint: ', dCOM.get_output())
 
 ##############################
 # Shuffle
@@ -152,6 +150,8 @@ num_frames = 50000
 if '--mmcif' in sys.argv or '--test' in sys.argv:
     num_frames=5
 
+print('Number of frames:', num_frames)
+
 rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     root_hier=root_hier,                          
                                     crosslink_restraints=rmf_restraints,          
@@ -162,11 +162,9 @@ rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     output_objects=output_objects,
                                     monte_carlo_steps=10,
                                     number_of_frames=num_frames,
-                                    number_of_best_scoring_models=0,
-                                    test_mode=True)
+                                    number_of_best_scoring_models=0)
 
 rex.execute_macro()
-
 ############################# mmCIF #################################
 
 class pEMap_restraints(object):
@@ -308,5 +306,6 @@ if A == 100:
     #                  "imp_deposition_tutorial-v0.2.zip")
     #po.system.update_locations_in_repositories([repo])
 
-po.flush()
+if '--mmcif' in sys.argv:
+    po.flush()
 
