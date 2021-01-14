@@ -81,7 +81,7 @@ modify it under the terms of the GNU Lesser General Public
 License as published by the Free Software Foundation; either
 version 2 of the License, or (at your option) any later version.
 
-_Last known good IMP version_: [![build info](https://integrativemodeling.org/systems/?sysstat=25&branch=master)](https://integrativemodeling.org/systems/) [![build info](https://integrativemodeling.org/systems/?sysstat=25&branch=develop)](https://integrativemodeling.org/systems/)
+_Last known good IMP version_: [![build info](https://integrativemodeling.org/systems/36/badge.svg?branch=main)](https://integrativemodeling.org/systems/) [![build info](https://integrativemodeling.org/systems/36/badge.svg?branch=develop)](https://integrativemodeling.org/systems/)
 
 _Testable_: Yes
 
