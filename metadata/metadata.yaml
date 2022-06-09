@@ -1,7 +1,6 @@
 title: Genetic interaction mapping informs integrative structure determination of protein complexes
 tags: [pEMAP, PMI, X-ray, MODELLER]
 prereqs: [python/numpy, modeller]
-accessions: [PDBDEV_000000XX, PDBDEV_000000XX, PDBDEV_000000XX]
 pmid: 33303586
 test:
     runtime: 48h
