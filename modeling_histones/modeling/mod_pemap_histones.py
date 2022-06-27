@@ -154,7 +154,6 @@ print('Number of frames:', num_frames)
 
 rex=IMP.pmi.macros.ReplicaExchange0(mdl,
                                     root_hier=root_hier,                          
-                                    crosslink_restraints=rmf_restraints,          
                                     monte_carlo_sample_objects=dof.get_movers(),
                                     replica_exchange_minimum_temperature=1.0,
                                     replica_exchange_maximum_temperature=3.0,
